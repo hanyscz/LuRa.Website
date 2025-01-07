@@ -576,7 +576,7 @@ body{
     padding:2.5%;
 }
 .service{
-    height:380px;
+    height:400px;
     width:28%;
     margin: 1.5%;
     background-color: #191919;
@@ -1494,7 +1494,7 @@ For devices with smaller width like mobile phone
         border-radius: 10%;
     }
     .service{
-        height:320px;
+        height:380px;
         width:90%;
         margin: 1.5%;
         background-color: #191919;
