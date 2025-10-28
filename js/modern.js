@@ -29,13 +29,19 @@ document.addEventListener('DOMContentLoaded', function() {
       e.preventDefault();
       const colorTheme = this.getAttribute('title');
       
+      // Validate color theme to prevent XSS
+      const validColors = ['color-red', 'color-purple', 'color-malt', 'color-green', 'color-blue', 'color-orange'];
+      if (!validColors.includes(colorTheme)) {
+        return; // Invalid color, don't proceed
+      }
+      
       // Remove any existing color theme
       const existingLink = document.querySelector('link[href*="color-"]');
       if (existingLink) {
         existingLink.remove();
       }
       
-      // Add new color theme
+      // Add new color theme (now safe after validation)
       const newLink = document.createElement('link');
       newLink.rel = 'stylesheet';
       newLink.href = 'css/' + colorTheme + '.css';
@@ -123,7 +129,15 @@ document.addEventListener('DOMContentLoaded', function() {
         this.txt = fullTxt.substring(0, this.txt.length + 1);
       }
 
-      this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
+      // Use textContent instead of innerHTML for security
+      const wrapSpan = this.el.querySelector('.wrap') || document.createElement('span');
+      wrapSpan.className = 'wrap';
+      wrapSpan.textContent = this.txt;
+      
+      if (!this.el.querySelector('.wrap')) {
+        this.el.innerHTML = '';
+        this.el.appendChild(wrapSpan);
+      }
 
       let delta = 200 - Math.random() * 100;
 
