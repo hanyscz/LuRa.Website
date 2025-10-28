@@ -40,7 +40,7 @@ input[type=number] {
 }
   html{
     background: #101010;
-    
+    scroll-behavior: smooth;
   }
   #loader{
       display: flex;
@@ -1479,6 +1479,26 @@ html {
     html {
         font-size: 14px;
     }
+    
+    /* Touch-friendly buttons on mobile */
+    .button button,
+    .submit-btn {
+        min-height: 48px;
+        padding: 16px 28px !important;
+    }
+    
+    /* Better spacing for mobile */
+    .service {
+        margin-bottom: 30px;
+    }
+    
+    .portfolio {
+        margin-bottom: 30px;
+    }
+    
+    .blogs {
+        margin-bottom: 25px;
+    }
 }
 
 /*
@@ -1798,9 +1818,18 @@ For devices with smaller width like mobile phone
                 align-items: center;
                 justify-content: center;
             }
+            
+            /* Mobile contact form improvements */
+            .contact-form-wrapper {
+                width: 95%;
+                padding: 25px 15px;
+                margin-bottom: 30px;
+            }
+            
             .contact-info{
                 width: 90%;
-                height: 500px;
+                height: auto;
+                min-height: 400px;
                 background-position: center;
                 background-size: cover;
                 border-radius: 16px;
