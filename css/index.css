@@ -1348,6 +1348,141 @@ form button:hover{
 
 /*
 
+
+/* Modern Design Enhancements */
+
+/* Smooth transitions for all interactive elements */
+a, button, .service, .portfolio, .blogs {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Modern glassmorphism effect for sections */
+#about, #services, #portfolio, #blog, #contact {
+    background: rgba(23, 23, 23, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+/* Enhanced section headers */
+.about-header, .services-heading, .portfolio-header, .blog-header, .contact-header {
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.about-header::after, .services-heading::after, .portfolio-header::after, 
+.blog-header::after, .contact-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, #c70039, transparent);
+    border-radius: 2px;
+}
+
+/* Improved service cards with hover effects */
+.service {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
+    padding: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.service:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 50px rgba(199, 0, 57, 0.3);
+    border-color: rgba(199, 0, 57, 0.5);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* Portfolio items modern styling */
+.portfolio {
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.portfolio:hover {
+    box-shadow: 0 15px 50px rgba(199, 0, 57, 0.3);
+}
+
+/* Blog cards enhancement */
+.blogs {
+    border-radius: 16px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.blogs:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(199, 0, 57, 0.25);
+}
+
+/* Improved button styles */
+.button button {
+    background: linear-gradient(135deg, #c70039 0%, #900028 100%);
+    border: none;
+    padding: 14px 32px;
+    border-radius: 30px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.button button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(199, 0, 57, 0.4);
+}
+
+/* Enhanced navigation */
+.navigation-links a {
+    position: relative;
+    overflow: hidden;
+}
+
+.navigation-links a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: #c70039;
+    transition: left 0.3s ease;
+}
+
+.navigation-links a:hover::before {
+    left: 0;
+}
+
+/* Improved scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #c70039 0%, #900028 100%);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #e60044 0%, #a0002e 100%);
+}
+
+/* Mobile-first responsive typography */
+html {
+    font-size: 16px;
+}
+
+@media screen and (max-width: 550px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+/*
+
 For devices with smaller width like mobile phone
 
 
@@ -2563,4 +2698,158 @@ for tabs and large phones
         border-radius: 8px;
         transition: all .4s ease;
     }
+
+/* Modern Contact Form Styles */
+.contact-form-wrapper {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto 60px;
+    padding: 40px 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contact-form .form-group {
+    margin-bottom: 24px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 16px 20px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: whitesmoke;
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #c70039;
+    background: rgba(0, 0, 0, 0.6);
+    box-shadow: 0 0 20px rgba(199, 0, 57, 0.3);
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.contact-form .submit-btn {
+    width: 100%;
+    padding: 18px 40px;
+    background: linear-gradient(135deg, #c70039 0%, #900028 100%);
+    border: none;
+    border-radius: 12px;
+    color: whitesmoke;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-form .submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(199, 0, 57, 0.4);
+}
+
+.contact-form .submit-btn:active {
+    transform: translateY(0);
+}
+
+.form-status {
+    margin-top: 20px;
+    padding: 16px;
+    border-radius: 8px;
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    display: none;
+}
+
+.form-status.success {
+    background: rgba(40, 167, 69, 0.2);
+    border: 1px solid rgba(40, 167, 69, 0.5);
+    color: #4caf50;
+    display: block;
+}
+
+.form-status.error {
+    background: rgba(220, 53, 69, 0.2);
+    border: 1px solid rgba(220, 53, 69, 0.5);
+    color: #f44336;
+    display: block;
+}
+
+/* Improved Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+    .contact-form-wrapper {
+        padding: 30px 15px;
+    }
+    
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 14px;
+        padding: 14px 16px;
+    }
+    
+    .contact-form .submit-btn {
+        font-size: 16px;
+        padding: 16px 32px;
+    }
+}
+
+/* Enhanced Contact Info Layout */
+.contact-content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 20px;
+}
+
+@media screen and (min-width: 768px) {
+    .contact-content {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .contact-info {
+        flex: 0 1 calc(50% - 40px);
+        max-width: 500px;
+    }
+    
+    .contact-form-wrapper {
+        flex: 0 1 100%;
+    }
+}
+
+/* Modern Card Effect for Contact Info */
+.contact-info {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
+    padding: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.contact-info:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 40px rgba(199, 0, 57, 0.2);
+    border-color: rgba(199, 0, 57, 0.3);
+}
 }

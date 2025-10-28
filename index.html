@@ -13,7 +13,7 @@
    <!--main css file should not be removed -->
     <link rel="stylesheet" href="css/index.css">
     <!--main css file-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
+    <script src="js/gsap.min.js"></script>
 </head>
 <body>
     <!--contains all the div-->
@@ -146,7 +146,7 @@
             </div>
             <!--about picture-->
             <div class="about-img">
-                <img src="images/programing_small.jpg" alt="Your Image">
+                <img src="images/about-img.svg" alt="Programming Team">
             </div>
             </div>
     
@@ -268,7 +268,7 @@
              <div id="portfolio-content">
                  <div class="portfolio portfolio-first">
                      <div class="portfolio-image">
-                        <img src="images/website.jpg" alt="portfolio-first">
+                        <img src="images/web-dev.svg" alt="portfolio-first">
                      </div>
                      <div class="portfolio-text">
                          <h2>Webové aplikace</h2>
@@ -278,7 +278,7 @@
                  </div>
                  <div class="portfolio portfolio-second">
                     <div class="portfolio-image">
-                        <img src="images/mobile.jpg" alt="portfolio-second">
+                        <img src="images/mobile-dev.svg" alt="portfolio-second">
                     </div>
                     <div class="portfolio-text">
                         <h2>Mobilní aplikace</h2>
@@ -289,7 +289,7 @@
              
                 <div class="portfolio portfolio-third">
                     <div class="portfolio-image">
-                        <img src="images/csharp.jpg" alt="portfolio-third">
+                        <img src="images/desktop-dev.svg" alt="portfolio-third">
                     </div>
                     <div class="portfolio-text">
                         <h2>WPF</h2>
@@ -569,6 +569,34 @@
          <div class="contact-header">Kontaktujte <span class="color"> nás</span>
         <div class="contact-header-caption">Jak se s<span class="color"> námi</span> spojit</div></div>
         <div class="contact-content">
+            
+            <!--Contact Form-->
+            <div class="contact-form-wrapper">
+                <form id="contact-form" class="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Vaše jméno *" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Váš email *" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="phone" name="phone" placeholder="Telefon">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="subject" name="subject" placeholder="Předmět *" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" rows="6" placeholder="Vaše zpráva *" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="submit-btn">
+                            <span>Odeslat zprávu</span>
+                        </button>
+                    </div>
+                    <div id="form-status" class="form-status"></div>
+                </form>
+            </div>
+            <!--Contact Form End-->
             
             <!--Contact information-->
             <div class="contact-info">

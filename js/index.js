@@ -189,4 +189,60 @@ $(function(){
   $('a').hover(cursorhover,cursor);
   $('.navigation-close').hover(cursorhover,cursor);
 
+// Contact Form Handler
+$(function() {
+    $('#contact-form').on('submit', function(e) {
+        e.preventDefault();
+        
+        const formData = {
+            name: $('#name').val(),
+            email: $('#email').val(),
+            phone: $('#phone').val(),
+            subject: $('#subject').val(),
+            message: $('#message').val()
+        };
+        
+        // Validate form
+        if (!formData.name || !formData.email || !formData.subject || !formData.message) {
+            showFormStatus('Prosím vyplňte všechna povinná pole.', 'error');
+            return;
+        }
+        
+        // Email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(formData.email)) {
+            showFormStatus('Prosím zadejte platnou emailovou adresu.', 'error');
+            return;
+        }
+        
+        // Create mailto link with form data
+        const mailtoLink = `mailto:info@lura-it.eu?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(
+            `Jméno: ${formData.name}\n` +
+            `Email: ${formData.email}\n` +
+            `Telefon: ${formData.phone || 'Neuvedeno'}\n\n` +
+            `Zpráva:\n${formData.message}`
+        )}`;
+        
+        // Open email client
+        window.location.href = mailtoLink;
+        
+        // Show success message
+        showFormStatus('Otevírám váš emailový klient...', 'success');
+        
+        // Reset form after short delay
+        setTimeout(() => {
+            $('#contact-form')[0].reset();
+            $('#form-status').fadeOut();
+        }, 3000);
+    });
+    
+    function showFormStatus(message, type) {
+        const statusDiv = $('#form-status');
+        statusDiv.removeClass('success error');
+        statusDiv.addClass(type);
+        statusDiv.text(message);
+        statusDiv.fadeIn();
+    }
+});
+
 })
