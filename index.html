@@ -4,684 +4,384 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="LuRa IT Develop - vývoj aplikací technologií Net" />
-	<meta name="keywords" content="c#, net, maui, android, wpf, ASP .NET, programovani, Blazor, vyvoj, SignalR" />
-	<meta name="author" content="Lukáš Hanák" />
+    <meta name="keywords" content="c#, net, maui, android, wpf, ASP .NET, programovani, Blazor, vyvoj, SignalR" />
+    <meta name="author" content="Lukáš Hanák" />
     <title>LuRa IT Develop - vývoj aplikací technologií Net</title>
-  <!--favicon-img--> 
-   <link rel="icon" type="image/png" href="images/favicon.ico">
-   <!--favicon-img-->
-   <!--main css file should not be removed -->
-    <link rel="stylesheet" href="css/index.css">
-    <!--main css file-->
-    <script src="js/gsap.min.js"></script>
+    <link rel="icon" type="image/png" href="images/favicon.ico">
+    <link rel="stylesheet" href="css/modern.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!--contains all the div-->
-    <div id="all">
-    <!--mouse  follower-->
-        <div class="cursor"></div>
-    <!--mouse  follower-->
-    <!--loader-->
-        <div id="loader">
-            <span class="color">Načítám</span>... 
-        </div>
-    <!--loader-end-->
-    <!--link-screen-->
-        <div id="breaker">
-        </div>
-        <div id="breaker-two">
-        </div>
-    <!--link-screen-->
-        <!--Main-Section-->
-        <!--Navigator-fullscreen-->
-        <div id="navigation-content">
-            <div class="logo">
-                <img src="images/obrazce_logo.png" alt="logo">
+    <!-- Modern Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="images/obrazce_logo.png" alt="LuRa IT Develop">
             </div>
-            <div class="navigation-close">
-                <span class="close-first"></span>
-                <span class="close-second"></span>
+            <div class="nav-menu" id="navMenu">
+                <a href="#home" class="nav-link">Domů</a>
+                <a href="#about" class="nav-link">O nás</a>
+                <a href="#services" class="nav-link">Služby</a>
+                <a href="#portfolio" class="nav-link">Ukázky</a>
+                <a href="#contact" class="nav-link nav-link-cta">Kontakt</a>
             </div>
-            <div class="navigation-links">
-                <a href="#" data-text="DOMŮ" id="home-link" >DOMŮ</a>
-                <a href="#" data-text="O NÁS" id="about-link" >O NÁS</a>
-                <a href="#" data-text="SLUŽBY" id="portfolio-link" >NAŠE SLUŽBY</a>
-                <a href="#" data-text="UKÁZKY" id="blog-link" >UKÁZKY Z NAŠÍ PRÁCE</a>
-                <a href="#" data-text="KONTAKT" id="contact-link" >KONTAKT</a>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
-        <!--Navigator-Fullscreen END-->
-          <!--Home Page-->
-        <!--Menubar-->
-        <div id="navigation-bar">
-            <img src="images/obrazce_logo.png" alt="logo">
-            <div class="menubar">
-                <span class="first-span"></span>
-                <span class="second-span"></span>
-                <span class="third-span"></span>
-            </div>
-        </div>
-        <!--Menubar End-->
-          <!--Header-->
-        <div id="header">
-            <div id="particles"></div>
-              <!--Social Media Links-->
-            <div class="social-media-links">
-                <a href="#"><img src="images/facebook logo.png" class="social-media" alt="facebook-logo"></a>
-                <a href="Mailto:info@lura-it.eu"><img src="images/mail.png" alt="email-pic" class="social-media"></a><!--Your email Id write in place of "#"-->
+    </nav>
 
-            </div>
-            <!--Social Media Links end-->
-            <div class="header-content">
-                <div class="header-content-box">
-                <div class="firstline"><span class="color">LuRa </span>IT Develop</div>
-                <div class="secondline">
-                Naše zaměření: 
-            <!--<span class="txt-rotate color" data-period="1200"data-rotate='[ " C#", " Blazor", " MAUI (Android)", " ASP .Net", " WPF" ]'></span>-->
-            <span class="txt-rotate color" data-period="600"data-rotate='[ " Informační systémy", "C#, MAUI, Blazor, ASP NET, WPF", " Průmyslové aplikace"," MS SQL, SignalR, REST API, MySql", "Průmyslové terminály" ]'></span>
-            <span class="slash">|</span>
+    <!-- Hero Section - Completely New Design -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="gradient-circle circle-1"></div>
+            <div class="gradient-circle circle-2"></div>
+            <div class="gradient-circle circle-3"></div>
         </div>
-                    <!--<div class="contact">
-                <a href="Tel:777 581 850"><img src="images/call.png" alt="phone-pic" class="contactpic"></a>
-                    </div>-->    
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="title-accent">Moderní řešení</span>
+                    <br>pro váš business
+                </h1>
+                <p class="hero-subtitle">
+                    Tvoříme informační systémy, mobilní a webové aplikace v .NET technologiích
+                </p>
+                <div class="hero-tech-stack">
+                    <span class="tech-badge">C#</span>
+                    <span class="tech-badge">Blazor</span>
+                    <span class="tech-badge">MAUI</span>
+                    <span class="tech-badge">ASP.NET</span>
+                    <span class="tech-badge">WPF</span>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">Začít projekt</a>
+                    <a href="#portfolio" class="btn btn-secondary">Naše práce</a>
+                </div>
             </div>
+            <div class="hero-image">
+                <div class="hero-card">
+                    <img src="images/obrazce_logo.png" alt="LuRa IT" class="hero-logo-large">
+                </div>
             </div>
-            <!--header image-->
-            <div class="header-image">
-            <img src="images/obrazce_logo.png" alt="logo">
-            </div>
-            <!--header image end-->
         </div>
-           <!--Header End-->
-        <!--HomePage End-->
-        <!--Main-Section End-->
-        <!--about-->
-        <div id="about">
-            <div class="color-changer">
-            <div class="color-panel">
-                <img src="images/gear.png" alt="">
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- About Section - Card Layout -->
+    <section id="about" class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Kdo jsme</span>
+                <h2 class="section-title">O nás</h2>
+                <p class="section-desc">Parta 2 vývojářů z jižní Moravy</p>
             </div>
-            <div class="color-selector">
-                <div class="heading">Vyber barvu</div>
-                <div class="colors">
-                    <ul >
-                    <li>
-                        <a href="#0" class="color-red " title="color-red"></a>
-                    </li>
-                    <li>
-                        <a href="#0" class="color-purple" title="color-purple"></a>
-                    </li>
-                    <li>
-                        <a href="#0" class="color-malt" title="color-malt"></a>
-                    </li>
-                    <li>
-                        <a href="#0" class="color-green" title="color-green"></a>
-                    </li>
-                    <li>
-                        <a href="#0" class="color-blue" title="color-blue"></a>
-                    </li>
-                    <li>
-                        <a href="#0" class="color-orange" title="color-orange"></a>
-                    </li>
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="about-image">
+                        <img src="images/about-img.svg" alt="Programování">
+                    </div>
+                </div>
+                <div class="about-content">
+                    <h3>Naše filozofie</h3>
+                    <p>Jsme programátoři na volné noze, kteří dělají co je baví. Nebereme práci jako nutnost, ale jako koníček. To nás odlišuje od ostatních.</p>
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">✓</div>
+                            <div class="feature-text">
+                                <h4>Vášeň pro kód</h4>
+                                <p>Programování je náš koníček, ne jen práce</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">✓</div>
+                            <div class="feature-text">
+                                <h4>Bez kompromisů</h4>
+                                <p>Kde je vůle, tam je cesta</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">✓</div>
+                            <div class="feature-text">
+                                <h4>Moderní technologie</h4>
+                                <p>Využíváme nejnovější .NET frameworky</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section - Modern Cards -->
+    <section id="services" class="section-padding bg-light">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-label">Co nabízíme</span>
+                <h2 class="section-title">Naše služby</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <img src="images/c_sharp.png" alt="C# Development">
+                    </div>
+                    <h3>Vývoj aplikací</h3>
+                    <p>Vývoj aplikací v C#. Máme zkušenosti s různými technologiemi: Maui, WPF, ASP .Net, Blazor. Využíváme moderní frameworky a komunikujeme přes API nebo SignalR.</p>
+                    <ul class="service-features">
+                        <li>MS SQL, MySQL databáze</li>
+                        <li>REST API, SignalR</li>
+                        <li>Entity Framework</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <img src="images/hw.png" alt="Hardware">
+                    </div>
+                    <h3>Výroba HW</h3>
+                    <p>Vyrobíme dotykové terminály na míru dle potřeb, třeba i z nerezu. Například pro tisk štítku nebo vážení zboží. Umíme i postavit nízkonákladovou sušičku.</p>
+                    <ul class="service-features">
+                        <li>Dotykové terminály</li>
+                        <li>Průmyslové řešení</li>
+                        <li>Zakázková výroba</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <img src="images/other.png" alt="Ostatní služby">
+                    </div>
+                    <h3>Ostatní služby</h3>
+                    <p>Nebojíme se i opravy PC, sestavování PC, 3D tisku nebo pouze podpory v oblasti IT. Rádi příjmeme jakoukoliv výzvu.</p>
+                    <ul class="service-features">
+                        <li>IT podpora</li>
+                        <li>3D tisk</li>
+                        <li>Opravy a montáž</li>
                     </ul>
                 </div>
             </div>
         </div>
-            <!--about content-->
-            <div id="about-content">
-                <div class="about-header">
-                    O <span class="color">Nás</span>
-                    <span class ="header-caption">Poznejte něco málo o <span class="color"> nás.</span></span>
-                </div>
-                <div class="about-main">
-            <div class="about-first-paragraph wow">
-            <!--about description-->
-               <span class="about-first-line">
-                    Jsme parta  
-                    <span class="color">2 vývojářů</span>
-                     z jížní moravy </span>
-                     <br>
-               <span class="about-second-line"> Jsme programátoři na volné noze, kteří dělají co je baví. Nebereme práci jako nutnost, ale jako koníček. To nás odlišuje od ostatních. Nebojíme se výzev, a proto naše moto: <span class="color">"Kde je vůle, tam je cesta" </span></span>
-             
-            </div>
-            <!--about picture-->
-            <div class="about-img">
-                <img src="images/about-img.svg" alt="Programming Team">
-            </div>
-            </div>
-    
-            </div>
-            <!--services start-->
-            <div id="services">
-                <div class="color-changer">
-                    <div class="color-panel">
-                        <img src="images/gear.png" alt="">
-                    </div>
-                    <div class="color-selector">
-                        <div class="heading">Vyber barvu</div>
-                        <div class="colors">
-                            <ul >
-                            <li>
-                                <a href="#0" class="color-red " title="color-red"></a>
-                            </li>
-                            <li>
-                                <a href="#0" class="color-purple" title="color-purple"></a>
-                            </li>
-                            <li>
-                                <a href="#0" class="color-malt" title="color-malt"></a>
-                            </li>
-                            <li>
-                                <a href="#0" class="color-green" title="color-green"></a>
-                            </li>
-                            <li>
-                                <a href="#0" class="color-blue" title="color-blue"></a>
-                            </li>
-                            <li>
-                                <a href="#0" class="color-orange" title="color-orange"></a>
-                            </li>
-                            </ul>
-                        </div>
-                    </div>
-                    </div>
-            <!--services header-->
-                    <div class="services-heading wow">
-                        <span class="color">Naše</span> služby
-                    </div>
-            <!--services header end-->
-            <!--services content-->
-                    <div class="services-content">
-                           <div class="service-one service wow">
-                               <div class="service-img">
-                               <img src="images/c_sharp.png" alt="service-one">
-                               </div>
-                               <div class="service-description">
-                                <h2>Vývoj</h2>
-                                <p>Vývoj aplikací v C#. Máme zkušenosti s různými technologiemi: Maui, WPF, ASP .Net, Blazor, ... Využíváme moderní frameworky a komunikujeme přes API nebo SignalR. Data Vám uložíme v MS SQL nebo MySQL</p>
-                               </div>
-                           </div>
-                           <div class="service-two service wow">
-                               <div class="service-img">
-                               <img src="images/hw.png" alt="service-two">
-                               </div>
-                               <div class="service-description">
-                                <h2>Výroba HW</h2>
-                                <p>Vyrobíme dotykové terminály na míru dle potřeb, třeba i z nerezu. Například pro tisk štítku nebo vážení zboží. Umíme i postavit nízkonákladovou sušičku, nebojíme se práce a rádi příjmeme jakoukoliv výzvu</p>
-                               </div>
-                           </div>
-                           <div class="service-three service wow">
-                            <div class="service-img">
-                               <img src="images/other.png" alt="service-three">
-                            </div>
-                            <div class="service-description">
-                                <h2>Ostatní</h2>
-                                <p>Nebojíme se i opravy PC, sestavování PC, 3D tisku nebo u pouze podpory v oblasti IT</p>
-                            </div>
-                        </div>
-                    </div>
-            </div>
-            <!--services content end-->
-            <!--services end-->
-            
-    <!--copyright-section You Can Remove After Downloading-->
-            <div class="footer">
-             <div class="footer-text">
-                 <img src="./images/copyright.png" alt="copyright-img" class="images" height="14px"> LuRa IT Develop
-             </div>
-            </div>
-    <!--copyright-section-->
-        </div>
-        <!--about end-->
-        <!--portfolio-->
-        <div id="portfolio">
-            <div class="color-changer">
-                <div class="color-panel">
-                    <img src="images/gear.png" alt="">
-                </div>
-                <div class="color-selector">
-                    <div class="heading">Vyber barvu</div>
-                    <div class="colors">
-                        <ul >
-                        <li>
-                            <a href="#0" class="color-red " title="color-red"></a>
-                        </li>
-                        <li>
-                            <a href="#0" class="color-purple" title="color-purple"></a>
-                        </li>
-                        <li>
-                            <a href="#0" class="color-malt" title="color-malt"></a>
-                        </li>
-                        <li>
-                            <a href="#0" class="color-green" title="color-green"></a>
-                        </li>
-                        <li>
-                            <a href="#0" class="color-blue" title="color-blue"></a>
-                        </li>
-                        <li>
-                            <a href="#0" class="color-orange" title="color-orange"></a>
-                        </li>
-                        </ul>
-                    </div>
-                </div>
-                </div>
-            <div class="portfolio-header"> <span class="color"> Naše </span> služby
-            <span class ="header-caption"> Vývoj v  <span class="color"> . Net</span></span></div>
-             <div id="portfolio-content">
-                 <div class="portfolio portfolio-first">
-                     <div class="portfolio-image">
-                        <img src="images/web-dev.svg" alt="portfolio-first">
-                     </div>
-                     <div class="portfolio-text">
-                         <h2>Webové aplikace</h2>
-                         <p>Pracujeme s Blazor a ASP .NET, specializujeme se na informační systémy</p>
-                         <div class="button"><button><span class="index">Blazor, ASP .NET<i class="gg-arrow-right"></i></span></button></div>
-                     </div>
-                 </div>
-                 <div class="portfolio portfolio-second">
-                    <div class="portfolio-image">
-                        <img src="images/mobile-dev.svg" alt="portfolio-second">
-                    </div>
-                    <div class="portfolio-text">
-                        <h2>Mobilní aplikace</h2>
-                        <p>Vyvýjíme v MAUI, není pro nás problém Blazor. Pro komunikaci používáme REST API nebo SignalR</p>
-                        <div class="button"><button><span class="index"> MAUI, SignalR, RestAPI<i class="gg-arrow-right"></i></span></button></div>
-                    </div>
-                </div>
-             
-                <div class="portfolio portfolio-third">
-                    <div class="portfolio-image">
-                        <img src="images/desktop-dev.svg" alt="portfolio-third">
-                    </div>
-                    <div class="portfolio-text">
-                        <h2>WPF</h2>
-                        <p>Naše oblíbená platforma je WPF, tvoříme v ní informační systémy, ale i menší programy s přívětivým UI rozhraním</p>
-                        <div class="button"><button><span class="index"> WPF, EF<i class="gg-arrow-right"></i></span></button></div>
-                    </div>
-                </div>
-                <div class="portfolio portfolio-fourth">
-                    <div class=" portfolio-image">
-                        <img src="images/3d.jpg" alt="portfolio-fourth">
-                    </div>
-                    <div class="portfolio-text">
-                        <h2>Ostatní</h2>
-                        <p>Tiskneme ve 3D, vyrábíme dotykové terminály, sestavujeme a opravujeme PC nebo se snažíme poradit</p>
-                        <div class="button"><button><span class="index"> Výroba, Oprava, Poradenství, 3D tisk<i class="gg-arrow-right"></i></span></button></div>
-                    </div>
-                </div>
-                 </div>
-                    <!--copyright-section You Can Remove After Downloading-->
-            <div class="footer">
-                <div class="footer-text">
-                    <img src="./images/copyright.png" alt="copyright-img" class="images" height="14px"> LuRa IT Develop
-                </div>
-               </div>
-       <!--copyright-section-->
-             </div>
-        <!--portfolio end-->
-        <!--blog-->
-        <div id="blog">
-            <div class="color-changer">
-                <div class="color-panel">
-                    <img src="images/gear.png" alt="">
-                </div>
-                <div class="color-selector">
-                    <div class="heading">Vyber barvu</div>
-                    <div class="colors">
-                        <ul >
-                        <li>
-                            <a href="#0" class="color-red " title="color-red"></a>
-                        </li>
-                        <li>
-                            <a href="#0" class="color-purple" title="color-purple"></a>
-                        </li>
-                        <li>
-                            <a href="#0" class="color-malt" title="color-malt"></a>
-                        </li>
-                        <li>
-                            <a href="#0" class="color-green" title="color-green"></a>
-                        </li>
-                        <li>
-                            <a href="#0" class="color-blue" title="color-blue"></a>
-                        </li>
-                        <li>
-                            <a href="#0" class="color-orange" title="color-orange"></a>
-                        </li>
-                        </ul>
-                    </div>
-                </div>
-                </div>
-        <div class="blog-header"> NAŠE PRÁCE</span>
-            <span class ="header-caption"> Ukázka toho, co <span class="color"> děláme.</span></span></div>
-            <div class="blog-content">
+    </section>
 
-                <div class="blogs">
-                    <a href="#">
-                    <div class="img">
-                        <img src="images/nahledy/expedice.jpg" alt="blog-two">
-                        <div class="blog-date">Windsor Enterprise s.r.o. | Venison CZ s.r.o. | M.K.L. s.r.o.</div>
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section-padding">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-label">Naše práce</span>
+                <h2 class="section-title">Ukázky z naší práce</h2>
+            </div>
+            <div class="portfolio-grid">
+                <!-- Terminal images preserved -->
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="images/nahledy/expedice.jpg" alt="Expediční terminál">
                     </div>
-                    <div class="blog-text">
+                    <div class="portfolio-content">
+                        <span class="portfolio-tag">WPF Application</span>
                         <h3>Expediční terminál</h3>
-                        <p>Obrazovka expedičního terminálu, velké prvky pro lehké dotykové ovládání. Jednoduché rozhraní pro snadnou obsluhu, napojení na databázi a váhu. Tisk etiket. Plnění daty z pohodlí kanceláře. </p>
-                    </div></a>
-                </div> 
-
-                <div class="blogs">
-                    <a href="#">
-                    <div class="img">
-                        <img src="images/nahledy/prijem.jpg" alt="blog-two">
-                        <div class="blog-date">Windsor Enterprise s.r.o. | Venison CZ s.r.o.</div>
+                        <p>Dotykové ovládání, napojení na databázi a váhu, tisk etiket</p>
+                        <span class="portfolio-client">Windsor Enterprise | Venison CZ | M.K.L.</span>
                     </div>
-                    <div class="blog-text">
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="images/nahledy/prijem.jpg" alt="Příjmový terminál">
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-tag">WPF Application</span>
                         <h3>Příjmový terminál</h3>
-                        <p>Obrazovka příjmového terminálu, velké prvky pro lehké dotykové ovládání. Jednoduché rozhraní pro snadnou obsluhu, napojení na databázi a váhu. Načítání plomb čtečkou kódů.</p>
-                    </div></a>
-                </div> 
-
-                <div class="blogs">
-                    <a href="#">
-                    <div class="img">
-                        <img src="images/nahledy/produkce.jpg" alt="blog-two">
-                        <div class="blog-date">Windsor Enterprise s.r.o. | Venison CZ s.r.o.</div>
+                        <p>Velké prvky pro lehké dotykové ovládání, napojení na váhu</p>
+                        <span class="portfolio-client">Windsor Enterprise | Venison CZ</span>
                     </div>
-                    <div class="blog-text">
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="images/nahledy/produkce.jpg" alt="Produkční terminál">
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-tag">WPF Application</span>
                         <h3>Produkční terminál</h3>
-                        <p>Obrazovka produkčního terminálu. Ovládání pomocí čtečky a čárovými kódy z důvodu vlhkého prostředí a nutnosti nedotýkat se obrazovky. Načítání vykoupených kusů do produkce.</p>
-                    </div></a>
-                </div> 
-
-                <div class="blogs">
-                    <a href="#">
-                    <div class="img">
-                        <img src="images/nahledy/mvykup.jpg" alt="blog-two">
-                        <div class="blog-date">Venison CZ s.r.o.</div>
+                        <p>Ovládání čtečkou čárových kódů, vlhké prostředí</p>
+                        <span class="portfolio-client">Windsor Enterprise | Venison CZ</span>
                     </div>
-                    <div class="blog-text">
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="images/nahledy/mvykup.jpg" alt="Mobilní výkup">
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-tag">MAUI Mobile</span>
                         <h3>Mobilní výkup</h3>
-                        <p>Náhled obrazovky mobilní aplikace pro nákupčí. Příjem zvěřem, tvorba a tisk pokladních dokladů. Tisk pomocí BT termo tiskárny. Spojení se serverm pomocí SignalR, plná kontrola zaměstnanců. Pokladní kniha.</p>
-                    </div></a>
-                </div> 
-
-                <div class="blogs">
-                    <a href="#">
-                    <div class="img">
-                        <img src="images/nahledy/msklad.jpg" alt="blog-two">
-                        <div class="blog-date">Venison CZ s.r.o.</div>
+                        <p>Mobilní aplikace, BT tiskárna, SignalR komunikace</p>
+                        <span class="portfolio-client">Venison CZ</span>
                     </div>
-                    <div class="blog-text">
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="images/nahledy/msklad.jpg" alt="Mobilní sklad">
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-tag">MAUI Mobile</span>
                         <h3>Mobilní sklad</h3>
-                        <p>Náhled obrazovky mobilní aplikace pracovníky externího skladu. Napojední na DB, načítání palet a zboží při sestavování objednávky. Android čtečka čárových kódů.</p>
-                    </div></a>
-                </div> 
-
-                <div class="blogs">
-                    <a href="#">
-                    <div class="img">
-                        <img src="images/nahledy/vykup1.png" alt="blog-two">
-                        <div class="blog-date">Venison CZ s.r.o.</div>
+                        <p>Android čtečka, načítání palet, sestavování objednávek</p>
+                        <span class="portfolio-client">Venison CZ</span>
                     </div>
-                    <div class="blog-text">
-                        <h3>Blazor verze výkupu pro nákupčí</h3>
-                        <p>Náhled obrazovky webové verze výkupu pro nákupčí. Více možností exportu, tisku. Statistiky a kontrola mobilních zařízení. Využití Blazor a SignalR. Napojení na informační systém.</p>
-                    </div></a>
-                </div> 
-
-                <div class="blogs">
-                    <a href="#">
-                    <div class="img">
-                        <img src="images/nahledy/vykup2.png" alt="blog-two">
-                        <div class="blog-date">Venison CZ s.r.o.</div>
-                    </div>
-                    <div class="blog-text">
-                        <h3>Blazor verze výkupu pro nákupčí</h3>
-                        <p>Náhled obrazovky webové verze výkupu pro nákupčí. Více možností exportu, tisku. Statistiky a kontrola mobilních zařízení. Využití Blazor a SignalR. Napojení na informační systém.</p>
-                    </div></a>
-                </div> 
-
-                <div class="blogs">
-                    <a href="#">
-                    <div class="img">
-                        <img src="images/nahledy/vykup3.png" alt="blog-two">
-                        <div class="blog-date">Venison CZ s.r.o.</div>
-                    </div>
-                    <div class="blog-text">
-                        <h3>Blazor verze výkupu pro nákupčí</h3>
-                        <p>Náhled obrazovky webové verze výkupu pro nákupčí. Více možností exportu, tisku. Statistiky a kontrola mobilních zařízení. Využití Blazor a SignalR. Napojení na informační systém.</p>
-                    </div></a>
-                </div> 
-
-                <div class="blogs">
-                    <a href="#">
-                    <div class="img">
-                        <img src="images/nahledy/vykup4.png" alt="blog-two">
-                        <div class="blog-date">Venison CZ s.r.o.</div>
-                    </div>
-                    <div class="blog-text">
-                        <h3>Blazor verze výkupu pro nákupčí</h3>
-                        <p>Náhled obrazovky webové verze výkupu pro nákupčí. Více možností exportu, tisku. Statistiky a kontrola mobilních zařízení. Využití Blazor a SignalR. Napojení na informační systém.</p>
-                    </div></a>
-                </div> 
-
-                <div class="blogs">
-                    <a href="#">
-                    <div class="img">
-                        <img src="images/nahledy/vykup5.png" alt="blog-two">
-                        <div class="blog-date">Venison CZ s.r.o.</div>
-                    </div>
-                    <div class="blog-text">
-                        <h3>Blazor verze výkupu pro nákupčí</h3>
-                        <p>Náhled obrazovky webové verze výkupu pro nákupčí. Více možností exportu, tisku. Statistiky a kontrola mobilních zařízení. Využití Blazor a SignalR. Napojení na informační systém.</p>
-                    </div></a>
-                </div> 
-
-                <div class="blogs">
-                    <a href="#">
-                    <div class="img">
-                        <img src="images/nahledy/is1.jpg" alt="blog-two">
-                        <div class="blog-date">Windsor Enterprise s.r.o. | Venison CZ s.r.o. | M.K.L. s.r.o.</div>
-                    </div>
-                    <div class="blog-text">
-                        <h3>Informační systém</h3>
-                        <p>Náhled obrazovky IS na míru pro firnmy, které se zabývají výkup a zpracováním zvěře. Napojení na veterinární správu. Tisk a tvorba etiket. Statistiky, dodací listy, plánování a sposta dalšího. Spolupracuje s terminály, mobilní app a serverem s DB.</p>
-                    </div></a>
-                </div> 
-
-                <div class="blogs">
-                    <a href="#">
-                    <div class="img">
-                        <img src="images/nahledy/is2.jpg" alt="blog-two">
-                        <div class="blog-date">Windsor Enterprise s.r.o. | Venison CZ s.r.o. | M.K.L. s.r.o.</div>
-                    </div>
-                    <div class="blog-text">
-                        <h3>Informační systém</h3>
-                        <p>Náhled obrazovky IS na míru pro firnmy, které se zabývají výkup a zpracováním zvěře. Napojení na veterinární správu. Tisk a tvorba etiket. Statistiky, dodací listy, plánování a sposta dalšího. Spolupracuje s terminály, mobilní app a serverem s DB.</p>
-                    </div></a>
-                </div> 
-
-                <div class="blogs">
-                    <a href="#">
-                    <div class="img">
-                        <img src="images/nahledy/is3.png" alt="blog-two">
-                        <div class="blog-date">Windsor Enterprise s.r.o. | Venison CZ s.r.o. | M.K.L. s.r.o.</div>
-                    </div>
-                    <div class="blog-text">
-                        <h3>Informační systém</h3>
-                        <p>Náhled obrazovky IS na míru pro firnmy, které se zabývají výkup a zpracováním zvěře. Napojení na veterinární správu. Tisk a tvorba etiket. Statistiky, dodací listy, plánování a sposta dalšího. Spolupracuje s terminály, mobilní app a serverem s DB.</p>
-                    </div></a>
-                </div> 
-
-                <div class="blogs">
-                    <a href="#">
-                    <div class="img">
-                        <img src="images/nahledy/is4.png" alt="blog-two">
-                        <div class="blog-date">Windsor Enterprise s.r.o. | Venison CZ s.r.o. | M.K.L. s.r.o.</div>
-                    </div>
-                    <div class="blog-text">
-                        <h3>Informační systém</h3>
-                        <p>Náhled obrazovky IS na míru pro firnmy, které se zabývají výkup a zpracováním zvěře. Napojení na veterinární správu. Tisk a tvorba etiket. Statistiky, dodací listy, plánování a sposta dalšího. Spolupracuje s terminály, mobilní app a serverem s DB.</p>
-                    </div></a>
-                </div> 
-
-               
-                
-               
-            </div>
-               <!--copyright-section You Can Remove After Downloading-->
-               <div class="footer">
-                <div class="footer-text">
-                    <img src="./images/copyright.png" alt="copyright-img" class="images" height="14px"> LuRa IT Develop
                 </div>
-               </div>
-       <!--copyright-section-->
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="images/nahledy/vykup1.png" alt="Blazor výkup">
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-tag">Blazor Web</span>
+                        <h3>Webová verze výkupu</h3>
+                        <p>Blazor, SignalR, export, statistiky, kontrola mobilních zařízení</p>
+                        <span class="portfolio-client">Venison CZ</span>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="images/nahledy/is1.jpg" alt="Informační systém">
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-tag">WPF System</span>
+                        <h3>Informační systém</h3>
+                        <p>IS na míru, veterinární správa, etikety, statistiky, plánování</p>
+                        <span class="portfolio-client">Windsor | Venison | M.K.L.</span>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="images/nahledy/is2.jpg" alt="Informační systém 2">
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-tag">WPF System</span>
+                        <h3>Informační systém</h3>
+                        <p>Komplexní řešení pro výkup a zpracování zvěře</p>
+                        <span class="portfolio-client">Windsor | Venison | M.K.L.</span>
+                    </div>
+                </div>
+            </div>
         </div>
-        <!--blog end-->
-        <!--contact-->
-     <div id="contact">
-        <div class="color-changer">
-            <div class="color-panel">
-                <img src="images/gear.png" alt="">
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding bg-light">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-label">Napište nám</span>
+                <h2 class="section-title">Kontakt</h2>
             </div>
-            <div class="color-selector">
-                <div class="heading">Vyber barvu</div>
-                <div class="colors">
-                    <ul >
-                    <li>
-                        <a href="#0" class="color-red " title="color-red"></a>
-                    </li>
-                    <li>
-                        <a href="#0" class="color-purple" title="color-purple"></a>
-                    </li>
-                    <li>
-                        <a href="#0" class="color-malt" title="color-malt"></a>
-                    </li>
-                    <li>
-                        <a href="#0" class="color-green" title="color-green"></a>
-                    </li>
-                    <li>
-                        <a href="#0" class="color-blue" title="color-blue"></a>
-                    </li>
-                    <li>
-                        <a href="#0" class="color-orange" title="color-orange"></a>
-                    </li>
-                    </ul>
-                </div>
-            </div>
-            </div>
-         <div class="contact-header">Kontaktujte <span class="color"> nás</span>
-        <div class="contact-header-caption">Jak se s<span class="color"> námi</span> spojit</div></div>
-        <div class="contact-content">
-            
-            <!--Contact Form-->
-            <div class="contact-form-wrapper">
-                <form id="contact-form" class="contact-form">
-                    <div class="form-group">
-                        <input type="text" id="name" name="name" placeholder="Vaše jméno *" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" id="email" name="email" placeholder="Váš email *" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="tel" id="phone" name="phone" placeholder="Telefon">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" id="subject" name="subject" placeholder="Předmět *" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea id="message" name="message" rows="6" placeholder="Vaše zpráva *" required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <button type="submit" class="submit-btn">
-                            <span>Odeslat zprávu</span>
-                        </button>
-                    </div>
-                    <div id="form-status" class="form-status"></div>
-                </form>
-            </div>
-            <!--Contact Form End-->
-            
-            <!--Contact information-->
-            <div class="contact-info">
-                <div class="contact-info-header">
-                    Lukáš Hanák
-                </div>
-                <div class="contact-info-content">
-                <div class="contect-info-content-line">
-                    <img src="./images/icon-name.png" class="icon" alt="name-icon">
-                    <div class="contact-info-icon-text">
-                        <h6>LinkedIn</h6>
-                        <p><a href="www.linkedin.com/in/lukashanyshanak" style="color: white; text-decoration: none;">www.linkedin.com/in/lukashanyshanak</a></p>
-                  </div>
-                </div>
-              <div class="contect-info-content-line">
-                  <img src="./images/icon-phone.png" class="icon" alt="phone-icon">
-                  <div class="contact-info-icon-text">
-                      <h6>Telefon</h6>
-                      <p>+420 777 581 850</p>
-                </div>
-              </div>
-              
-              <div class="contect-info-content-line">
-                  <img src="./images/icon-email.png" class="icon" alt="email-icon">
-                  <div class="contact-info-icon-text">
-                      <h6>Email</h6>
-                      <p>hanak@lura-it.eu</p>
-                </div>
-              </div>
-                </div>
-            <!--Contact information end-->
-           </div>
-            
-           <!--Contact information-->
-             <div class="contact-info">
-                <div class="contact-info-header">
-                    Radek Vala
-                </div>
-                <div class="contact-info-content">
-                <div class="contect-info-content-line">
-                    <img src="./images/icon-name.png" class="icon" alt="name-icon">
-                    <div class="contact-info-icon-text">
-                        <h6>LinkedId</h6>
-                        <p><a href="https://www.linkedin.com/in/radek-vala-543393aa/" style="color: white; text-decoration: none;">www.linkedin.com/in/radek-vala-543393aa/</a></p>
-                  </div>
-                </div>
-                
-              <div class="contect-info-content-line">
-                  <img src="./images/icon-phone.png" class="icon" alt="phone-icon">
-                  <div class="contact-info-icon-text">
-                      <h6>Telefon</h6>
-                      <p>+420 728 015 407</p>
-                </div>
-              </div>
-              
-              <div class="contect-info-content-line">
-                  <img src="./images/icon-email.png" class="icon" alt="email-icon">
-                  <div class="contact-info-icon-text">
-                      <h6>Email</h6>
-                      <p>vala@lura-it.eu</p>
-                </div>
-              </div>
-                </div>
-            <!--Contact information end-->
-           </div>
-        </div>
-                    <!--copyright-section You Can Remove After Downloading-->
-                    <div class="footer">
-                        <div class="footer-text">
-                            <img src="./images/copyright.png" alt="copyright-img" class="images" height="14px"> LuRa IT Develop
+            <div class="contact-wrapper">
+                <div class="contact-form-section">
+                    <form id="contactForm" class="modern-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Vaše jméno *</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Váš email *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
                         </div>
-                       </div>
-               <!--copyright-section-->
-     </div>
-        <!--contact end-->
-    </div>
-    <!--all the divisions-->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/particles.js"></script>
-    <script src="js/particles.min.js"></script>
-    <script src="js/index.js"></script>
-    <!--particles script-->
-    <script>
-  particlesJS("particles", {"particles":{"number":{"value":40,"density":{"enable":true,"value_area":800}},"color":{"value":"#ffffff"},"shape":{"type":"circle","stroke":{"width":0,"color":"#000000"},"polygon":{"nb_sides":5},"image":{"src":"img/github.svg","width":100,"height":100}},"opacity":{"value":0.5,"random":false,"anim":{"enable":false,"speed":1,"opacity_min":0.1,"sync":false}},"size":{"value":3,"random":true,"anim":{"enable":false,"speed":40,"size_min":0.1,"sync":false}},"line_linked":{"enable":true,"distance":150,"color":"#ffffff","opacity":0.4,"width":1},"move":{"enable":true,"speed":6,"direction":"none","random":false,"straight":false,"out_mode":"out","bounce":false,"attract":{"enable":false,"rotateX":600,"rotateY":1200}}},"interactivity":{"detect_on":"canvas","events":{"onhover":{"enable":true,"mode":"repulse"},"onclick":{"enable":true,"mode":"push"},"resize":true},"modes":{"grab":{"distance":400,"line_linked":{"opacity":1}},"bubble":{"distance":400,"size":40,"duration":2,"opacity":8,"speed":3},"repulse":{"distance":200,"duration":0.4},"push":{"particles_nb":4},"remove":{"particles_nb":2}}},"retina_detect":true});
-    </script>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Telefon</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Předmět *</label>
+                                <input type="text" id="subject" name="subject" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Vaše zpráva *</label>
+                            <textarea id="message" name="message" rows="6" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-large">
+                            Odeslat zprávu
+                        </button>
+                        <div id="formStatus" class="form-status"></div>
+                    </form>
+                </div>
+                <div class="contact-info-section">
+                    <div class="contact-person">
+                        <h3>Lukáš Hanák</h3>
+                        <div class="contact-item">
+                            <svg class="contact-icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                            <div>
+                                <span>Email</span>
+                                <a href="mailto:hanak@lura-it.eu">hanak@lura-it.eu</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <svg class="contact-icon" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                            <div>
+                                <span>Telefon</span>
+                                <a href="tel:+420777581850">+420 777 581 850</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <svg class="contact-icon" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+                            <div>
+                                <span>LinkedIn</span>
+                                <a href="https://www.linkedin.com/in/lukashanyshanak" target="_blank">LinkedIn profil</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-person">
+                        <h3>Radek Vala</h3>
+                        <div class="contact-item">
+                            <svg class="contact-icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                            <div>
+                                <span>Email</span>
+                                <a href="mailto:vala@lura-it.eu">vala@lura-it.eu</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <svg class="contact-icon" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                            <div>
+                                <span>Telefon</span>
+                                <a href="tel:+420728015407">+420 728 015 407</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <svg class="contact-icon" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+                            <div>
+                                <span>LinkedIn</span>
+                                <a href="https://www.linkedin.com/in/radek-vala-543393aa/" target="_blank">LinkedIn profil</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="images/obrazce_logo.png" alt="LuRa IT Develop" class="footer-logo">
+                    <p>Moderní řešení pro váš business</p>
+                </div>
+                <div class="footer-links">
+                    <a href="mailto:info@lura-it.eu">info@lura-it.eu</a>
+                    <a href="#about">O nás</a>
+                    <a href="#services">Služby</a>
+                    <a href="#portfolio">Ukázky</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 LuRa IT Develop. Všechna práva vyhrazena.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/modern.js"></script>
 </body>
 </html>
