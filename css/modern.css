@@ -7,7 +7,8 @@
     --accent: #FF6B35;
     --dark: #0A0E27;
     --dark-alt: #151A2F;
-    --light: #F5F7FA;
+    --light: #E8EDF2;
+    --light-bg: #F0F4F8;
     --text: #2C3E50;
     --text-light: #7F8C8D;
     --white: #FFFFFF;
@@ -30,7 +31,7 @@ body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     color: var(--text);
     line-height: 1.6;
-    background: var(--white);
+    background: var(--light-bg);
     overflow-x: hidden;
 }
 
@@ -187,7 +188,7 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     padding-top: 80px;
     overflow: hidden;
-    background: linear-gradient(135deg, #F5F7FA 0%, #E8EDF2 100%);
+    background: linear-gradient(135deg, #E8EDF2 0%, #D5DCE5 100%);
 }
 
 .hero-background {
@@ -204,7 +205,7 @@ h1, h2, h3, h4, h5, h6 {
     position: absolute;
     border-radius: 50%;
     filter: blur(80px);
-    opacity: 0.4;
+    opacity: 0.25;
     animation: float 20s infinite ease-in-out;
 }
 
@@ -769,6 +770,8 @@ h1, h2, h3, h4, h5, h6 {
 .footer-logo {
     height: 60px;
     width: auto;
+    object-fit: contain;
+    max-width: 150px;
 }
 
 .footer-brand p {
