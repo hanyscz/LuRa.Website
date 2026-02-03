@@ -349,6 +349,22 @@ a {
     font-size: 0.95rem;
 }
 
+.featured-service {
+    border-color: var(--accent-color);
+    box-shadow: 0 10px 30px rgba(88, 166, 255, 0.1);
+    transform: translateY(-5px);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+}
+
+.highlight-text {
+    margin-top: 15px;
+    color: var(--accent-color);
+    font-weight: 700;
+    font-size: 1rem;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 /* Portfolio */
 .portfolio-section {
     padding: 100px 0;
@@ -445,12 +461,10 @@ a {
 }
 
 .contact-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: 60px;
-    align-items: start;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
 }
 
 .team-grid {
@@ -516,32 +530,59 @@ a {
     color: var(--text-primary);
 }
 
-.contact-form {
+.contact-actions {
     display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.contact-form input,
-.contact-form textarea {
-    background: var(--card-bg);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 15px;
-    border-radius: 8px;
-    color: var(--text-primary);
-    font-family: inherit;
-    font-size: 1rem;
-    transition: border-color 0.3s;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-    outline: none;
-    border-color: var(--accent-color);
-}
-
-.full-width {
+    align-items: center;
+    justify-content: center;
     width: 100%;
+}
+
+.billing-info {
+    text-align: center;
+    padding: 20px 40px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    width: 100%;
+    max-width: 500px;
+}
+
+.billing-info h3 {
+    font-size: 1.1rem;
+    color: var(--accent-color);
+    margin-bottom: 10px;
+}
+
+.billing-info p {
+    color: var(--text-secondary);
+    margin-bottom: 5px;
+    font-size: 0.95rem;
+}
+
+.btn-whatsapp {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(37, 211, 102, 0.1);
+    color: #25D366;
+    padding: 12px 24px;
+    border-radius: 50px;
+    border: 1px solid #25D366;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.btn-whatsapp:hover {
+    transform: translateY(-2px);
+    background: #25D366;
+    color: white;
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+}
+
+.btn-whatsapp .icon {
+    font-size: 1.2rem;
 }
 
 /* Footer */
@@ -626,5 +667,70 @@ footer {
 
     .nav-links.open {
         right: 0;
+    }
+}
+
+/* Cookie Consent */
+.cookie-banner {
+    position: fixed;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    background: rgba(15, 15, 15, 0.95);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    z-index: 10000;
+    transition: bottom 0.5s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.5);
+}
+
+.cookie-banner.show {
+    bottom: 0;
+}
+
+.cookie-content {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.cookie-text p {
+    color: var(--text-color);
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.cookie-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-cookie-accept {
+    background: var(--gradient-primary);
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-cookie-accept:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+@media (max-width: 768px) {
+    .cookie-content {
+        flex-direction: column;
+        text-align: center;
     }
 }

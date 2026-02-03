@@ -5,6 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Lukáš Hanys Hanák - .NET Vývojář, Webové a mobilní aplikace.">
+    <meta name="keywords" content=".NET, C#, Vývojář, Webové aplikace, Mobilní aplikace, MAUI, Blazor, SQL, LuRa IT">
+    <meta name="author" content="Lukáš Hanys Hanák">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="LuRa IT Develop | Lukáš Hanys Hanák">
+    <meta property="og:description"
+        content="Tvoříme digitální budoucnost. Vývoj webových a mobilních aplikací na míru.">
+    <meta property="og:image" content="images/logo.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.lura-it.eu/">
+
     <title>LuRa IT Develop | Lukáš Hanys Hanák</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,10 +35,8 @@
                 LuRa IT<span class="dot">.</span>
             </a>
             <nav class="nav-links">
-                <a href="#about">O nás</a>
+                <a href="#hero">Úvod</a>
                 <a href="#services">Služby</a>
-                <a href="#portfolio">Portfolio</a>
-                <a href="#contact">Kontakt</a>
                 <a href="#portfolio">Portfolio</a>
                 <a href="#contact">Kontakt</a>
             </nav>
@@ -44,7 +53,8 @@
         <section id="hero" class="hero-section">
             <div class="container hero-content">
                 <div class="hero-text">
-                    <span class="badge">.NET Development Team</span>
+                    <span class="badge">.NET Development</span>
+                    <span class="badge">WEB Development</span>
                     <h1>Tvoříme digitální <br><span class="gradient-text">budoucnost</span></h1>
                     <p>Jsme parta vývojářů z jižní Moravy. Specializujeme se na vývoj moderních webových a mobilních
                         aplikací, informačních systémů a
@@ -80,11 +90,12 @@
                         <p>Komplexní vývoj v C# a .NET. Desktopové (WPF), webové (ASP.NET, Blazor) i mobilní (MAUI)
                             aplikace na míru.</p>
                     </div>
-                    <div class="service-card">
+                    <div class="service-card featured-service">
                         <div class="icon-box">📱</div>
                         <h3>Web & Mobil</h3>
                         <p>Responsivní webové aplikace a nativní mobilní řešení propojené přes REST API nebo SignalR pro
                             real-time komunikaci.</p>
+                        <p class="highlight-text">Tvoříme moderní weby za skvělé ceny!</p>
                     </div>
                     <div class="service-card">
                         <div class="icon-box">🔧</div>
@@ -180,7 +191,7 @@
                         <div class="team-grid">
                             <div class="team-member">
                                 <h3>Lukáš Hanák</h3>
-                                <p class="role">.NET Developer</p>
+                                <p class="role">.NET Developer, WEB Developer</p>
                                 <div class="contact-item">
                                     <span class="label">Telefon</span>
                                     <a href="tel:+420777581850" class="value link">+420 777 581 850</a>
@@ -213,12 +224,20 @@
                         </div>
 
                     </div>
-                    <form class="contact-form" onsubmit="event.preventDefault();">
-                        <input type="text" placeholder="Vaše jméno" required>
-                        <input type="email" placeholder="Váš email" required>
-                        <textarea placeholder="Jak vám můžeme pomoci?" rows="5" required></textarea>
-                        <button type="submit" class="btn-primary full-width">Odeslat zprávu</button>
-                    </form>
+
+                    <div class="billing-info">
+                        <h3>Fakturační údaje</h3>
+                        <p>LuRa IT Develop</p>
+                        <p>Načeratice 134, Znojmo</p>
+                        <p>IČO: 14024900</p>
+                    </div>
+
+                    <div class="contact-actions">
+                        <a href="https://wa.me/420777581850" target="_blank" class="btn-whatsapp">
+                            <span class="icon">💬</span>
+                            <span class="text">Napsat na WhatsApp</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -229,6 +248,18 @@
             <p>&copy; 2026 LuRa IT Develop. Všechna práva vyhrazena.</p>
         </div>
     </footer>
+
+    <div id="cookie-banner" class="cookie-banner">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                <p>Tento web používá soubory cookies k zajištění správného fungování a analýze návštěvnosti.
+                    Používáním webu souhlasíte s jejich používáním.</p>
+            </div>
+            <div class="cookie-buttons">
+                <button id="cookie-accept" class="btn-cookie-accept">Rozumím</button>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
