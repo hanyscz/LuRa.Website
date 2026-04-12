@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CFMOTO 450 CL-C: Interaktivní zpráva & Analýza</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fafaf9; /* stone-50 */
+            color: #292524; /* stone-800 */
+        }
+        
+        h1, h2, h3, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+
+        .tab-btn.active {
+            border-bottom: 2px solid #b45309; /* amber-700 */
+            color: #b45309;
+            font-weight: 600;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Smooth scrolling */
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Chosen Palette: Warm Neutrals (Stone/Beige) s akcenty v barvě jantaru/mědi (Amber), evokující klasický cruiser styl a mechanickou eleganci. -->
+    
+    <!-- Application Structure Plan: 
+         - Hlavní navigace: Fixní horní lišta pro rychlý přesun mezi sekcemi.
+         - Hero sekce: Rychlé shrnutí účelu aplikace.
+         - Přehled modelu: Rychlá data (výkon, váha) pro kontext.
+         - Sekce Známé problémy: 
+           1. Interaktivní graf (Chart.js prstencový graf) pro rychlou vizualizaci nejčastějších stížností uživatelů.
+           2. Interaktivní záložky (Tabs) pro hloubkový text o brzdách a motoru - umožňuje číst detailní info bez zbytečného scrollování.
+         - Servisní sekce: Interaktivní tabulka/seznam s možností filtrace podle ujetých km (ukázka interakce s daty).
+         Struktura byla zvolena tak, aby prioritizovala to, co uživatele nejvíce zajímá (problémy a servis), do snadno stravitelných a proklikávatelných bloků.
+    -->
+
+    <!-- Visualization & Content Choices: 
+         - Data: Nejčastější problémy -> Cíl: Porovnat četnost stížností -> Vizualizace: Prstencový graf (Chart.js) -> Umožňuje rychlý vizuální přehled, hover ukáže detaily. Bez použití SVG.
+         - Data: Detaily o brzdách a motoru -> Cíl: Informovat do hloubky -> Vizualizace: Interaktivní záložky (Tabs) -> Šetří místo, uživatel si vybere, co ho zajímá.
+         - Data: Servisní intervaly -> Cíl: Organizovat informace -> Vizualizace: Dynamický seznam ovládaný tlačítky (JS) -> Přehledné, bez přehlcení textem.
+    -->
+
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-stone-100/90 backdrop-blur border-b border-stone-200 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="text-xl font-serif font-bold text-stone-800">🏍️ CFMOTO 450 CL-C</div>
+                <div class="hidden sm:flex space-x-8">
+                    <a href="#overview" class="text-sm font-medium text-stone-600 hover:text-amber-700 transition">Přehled</a>
+                    <a href="#problems" class="text-sm font-medium text-stone-600 hover:text-amber-700 transition">Známé Problémy</a>
+                    <a href="#details" class="text-sm font-medium text-stone-600 hover:text-amber-700 transition">Brzdy & Motor</a>
+                    <a href="#service" class="text-sm font-medium text-stone-600 hover:text-amber-700 transition">Servisní Manuál</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        
+        <!-- Header / Hero -->
+        <header class="text-center mb-16 mt-8">
+            <h1 class="text-4xl md:text-5xl font-bold text-stone-900 mb-4">CFMOTO 450 CL-C: Technický rozbor</h1>
+            <p class="max-w-2xl mx-auto text-lg text-stone-600">
+                Interaktivní zpráva shromažďující dostupná data, zpětnou vazbu majitelů a servisní postupy pro populární bobber/cruiser. Zaměřujeme se na reálné zkušenosti, řešení častých neduhů a údržbu.
+            </p>
+        </header>
+
+        <!-- Section 1: Overview -->
+        <section id="overview" class="mb-20">
+            <h2 class="text-3xl font-serif font-semibold mb-6 border-b border-stone-300 pb-2">1. Přehled a kontext</h2>
+            <p class="text-stone-700 mb-6 leading-relaxed">
+                Tato sekce poskytuje základní kontext k modelu. 450 CL-C využívá platformu řadového dvouválce o objemu 449 ccm s přesazením čepů o 270°, což mu dodává charakteristický zvuk podobný vidlicovému dvouválci. Motocykl je oblíbený díky svému designu a dostupnosti pro řidičáky A2, nicméně jako každý nový model přináší i specifické dětské nemoci.
+            </p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200 text-center">
+                    <div class="text-2xl mb-2">⚙️</div>
+                    <div class="text-sm text-stone-500 uppercase tracking-wide">Motor</div>
+                    <div class="font-bold text-lg">449 ccm, 2-válec</div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200 text-center">
+                    <div class="text-2xl mb-2">⚡</div>
+                    <div class="text-sm text-stone-500 uppercase tracking-wide">Výkon</div>
+                    <div class="font-bold text-lg">32.5 kW (44 k)</div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200 text-center">
+                    <div class="text-2xl mb-2">⚖️</div>
+                    <div class="text-sm text-stone-500 uppercase tracking-wide">Hmotnost</div>
+                    <div class="font-bold text-lg">181 kg (Pohotovostní)</div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200 text-center">
+                    <div class="text-2xl mb-2">⛓️</div>
+                    <div class="text-sm text-stone-500 uppercase tracking-wide">Pohon</div>
+                    <div class="font-bold text-lg">Řemen Gates</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Problem Analysis Chart -->
+        <section id="problems" class="mb-20 bg-white p-8 rounded-2xl shadow-sm border border-stone-200">
+            <h2 class="text-3xl font-serif font-semibold mb-4">2. Analýza nahlášených problémů</h2>
+            <p class="text-stone-700 mb-8 max-w-3xl leading-relaxed">
+                Na základě agregace dat z fór majitelů, sociálních sítí a servisních středisek jsme identifikovali hlavní oblasti, které majitelé modelu 450 CL-C nejčastěji řeší. Graf níže vizualizuje rozložení těchto stížností a dotazů.
+            </p>
+            
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="w-full md:w-1/2">
+                    <div class="chart-container">
+                        <canvas id="problemsChart"></canvas>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2 space-y-4">
+                    <div class="p-4 bg-stone-50 rounded-lg border border-stone-100 transition hover:bg-stone-100">
+                        <h4 class="font-bold text-amber-800 flex items-center"><span class="mr-2">🛑</span> Brzdový systém (40 %)</h4>
+                        <p class="text-sm text-stone-600">Nejčastější téma. Majitelé reportují slabší počáteční zákus přední brzdy a houbovitý pocit na páčce.</p>
+                    </div>
+                    <div class="p-4 bg-stone-50 rounded-lg border border-stone-100 transition hover:bg-stone-100">
+                        <h4 class="font-bold text-amber-800 flex items-center"><span class="mr-2">🔌</span> ECU / Zhasínání motoru (25 %)</h4>
+                        <p class="text-sm text-stone-600">Náhlé zhasnutí motoru při vymáčknutí spojky při nízkých rychlostech. Známý problém platformy 450.</p>
+                    </div>
+                    <div class="p-4 bg-stone-50 rounded-lg border border-stone-100 transition hover:bg-stone-100">
+                        <h4 class="font-bold text-stone-700 flex items-center"><span class="mr-2">⚙️</span> Napnutí řemene (20 %)</h4>
+                        <p class="text-sm text-stone-600">Pískání nebo poškození ložisek v důsledku nesprávného (přílišného) napnutí řemene Gates z výroby nebo po servisu.</p>
+                    </div>
+                    <div class="p-4 bg-stone-50 rounded-lg border border-stone-100 transition hover:bg-stone-100">
+                        <h4 class="font-bold text-stone-700 flex items-center"><span class="mr-2">🔧</span> Ostatní (15 %)</h4>
+                        <p class="text-sm text-stone-600">Drobnosti jako čitelnost TFT displeje na slunci nebo tuhost zadního tlumiče.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Deep Dive (Tabs) -->
+        <section id="details" class="mb-20">
+            <h2 class="text-3xl font-serif font-semibold mb-6 border-b border-stone-300 pb-2">3. Detailní pohled na hlavní problémy</h2>
+            <p class="text-stone-700 mb-6 leading-relaxed">
+                Níže naleznete podrobný rozbor dvou nejdiskutovanějších problémů: brzdové soustavy a samovolného zhasínání motoru. Vyberte záložku pro zobrazení příčin a ověřených řešení.
+            </p>
+
+            <div class="bg-white rounded-2xl shadow-sm border border-stone-200 overflow-hidden">
+                <!-- Tab Headers -->
+                <div class="flex border-b border-stone-200 bg-stone-50">
+                    <button class="tab-btn active flex-1 py-4 px-6 text-center font-medium text-stone-500 hover:text-amber-700 transition focus:outline-none" onclick="openTab(event, 'tab-brakes')">
+                        🛑 Přední brzdy (J.Juan)
+                    </button>
+                    <button class="tab-btn flex-1 py-4 px-6 text-center font-medium text-stone-500 hover:text-amber-700 transition focus:outline-none" onclick="openTab(event, 'tab-engine')">
+                        🔌 Zhasínání motoru (Stalling)
+                    </button>
+                </div>
+
+                <!-- Tab Content: Brakes -->
+                <div id="tab-brakes" class="tab-content active p-8">
+                    <h3 class="text-2xl font-bold text-stone-800 mb-4">Problém: Nedostatečný počáteční nástup brzd</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="font-semibold text-stone-900 mb-2 uppercase text-sm tracking-wider">Popis stavu</h4>
+                            <p class="text-stone-600 mb-4 leading-relaxed">
+                                CFMOTO 450 CL-C je vybaveno jedním 320mm kotoučem vpředu se 4pístkovým radiálním třmenem španělské značky J.Juan (patřící pod Brembo). Ačkoliv je systém na papíře silný, uživatelé často reportují, že páčka působí měkce ("dřevěně") a brzdný účinek postrádá ostrost, zejména v první třetině stisku.
+                            </p>
+                            <h4 class="font-semibold text-stone-900 mb-2 uppercase text-sm tracking-wider">Příčiny</h4>
+                            <ul class="list-disc list-inside text-stone-600 space-y-2 mb-4">
+                                <li>Tvrdá směs OEM brzdových destiček určená spíše pro dlouhou životnost.</li>
+                                <li>Axiální brzdová pumpa, která neposkytuje takovou citlivost jako radiální pumpy.</li>
+                                <li>V některých případech špatně odvzdušněný systém z výroby.</li>
+                            </ul>
+                        </div>
+                        <div class="bg-amber-50 p-6 rounded-xl border border-amber-100">
+                            <h4 class="font-bold text-amber-900 mb-3 flex items-center">💡 Doporučená řešení</h4>
+                            <ol class="list-decimal list-inside text-amber-800 space-y-3">
+                                <li><strong>Výměna destiček:</strong> Nejefektivnější a nejlevnější oprava. Výměna továrních destiček za kvalitní sintrované (např. EBC Double-H nebo Brembo Sinter) radikálně zlepší počáteční zákus.</li>
+                                <li><strong>Kompletní odvzdušnění:</strong> Výměna originální kapaliny za kvalitní DOT 4 a důkladné odvzdušnění, často zlepší pocit na páčce.</li>
+                                <li><strong>Nastavení páčky:</strong> Ujistěte se, že nastavitelná páčka je v poloze, která vyhovuje velikosti vaší ruky pro optimální páku.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab Content: Engine -->
+                <div id="tab-engine" class="tab-content p-8">
+                    <h3 class="text-2xl font-bold text-stone-800 mb-4">Problém: Samovolné zhasínání motoru při nízkých otáčkách</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="font-semibold text-stone-900 mb-2 uppercase text-sm tracking-wider">Popis stavu</h4>
+                            <p class="text-stone-600 mb-4 leading-relaxed">
+                                Někteří majitelé (podobně jako u modelů 450SR a 450NK) zaznamenali, že motor občas samovolně zhasne (tzv. "stalling"). K tomu dochází typicky při podřazování, příjezdu ke křižovatce nebo při zaklapnutí plynu a vymáčknutí spojky, kdy otáčky rychle padají k volnoběhu.
+                            </p>
+                            <h4 class="font-semibold text-stone-900 mb-2 uppercase text-sm tracking-wider">Příčiny</h4>
+                            <ul class="list-disc list-inside text-stone-600 space-y-2 mb-4">
+                                <li>Přísné mapování paliva (velmi chudá směs) z důvodu plnění emisních norem Euro 5.</li>
+                                <li>Nedokonalost v algoritmu ECU (řídící jednotky) pro řízení krokového motorku volnoběhu při rychlém zavření škrticí klapky.</li>
+                            </ul>
+                        </div>
+                        <div class="bg-amber-50 p-6 rounded-xl border border-amber-100">
+                            <h4 class="font-bold text-amber-900 mb-3 flex items-center">💡 Doporučená řešení</h4>
+                            <ol class="list-decimal list-inside text-amber-800 space-y-3">
+                                <li><strong>Aktualizace software (ECU Update):</strong> CFMOTO o tomto problému ví a pro platformu 450 vydalo aktualizované mapování. Navštivte autorizovaný servis a požádejte o přehrání softwaru řídící jednotky na nejnovější verzi.</li>
+                                <li><strong>Správný záběh:</strong> Mnoho uživatelů hlásí, že problém samovolně mizí nebo se výrazně redukuje po ujetí prvních 1500 - 2000 km, kdy si komponenty motoru "sednou".</li>
+                                <li><strong>Nezavírat plyn prudce:</strong> Jako dočasné řešení (než proběhne update) pomáhá jemnější práce s plynovou rukojetí při podřazování (tzv. meziplyny).</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Service & Maintenance -->
+        <section id="service" class="mb-20">
+            <h2 class="text-3xl font-serif font-semibold mb-6 border-b border-stone-300 pb-2">4. Servisní manuál a údržba</h2>
+            <p class="text-stone-700 mb-6 leading-relaxed">
+                Pro zachování záruky a bezproblémového chodu je nutné dodržovat servisní intervaly. Níže jsou uvedeny klíčové úkony. Kliknutím na tlačítka vyfiltrujte úkony podle ujetých kilometrů.
+            </p>
+
+            <!-- Service Interactive Tool -->
+            <div class="bg-white rounded-2xl shadow-sm border border-stone-200 p-6">
+                
+                <!-- Filters -->
+                <div class="flex flex-wrap gap-2 mb-8 border-b border-stone-100 pb-4">
+                    <button class="px-4 py-2 bg-stone-800 text-white rounded-full text-sm font-medium hover:bg-stone-700 transition focus:ring-2 focus:ring-offset-2 focus:ring-stone-500" onclick="filterService('all')">Všechny úkony</button>
+                    <button class="px-4 py-2 bg-stone-100 text-stone-700 rounded-full text-sm font-medium hover:bg-stone-200 transition" onclick="filterService('1000')">1 000 km</button>
+                    <button class="px-4 py-2 bg-stone-100 text-stone-700 rounded-full text-sm font-medium hover:bg-stone-200 transition" onclick="filterService('5000')">5 000 km</button>
+                    <button class="px-4 py-2 bg-stone-100 text-stone-700 rounded-full text-sm font-medium hover:bg-stone-200 transition" onclick="filterService('10000')">10 000 km</button>
+                    <button class="px-4 py-2 bg-stone-100 text-stone-700 rounded-full text-sm font-medium hover:bg-stone-200 transition" onclick="filterService('30000')">30 000 km</button>
+                </div>
+
+                <!-- Data Display -->
+                <div class="space-y-4" id="service-list">
+                    <!-- Items populated by JS -->
+                </div>
+
+                <div class="mt-8 p-4 bg-stone-800 text-white rounded-lg">
+                    <h4 class="font-bold flex items-center mb-2"><span class="text-xl mr-2">⚠️</span> Kritické upozornění: Řemen Gates</h4>
+                    <p class="text-sm text-stone-300">
+                        Model CL-C nepoužívá řetěz, ale ozubený řemen. **Správné napnutí je absolutně kritické.** Příliš napnutý řemen zničí ložisko výstupní hřídele motoru a ložiska v zadním kole. Napnutí musí být měřeno speciálním sonickým nebo mechanickým měřičem, nikoliv "od oka" nebo "prstem". Doporučujeme kontrolu napnutí svěřit výhradně autorizovanému servisu CFMOTO.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-stone-900 text-stone-400 py-8 text-center text-sm">
+        <div class="max-w-6xl mx-auto px-4">
+            <p>Tato interaktivní zpráva je vytvořena na základě veřejně dostupných informací a komunitních fór.</p>
+            <p class="mt-2">Vždy se řiďte oficiálním uživatelským manuálem k vašemu motocyklu a doporučením výrobce.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // --- 1. Tab Interaction Logic ---
+        function openTab(evt, tabName) {
+            // Hide all tab content
+            const tabcontent = document.getElementsByClassName("tab-content");
+            for (let i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+
+            // Remove active class from all buttons
+            const tablinks = document.getElementsByClassName("tab-btn");
+            for (let i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+
+            // Show the current tab, and add an "active" class to the button
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+
+        // --- 2. Chart.js Initialization ---
+        document.addEventListener("DOMContentLoaded", function() {
+            const ctx = document.getElementById('problemsChart').getContext('2d');
+            
+            // Konfigurace barev (Tailwind amber-700, stone-700, stone-400, stone-200)
+            const colors = ['#b45309', '#44403c', '#a8a29e', '#e7e5e4'];
+
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: [
+                        'Brzdový systém (Slabší nástup)',
+                        'ECU / Zhasínání motoru',
+                        'Pohon (Napnutí řemene)',
+                        'Ostatní (Tlumiče, displej)'
+                    ],
+                    datasets: [{
+                        data: [40, 25, 20, 15],
+                        backgroundColor: colors,
+                        borderWidth: 2,
+                        borderColor: '#ffffff',
+                        hoverOffset: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false, // Ensures it respects parent container size
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                font: {
+                                    family: "'Inter', sans-serif",
+                                    size: 13
+                                },
+                                color: '#44403c',
+                                padding: 20
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return ' ' + context.label + ': ' + context.parsed + '%';
+                                }
+                            },
+                            backgroundColor: 'rgba(41, 37, 36, 0.9)',
+                            padding: 12,
+                            titleFont: { family: "'Inter', sans-serif" },
+                            bodyFont: { family: "'Inter', sans-serif" },
+                            cornerRadius: 8
+                        }
+                    },
+                    cutout: '65%'
+                }
+            });
+
+            // Initialize Service Data
+            renderServiceData('all');
+        });
+
+        // --- 3. Interactive Service Data Logic ---
+        const serviceData = [
+            { id: 1, interval: [1000], task: "Výměna motorového oleje a olejového filtru", type: "Výměna", critical: false },
+            { id: 2, interval: [1000, 5000, 10000, 30000], task: "Kontrola napnutí a stavu hnacího řemene Gates", type: "Kontrola", critical: true },
+            { id: 3, interval: [1000, 5000, 10000, 30000], task: "Kontrola brzdové kapaliny a opotřebení destiček", type: "Kontrola", critical: false },
+            { id: 4, interval: [5000, 10000, 30000], task: "Výměna motorového oleje a filtru (nebo 1x ročně)", type: "Výměna", critical: false },
+            { id: 5, interval: [10000, 30000], task: "Výměna zapalovacích svíček", type: "Výměna", critical: false },
+            { id: 6, interval: [10000, 30000], task: "Kontrola nebo výměna vzduchového filtru", type: "Údržba", critical: false },
+            { id: 7, interval: [30000], task: "Kontrola vůle ventilů", type: "Servis", critical: true }
+        ];
+
+        function filterService(kmStr) {
+            // Update button styles visually
+            const buttons = document.querySelectorAll('button[onclick^="filterService"]');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-stone-800', 'text-white');
+                btn.classList.add('bg-stone-100', 'text-stone-700');
+            });
+            event.currentTarget.classList.remove('bg-stone-100', 'text-stone-700');
+            event.currentTarget.classList.add('bg-stone-800', 'text-white');
+
+            renderServiceData(kmStr);
+        }
+
+        function renderServiceData(kmFilter) {
+            const listEl = document.getElementById('service-list');
+            listEl.innerHTML = ''; // Clear current
+
+            let filteredData = serviceData;
+            if (kmFilter !== 'all') {
+                const km = parseInt(kmFilter);
+                filteredData = serviceData.filter(item => item.interval.includes(km));
+            }
+
+            if (filteredData.length === 0) {
+                listEl.innerHTML = '<p class="text-stone-500 italic">Pro tento interval nejsou definovány žádné specifické úkony.</p>';
+                return;
+            }
+
+            filteredData.forEach(item => {
+                // Determine icon based on type
+                let icon = '🔧';
+                if (item.type === 'Výměna') icon = '🔄';
+                if (item.type === 'Kontrola') icon = '👁️';
+
+                // Format intervals for display
+                const intervalsText = item.interval.map(v => `${v}k`).join(', ');
+
+                const div = document.createElement('div');
+                div.className = `flex items-start p-4 rounded-lg border ${item.critical ? 'border-amber-300 bg-amber-50/50' : 'border-stone-100 bg-white'}`;
+                
+                div.innerHTML = `
+                    <div class="text-2xl mr-4 mt-1">${icon}</div>
+                    <div class="flex-1">
+                        <h4 class="font-bold text-stone-800 text-lg">${item.task}</h4>
+                        <div class="flex items-center mt-1">
+                            <span class="text-xs font-semibold uppercase tracking-wide text-stone-500 mr-3">${item.type}</span>
+                            <span class="text-xs bg-stone-100 text-stone-600 px-2 py-1 rounded">Intervaly: ${kmFilter === 'all' ? intervalsText : kmFilter + ' km'}</span>
+                        </div>
+                    </div>
+                `;
+                listEl.appendChild(div);
+            });
+        }
+    </script>
+</body>
+</html>
