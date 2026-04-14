@@ -149,6 +149,29 @@ a {
     align-items: center;
 }
 
+.lang-switch {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.lang-btn {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.25);
+    color: var(--text-secondary);
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.9rem;
+}
+
+.lang-btn:hover,
+.lang-btn.active {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
 .nav-links a:not(.btn-primary-outline) {
     color: var(--text-secondary);
     font-size: 0.95rem;

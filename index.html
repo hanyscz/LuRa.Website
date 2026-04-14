@@ -4,19 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Lukáš Hanys Hanák - .NET Vývojář, Webové a mobilní aplikace.">
-    <meta name="keywords" content=".NET, C#, Vývojář, Webové aplikace, Mobilní aplikace, MAUI, Blazor, SQL, LuRa IT">
+    <meta name="description" content="Lukáš Hanys Hanák - Senior .NET Developer & Architect. Cloud, IoT a enterprise systémy.">
+    <meta name="keywords" content="Senior .NET, C#, Azure, IoT, .NET MAUI, Blazor, Webové aplikace, Mobilní aplikace, LuRa IT">
     <meta name="author" content="Lukáš Hanys Hanák">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="LuRa IT Develop | Lukáš Hanys Hanák">
+    <meta property="og:title" content="LuRa IT Develop | Senior .NET Developer & Architect">
     <meta property="og:description"
-        content="Tvoříme digitální budoucnost. Vývoj webových a mobilních aplikací na míru.">
+        content="Senior .NET vývojář a architekt zaměřený na cloud, IoT a moderní enterprise systémy.">
     <meta property="og:image" content="images/logo.png">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.lura-it.eu/">
 
-    <title>LuRa IT Develop | Lukáš Hanys Hanák</title>
+    <title>LuRa IT Develop | Senior .NET Developer & Architect</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -35,11 +35,15 @@
                 LuRa IT<span class="dot">.</span>
             </a>
             <nav class="nav-links">
-                <a href="#hero">Úvod</a>
-                <a href="#services">Služby</a>
-                <a href="#portfolio">Portfolio</a>
-                <a href="#contact">Kontakt</a>
+                <a href="#hero" data-i18n-key="nav.hero">Úvod</a>
+                <a href="#services" data-i18n-key="nav.services">Služby</a>
+                <a href="#portfolio" data-i18n-key="nav.portfolio">Portfolio</a>
+                <a href="#contact" data-i18n-key="nav.contact">Kontakt</a>
             </nav>
+            <div class="lang-switch">
+                <button type="button" class="lang-btn active" data-lang="cs">CZ</button>
+                <button type="button" class="lang-btn" data-lang="en">EN</button>
+            </div>
             <button class="mobile-menu-btn" aria-label="Menu">
                 <span></span>
                 <span></span>
@@ -53,15 +57,16 @@
         <section id="hero" class="hero-section">
             <div class="container hero-content">
                 <div class="hero-text">
-                    <span class="badge">.NET Development</span>
-                    <span class="badge">WEB Development</span>
-                    <h1>Tvoříme digitální <br><span class="gradient-text">budoucnost</span></h1>
-                    <p>Jsme parta vývojářů z jižní Moravy. Specializujeme se na vývoj moderních webových a mobilních
-                        aplikací, informačních systémů a
-                        automatizaci. Od myšlenky k funkčnímu řešení. "Kde je vůle, tam je cesta."</p>
+                    <span class="badge" data-i18n-key="hero.badge1">.NET Development</span>
+                    <span class="badge" data-i18n-key="hero.badge2">IoT & Cloud</span>
+                    <span class="badge" data-i18n-key="hero.badge3">Blazor & MAUI</span>
+                    <h1 data-i18n-key="hero.title" data-i18n-mode="html">Tvoříme digitální <br><span class="gradient-text">budoucnost</span></h1>
+                    <p data-i18n-key="hero.description">Jsem seniorní .NET developer a architekt se zaměřením na cloudová a IoT řešení. Specializuji se
+                        na moderní aplikace v .NET MAUI, Blazor a Azure s reálným napojením na hardware a průmyslové
+                        systémy. "Kde je vůle, tam je cesta."</p>
                     <div class="hero-buttons">
-                        <a href="#portfolio" class="btn-primary">Moje práce</a>
-                        <a href="#contact" class="btn-secondary">Kontaktovat</a>
+                        <a href="#portfolio" class="btn-primary" data-i18n-key="hero.work">Moje práce</a>
+                        <a href="#contact" class="btn-secondary" data-i18n-key="hero.contact">Kontaktovat</a>
                     </div>
                 </div>
                 <div class="hero-visual">
@@ -82,25 +87,26 @@
         <!-- Services Section -->
         <section id="services" class="services-section">
             <div class="container">
-                <h2 class="section-title">Co nabízím</h2>
+                <h2 class="section-title" data-i18n-key="section.services.title">Co nabízím</h2>
                 <div class="services-grid">
                     <div class="service-card">
                         <div class="icon-box">💻</div>
-                        <h3>Vývoj Aplikací</h3>
-                        <p>Komplexní vývoj v C# a .NET. Desktopové (WPF), webové (ASP.NET, Blazor) i mobilní (MAUI)
-                            aplikace na míru.</p>
+                        <h3 data-i18n-key="service.app.title">Vývoj Aplikací</h3>
+                        <p data-i18n-key="service.app.desc">Komplexní vývoj v C# a .NET pro desktop, web i mobil. Včetně cloudových a IoT řešení s důrazem na
+                            stabilitu a škálovatelnost.</p>
                     </div>
                     <div class="service-card featured-service">
                         <div class="icon-box">📱</div>
-                        <h3>Web & Mobil</h3>
-                        <p>Responsivní webové aplikace a nativní mobilní řešení propojené přes REST API nebo SignalR pro
-                            real-time komunikaci.</p>
-                        <p class="highlight-text">Tvoříme moderní weby za skvělé ceny!</p>
+                        <h3 data-i18n-key="service.web.title">Web & Mobil</h3>
+                        <p data-i18n-key="service.web.desc">Responsivní webové aplikace a nativní mobilní řešení propojené přes REST API, SignalR a cloudové
+                            služby.</p>
+                        <p class="highlight-text" data-i18n-key="service.web.highlight">Moderní řešení s technologiemi Blazor a .NET MAUI.</p>
                     </div>
                     <div class="service-card">
                         <div class="icon-box">🔧</div>
-                        <h3>IT Podpora & HW</h3>
-                        <p>Servis PC, IT poradenství a správa. Rozumím hardwaru stejně dobře jako softwaru.</p>
+                        <h3 data-i18n-key="service.hw.title">IT Podpora & HW</h3>
+                        <p data-i18n-key="service.hw.desc">Servis PC, IT poradenství a integrace s hardwarem. Váhy, čtečky, tiskárny a reálná průmyslová
+                            automatizace.</p>
                     </div>
                 </div>
             </div>
@@ -109,7 +115,7 @@
         <!-- Portfolio Section -->
         <section id="portfolio" class="portfolio-section">
             <div class="container">
-                <h2 class="section-title">Vybrané Projekty</h2>
+                <h2 class="section-title" data-i18n-key="section.portfolio.title">Vybrané Projekty</h2>
                 <div class="portfolio-grid">
                     <!-- ThreeS -->
                     <article class="project-card">
@@ -120,7 +126,7 @@
                         </div>
                         <div class="project-content">
                             <h3>ThreeS</h3>
-                            <p>Informační systém pro firmy, kterým již Excel nestačí. Webová aplikace pro komplexní správu firemních procesů, projektů a dokumentace.</p>
+                            <p data-i18n-key="project.threes.desc">Informační systém pro firmy, kterým již Excel nestačí. Webová aplikace pro komplexní správu firemních procesů, projektů a dokumentace.</p>
                             <div class="tags">
                                 <span>Web App</span>
                                 <span>IS</span>
@@ -137,7 +143,7 @@
                         </div>
                         <div class="project-content">
                             <h3>Trello to Markdown</h3>
-                            <p>Rozšíření do prohlížeče Chrome pro export Trello nástěnek a karet do čistého Markdown formátu. Vše funguje lokálně, bezpečně a nepoužívá externí servery.</p>
+                            <p data-i18n-key="project.trello.desc">Rozšíření do prohlížeče Chrome pro export Trello nástěnek a karet do čistého Markdown formátu. Vše funguje lokálně, bezpečně a nepoužívá externí servery.</p>
                             <div class="tags">
                                 <span>Chrome Extension</span>
                                 <span>JavaScript</span>
@@ -152,7 +158,7 @@
                         </div>
                         <div class="project-content">
                             <h3>Expediční Terminál</h3>
-                            <p>Robustní dotykové rozhraní pro skladové operátory. Napojení na váhy, tiskárny štítků a
+                            <p data-i18n-key="project.expedit.desc">Robustní dotykové rozhraní pro skladové operátory. Napojení na váhy, tiskárny štítků a
                                 centrální databázi. Tisk etiket a plnění daty z pohodlí kanceláře.</p>
                             <div class="tags">
                                 <span>WPF</span>
@@ -168,7 +174,7 @@
                         </div>
                         <div class="project-content">
                             <h3>Mobilní Výkup</h3>
-                            <p>Mobilní aplikace pro nákupčí. Příjem zvěřiny, tvorba a tisk pokladních dokladů přes BT
+                            <p data-i18n-key="project.mvykup.desc">Mobilní aplikace pro nákupčí. Příjem zvěřiny, tvorba a tisk pokladních dokladů přes BT
                                 tiskárnu.
                                 Offline režim se synchronizací, SignalR komunikace.</p>
                             <div class="tags">
@@ -185,7 +191,7 @@
                         </div>
                         <div class="project-content">
                             <h3>Informační Systémy</h3>
-                            <p>IS na míru pro zpracování zvěře. Statistiky, fakturace, napojení na veterinární správu,
+                            <p data-i18n-key="project.is.desc">IS na míru pro zpracování zvěře. Statistiky, fakturace, napojení na veterinární správu,
                                 skladové hospodářství. Komplexní řešení pro firmy.</p>
                             <div class="tags">
                                 <span>ASP.NET</span>
@@ -201,7 +207,7 @@
                         </div>
                         <div class="project-content">
                             <h3>Příjmový terminál</h3>
-                            <p>Obrazovka příjmového terminálu, velké prvky pro lehké dotykové ovládání. Jednoduché
+                            <p data-i18n-key="project.prijem.desc">Obrazovka příjmového terminálu, velké prvky pro lehké dotykové ovládání. Jednoduché
                                 rozhraní, napojení na databázi a váhu.</p>
                             <div class="tags">
                                 <span>Touch UI</span>
@@ -219,19 +225,19 @@
             <div class="container">
                 <div class="contact-wrapper">
                     <div class="contact-info">
-                        <h2>Spojme se</h2>
-                        <p>Máte nápad na projekt? Potřebujete spolehlivého partnera pro vývoj? Napište nám.</p>
+                        <h2 data-i18n-key="section.contact.title">Spojme se</h2>
+                        <p data-i18n-key="section.contact.desc">Máte nápad na projekt? Potřebujete spolehlivého partnera pro vývoj? Napište nám.</p>
 
                         <div class="team-grid">
                             <div class="team-member">
                                 <h3>Lukáš Hanák</h3>
-                                <p class="role">.NET Developer, WEB Developer</p>
+                                <p class="role">Senior .NET Developer & Architect</p>
                                 <div class="contact-item">
-                                    <span class="label">Telefon</span>
+                                    <span class="label" data-i18n-key="contact.phone">Telefon</span>
                                     <a href="tel:+420777581850" class="value link">+420 777 581 850</a>
                                 </div>
                                 <div class="contact-item">
-                                    <span class="label">Email</span>
+                                    <span class="label" data-i18n-key="contact.email">Email</span>
                                     <a href="mailto:hanak@lura-it.eu" class="value link">hanak@lura-it.eu</a>
                                 </div>
                                 <div class="social-links">
@@ -243,11 +249,11 @@
                                 <h3>Radek Vala</h3>
                                 <p class="role">PHP Developer</p>
                                 <div class="contact-item">
-                                    <span class="label">Telefon</span>
+                                    <span class="label" data-i18n-key="contact.phone">Telefon</span>
                                     <a href="tel:+420728015407" class="value link">+420 728 015 407</a>
                                 </div>
                                 <div class="contact-item">
-                                    <span class="label">Email</span>
+                                    <span class="label" data-i18n-key="contact.email">Email</span>
                                     <a href="mailto:vala@lura-it.eu" class="value link">vala@lura-it.eu</a>
                                 </div>
                                 <div class="social-links">
@@ -260,7 +266,7 @@
                     </div>
 
                     <div class="billing-info">
-                        <h3>Fakturační údaje</h3>
+                        <h3 data-i18n-key="billing.title">Fakturační údaje</h3>
                         <p>LuRa IT Develop</p>
                         <p>Načeratice 134, Znojmo</p>
                         <p>IČO: 14024900</p>
@@ -269,7 +275,7 @@
                     <div class="contact-actions">
                         <a href="https://wa.me/420777581850" target="_blank" class="btn-whatsapp">
                             <span class="icon">💬</span>
-                            <span class="text">Napsat na WhatsApp</span>
+                            <span class="text" data-i18n-key="whatsapp.text">Napsat na WhatsApp</span>
                         </a>
                     </div>
                 </div>
@@ -279,18 +285,18 @@
 
     <footer>
         <div class="container footer-content">
-            <p>&copy; 2026 LuRa IT Develop. Všechna práva vyhrazena.</p>
+            <p data-i18n-key="footer">&copy; 2026 LuRa IT Develop. Všechna práva vyhrazena.</p>
         </div>
     </footer>
 
     <div id="cookie-banner" class="cookie-banner">
         <div class="cookie-content">
             <div class="cookie-text">
-                <p>Tento web používá soubory cookies k zajištění správného fungování a analýze návštěvnosti.
+                <p data-i18n-key="cookie.text">Tento web používá soubory cookies k zajištění správného fungování a analýze návštěvnosti.
                     Používáním webu souhlasíte s jejich používáním.</p>
             </div>
             <div class="cookie-buttons">
-                <button id="cookie-accept" class="btn-cookie-accept">Rozumím</button>
+                <button id="cookie-accept" class="btn-cookie-accept" data-i18n-key="cookie.button">Rozumím</button>
             </div>
         </div>
     </div>
