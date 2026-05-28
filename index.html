@@ -83,28 +83,88 @@
         <section id="hero" class="hero-section">
             <div class="container hero-content">
                 <div class="hero-text">
-                    <span class="badge" data-i18n-key="hero.badge1">.NET Development</span>
-                    <span class="badge" data-i18n-key="hero.badge2">IoT & Cloud</span>
-                    <span class="badge" data-i18n-key="hero.badge3">Blazor & MAUI</span>
-                    <h1 data-i18n-key="hero.title" data-i18n-mode="html">Tvoříme digitální <br><span class="gradient-text">budoucnost</span></h1>
-                    <p data-i18n-key="hero.description">Jsem seniorní .NET developer a architekt se zaměřením na cloudová a IoT řešení. Specializuji se
-                        na moderní aplikace v .NET MAUI, Blazor a Azure s reálným napojením na hardware a průmyslové
-                        systémy. "Kde je vůle, tam je cesta."</p>
+                    <div class="hero-kicker" data-i18n-key="hero.kicker">Senior .NET vývoj a provozní systémy</div>
+                    <h1 data-i18n-key="hero.title" data-i18n-mode="html">Software, který <span class="gradient-text">mluví s provozem</span></h1>
+                    <p data-i18n-key="hero.description">Navrhuji a stavím aplikace, které propojují kancelář, sklad, hardware a cloud. Od Blazoru a .NET MAUI po váhy, tiskárny, offline režimy a firemní data.</p>
+                    <div class="hero-proof" aria-label="Klíčové schopnosti">
+                        <span data-i18n-key="hero.proof1">Hardware integrace</span>
+                        <span data-i18n-key="hero.proof2">Offline-first mobilní aplikace</span>
+                        <span data-i18n-key="hero.proof3">Firemní systémy na míru</span>
+                    </div>
                     <div class="hero-buttons">
                         <a href="#portfolio" class="btn-primary" data-i18n-key="hero.work">Moje práce</a>
                         <a href="#contact" class="btn-secondary" data-i18n-key="hero.contact">Kontaktovat</a>
                     </div>
                 </div>
                 <div class="hero-visual">
-                    <div class="abstract-shape"></div>
-                    <div class="code-badge-container">
-                        <div class="code-badge floating-1">C#</div>
-                        <div class="code-badge floating-2">.NET MAUI</div>
-                        <div class="code-badge floating-3">Blazor</div>
-                        <div class="code-badge floating-4">SQL</div>
-                        <div class="code-badge floating-5">PHP</div>
-                        <div class="code-badge floating-6">SignalR</div>
-                        <div class="code-badge floating-7">Postgres</div>
+                    <div class="integration-flow-panel" aria-label="Animovaná ukázka provozní integrace">
+                        <div class="flow-panel-header">
+                            <div>
+                                <span class="flow-eyebrow" data-i18n-key="flow.eyebrow">Provozní tok dat</span>
+                                <strong data-i18n-key="flow.title">Mobil, API, IS a hardware v jednom procesu</strong>
+                            </div>
+                            <span class="flow-status" data-i18n-key="flow.status">SYNC</span>
+                        </div>
+
+                        <div class="flow-map" aria-hidden="true">
+                            <div class="flow-node node-mobile">
+                                <span>MAUI</span>
+                                <strong data-i18n-key="flow.node.mobile">Mobil</strong>
+                            </div>
+                            <div class="flow-node node-api">
+                                <span>REST</span>
+                                <strong>API</strong>
+                            </div>
+                            <div class="flow-node node-system">
+                                <span>Blazor</span>
+                                <strong data-i18n-key="flow.node.system">Firemní IS</strong>
+                            </div>
+                            <div class="flow-node node-hardware">
+                                <span>HW</span>
+                                <strong data-i18n-key="flow.node.hardware">Váha / tisk</strong>
+                            </div>
+                            <div class="flow-node node-cloud">
+                                <span>SQL</span>
+                                <strong data-i18n-key="flow.node.cloud">Data</strong>
+                            </div>
+                            <svg class="flow-lines" viewBox="0 0 420 300" role="img" aria-label="Tok dat mezi částmi systému">
+                                <path class="flow-line path-main" d="M72 72 C140 42 180 42 210 72 S294 102 348 72" />
+                                <path class="flow-line path-hardware" d="M348 88 C344 142 318 180 300 224" />
+                                <path class="flow-line path-cloud" d="M210 88 C196 150 168 186 126 224" />
+                                <path class="flow-line path-return" d="M300 230 C240 274 172 268 126 238" />
+                            </svg>
+                        </div>
+
+                        <div class="flow-metrics">
+                            <div>
+                                <span data-i18n-key="flow.metric.integrations">Integrace</span>
+                                <strong data-count-to="12" data-suffix="+">0</strong>
+                            </div>
+                            <div>
+                                <span data-i18n-key="flow.metric.sync">Synchronizace</span>
+                                <strong data-count-to="98" data-suffix="%">0</strong>
+                            </div>
+                            <div>
+                                <span data-i18n-key="flow.metric.response">API odezva</span>
+                                <strong data-count-to="42" data-suffix=" ms">0</strong>
+                            </div>
+                        </div>
+
+                        <div class="flow-signal" aria-hidden="true">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+
+                        <div class="flow-log" aria-live="polite">
+                            <p class="flow-log-line"><span>08:41</span><strong data-i18n-key="flow.log.1">Mobilní dávka přijata</strong></p>
+                            <p class="flow-log-line"><span>08:42</span><strong data-i18n-key="flow.log.2">Data propsána do firemního IS</strong></p>
+                            <p class="flow-log-line"><span>08:43</span><strong data-i18n-key="flow.log.3">Etiketa odeslána do tisku</strong></p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -113,26 +173,58 @@
         <!-- Services Section -->
         <section id="services" class="services-section">
             <div class="container">
-                <h2 class="section-title" data-i18n-key="section.services.title">Co nabízím</h2>
+                <div class="section-heading">
+                    <span class="section-kicker" data-i18n-key="section.services.kicker">Schopnosti</span>
+                    <h2 class="section-title" data-i18n-key="section.services.title">Co umím dodat do provozu</h2>
+                </div>
                 <div class="services-grid">
                     <div class="service-card">
-                        <div class="icon-box">💻</div>
-                        <h3 data-i18n-key="service.app.title">Vývoj Aplikací</h3>
-                        <p data-i18n-key="service.app.desc">Komplexní vývoj v C# a .NET pro desktop, web i mobil. Včetně cloudových a IoT řešení s důrazem na
-                            stabilitu a škálovatelnost.</p>
+                        <div class="icon-box">IS</div>
+                        <h3 data-i18n-key="service.app.title">Firemní systémy</h3>
+                        <p data-i18n-key="service.app.desc">Informační systémy pro procesy, evidenci, fakturaci, statistiky a provozní data. Stabilní .NET základ, který roste s firmou.</p>
                     </div>
                     <div class="service-card featured-service">
-                        <div class="icon-box">📱</div>
-                        <h3 data-i18n-key="service.web.title">Web & Mobil</h3>
-                        <p data-i18n-key="service.web.desc">Responsivní webové aplikace a nativní mobilní řešení propojené přes REST API, SignalR a cloudové
-                            služby.</p>
-                        <p class="highlight-text" data-i18n-key="service.web.highlight">Moderní řešení s technologiemi Blazor a .NET MAUI.</p>
+                        <div class="icon-box">MA</div>
+                        <h3 data-i18n-key="service.web.title">Mobilní provozní aplikace</h3>
+                        <p data-i18n-key="service.web.desc">Aplikace pro lidi v terénu i ve skladu: offline režim, synchronizace, tisk dokladů, čtečky a rychlé dotykové ovládání.</p>
+                        <p class="highlight-text" data-i18n-key="service.web.highlight">Praktická řešení s .NET MAUI, API a SignalR.</p>
                     </div>
                     <div class="service-card">
-                        <div class="icon-box">🔧</div>
-                        <h3 data-i18n-key="service.hw.title">IT Podpora & HW</h3>
-                        <p data-i18n-key="service.hw.desc">Servis PC, IT poradenství a integrace s hardwarem. Váhy, čtečky, tiskárny a reálná průmyslová
-                            automatizace.</p>
+                        <div class="icon-box">HW</div>
+                        <h3 data-i18n-key="service.hw.title">Hardware integrace</h3>
+                        <p data-i18n-key="service.hw.desc">Napojení vah, tiskáren, čteček a terminálů na aplikace a databáze. Méně ruční práce, méně chyb, rychlejší provoz.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="icon-box">API</div>
+                        <h3 data-i18n-key="service.cloud.title">Cloud & API</h3>
+                        <p data-i18n-key="service.cloud.desc">REST API, cloudové služby, integrace systémů a bezpečná výměna dat mezi webem, mobilem, desktopem a provozem.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section id="process" class="process-section">
+            <div class="container process-content">
+                <div class="section-heading align-left">
+                    <span class="section-kicker" data-i18n-key="section.process.kicker">Postup</span>
+                    <h2 class="section-title" data-i18n-key="section.process.title">Od provozního problému k fungující aplikaci</h2>
+                </div>
+                <div class="process-steps">
+                    <div class="process-step">
+                        <span>01</span>
+                        <h3 data-i18n-key="process.step1.title">Mapování reality</h3>
+                        <p data-i18n-key="process.step1.desc">Nejdřív pochopit skutečný proces, lidi, zařízení, data a místa, kde dnes vznikají zbytečné chyby.</p>
+                    </div>
+                    <div class="process-step">
+                        <span>02</span>
+                        <h3 data-i18n-key="process.step2.title">Návrh řešení</h3>
+                        <p data-i18n-key="process.step2.desc">Rozhraní, datový model, integrace a technologie navržené tak, aby dávaly smysl v reálném provozu.</p>
+                    </div>
+                    <div class="process-step">
+                        <span>03</span>
+                        <h3 data-i18n-key="process.step3.title">Dodání a provoz</h3>
+                        <p data-i18n-key="process.step3.desc">Vývoj, testování, nasazení a další rozvoj bez zbytečné magie. Systém musí vydržet běžný pracovní den.</p>
                     </div>
                 </div>
             </div>
@@ -141,10 +233,19 @@
         <!-- Portfolio Section -->
         <section id="portfolio" class="portfolio-section">
             <div class="container">
-                <h2 class="section-title" data-i18n-key="section.portfolio.title">Vybrané Projekty</h2>
+                <div class="section-heading">
+                    <span class="section-kicker" data-i18n-key="section.portfolio.kicker">Důkazy práce</span>
+                    <h2 class="section-title" data-i18n-key="section.portfolio.title">Vybrané projekty</h2>
+                </div>
+                <div class="portfolio-filters" aria-label="Filtr projektů">
+                    <button type="button" class="filter-btn active" data-filter="all" data-i18n-key="filter.all">Vše</button>
+                    <button type="button" class="filter-btn" data-filter="web" data-i18n-key="filter.web">Web</button>
+                    <button type="button" class="filter-btn" data-filter="mobile" data-i18n-key="filter.mobile">Mobile</button>
+                    <button type="button" class="filter-btn" data-filter="hardware" data-i18n-key="filter.hardware">Hardware</button>
+                </div>
                 <div class="portfolio-grid">
                     <!-- ThreeS -->
-                    <article class="project-card">
+                    <article class="project-card featured-project" data-category="web">
                         <div class="project-image">
                             <a href="https://threescz.github.io/Web/" target="_blank">
                                 <img src="images/projects/threes_screen.png" alt="ThreeS" loading="lazy">
@@ -152,6 +253,7 @@
                         </div>
                         <div class="project-content">
                             <h3>ThreeS</h3>
+                            <div class="project-meta" data-i18n-key="project.meta.web">Webový firemní systém</div>
                             <p data-i18n-key="project.threes.desc">Informační systém pro firmy, kterým již Excel nestačí. Webová aplikace pro komplexní správu firemních procesů, projektů a dokumentace.</p>
                             <div class="tags">
                                 <span>Web App</span>
@@ -161,7 +263,7 @@
                         </div>
                     </article>
                     <!-- Trello to Markdown -->
-                    <article class="project-card">
+                    <article class="project-card" data-category="web">
                         <div class="project-image">
                             <a href="https://github.com/hanyscz/TrelloToMarkdown" target="_blank">
                                 <img src="images/projects/trellotomd.png" alt="Trello to Markdown Exporter" loading="lazy">
@@ -169,6 +271,7 @@
                         </div>
                         <div class="project-content">
                             <h3>Trello to Markdown</h3>
+                            <div class="project-meta" data-i18n-key="project.meta.tool">Produktivní nástroj</div>
                             <p data-i18n-key="project.trello.desc">Rozšíření do prohlížeče Chrome pro export Trello nástěnek a karet do čistého Markdown formátu. Vše funguje lokálně, bezpečně a nepoužívá externí servery.</p>
                             <div class="tags">
                                 <span>Chrome Extension</span>
@@ -178,12 +281,13 @@
                         </div>
                     </article>
                     <!-- Project 1 -->
-                    <article class="project-card">
+                    <article class="project-card" data-category="hardware">
                         <div class="project-image">
                             <img src="images/projects/expedice.jpg" alt="Expediční terminál" loading="lazy">
                         </div>
                         <div class="project-content">
                             <h3>Expediční Terminál</h3>
+                            <div class="project-meta" data-i18n-key="project.meta.hardware">Dotykové rozhraní a hardware</div>
                             <p data-i18n-key="project.expedit.desc">Robustní dotykové rozhraní pro skladové operátory. Napojení na váhy, tiskárny štítků a
                                 centrální databázi. Tisk etiket a plnění daty z pohodlí kanceláře.</p>
                             <div class="tags">
@@ -194,12 +298,13 @@
                         </div>
                     </article>
                     <!-- Project 2 -->
-                    <article class="project-card">
+                    <article class="project-card" data-category="mobile hardware">
                         <div class="project-image">
                             <img src="images/projects/mvykup.jpg" alt="Mobilní výkup" loading="lazy">
                         </div>
                         <div class="project-content">
                             <h3>Mobilní Výkup</h3>
+                            <div class="project-meta" data-i18n-key="project.meta.mobile">Mobilní aplikace v terénu</div>
                             <p data-i18n-key="project.mvykup.desc">Mobilní aplikace pro nákupčí. Příjem zvěřiny, tvorba a tisk pokladních dokladů přes BT
                                 tiskárnu.
                                 Offline režim se synchronizací, SignalR komunikace.</p>
@@ -211,12 +316,13 @@
                         </div>
                     </article>
                     <!-- Project 3 -->
-                    <article class="project-card">
+                    <article class="project-card" data-category="web">
                         <div class="project-image">
                             <img src="images/projects/is1.jpg" alt="Informační systém" loading="lazy">
                         </div>
                         <div class="project-content">
                             <h3>Informační Systémy</h3>
+                            <div class="project-meta" data-i18n-key="project.meta.system">ERP / IS na míru</div>
                             <p data-i18n-key="project.is.desc">IS na míru pro zpracování zvěře. Statistiky, fakturace, napojení na veterinární správu,
                                 skladové hospodářství. Komplexní řešení pro firmy.</p>
                             <div class="tags">
@@ -227,12 +333,13 @@
                         </div>
                     </article>
                     <!-- Project 4 -->
-                    <article class="project-card">
+                    <article class="project-card" data-category="hardware">
                         <div class="project-image">
                             <img src="images/projects/prijem.jpg" alt="Příjmový terminál" loading="lazy">
                         </div>
                         <div class="project-content">
                             <h3>Příjmový terminál</h3>
+                            <div class="project-meta" data-i18n-key="project.meta.hardware">Dotykové rozhraní a hardware</div>
                             <p data-i18n-key="project.prijem.desc">Obrazovka příjmového terminálu, velké prvky pro lehké dotykové ovládání. Jednoduché
                                 rozhraní, napojení na databázi a váhu.</p>
                             <div class="tags">
