@@ -61,6 +61,50 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Hero integration flow animation
+    const metricValues = document.querySelectorAll('[data-count-to]');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    metricValues.forEach((metric) => {
+        const target = Number(metric.dataset.countTo || 0);
+        const suffix = metric.dataset.suffix || '';
+
+        if (reduceMotion) {
+            metric.textContent = `${target}${suffix}`;
+            return;
+        }
+
+        const duration = 1200;
+        const startedAt = performance.now();
+
+        const updateValue = (time) => {
+            const progress = Math.min((time - startedAt) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            metric.textContent = `${Math.round(target * eased)}${suffix}`;
+
+            if (progress < 1) {
+                requestAnimationFrame(updateValue);
+            }
+        };
+
+        requestAnimationFrame(updateValue);
+    });
+
+    const flowLogLines = document.querySelectorAll('.flow-log-line');
+
+    if (flowLogLines.length) {
+        let activeLogIndex = 0;
+        flowLogLines[activeLogIndex].classList.add('active');
+
+        if (!reduceMotion) {
+            setInterval(() => {
+                flowLogLines[activeLogIndex].classList.remove('active');
+                activeLogIndex = (activeLogIndex + 1) % flowLogLines.length;
+                flowLogLines[activeLogIndex].classList.add('active');
+            }, 1800);
+        }
+    }
+
     // Cookie Banner Logic
     const cookieBanner = document.getElementById('cookie-banner');
     const cookieAcceptBtn = document.getElementById('cookie-accept');
@@ -94,9 +138,19 @@ document.addEventListener('DOMContentLoaded', () => {
             'hero.proof1': 'Hardware integrace',
             'hero.proof2': 'Offline-first mobilní aplikace',
             'hero.proof3': 'Firemní systémy na míru',
-            'hero.metric1.label': 'Server',
-            'hero.metric2.label': 'Sync',
-            'hero.metric3.label': 'API',
+            'flow.eyebrow': 'Provozní tok dat',
+            'flow.title': 'Mobil, API, IS a hardware v jednom procesu',
+            'flow.status': 'SYNC',
+            'flow.node.mobile': 'Mobil',
+            'flow.node.system': 'Firemní IS',
+            'flow.node.hardware': 'Váha / tisk',
+            'flow.node.cloud': 'Data',
+            'flow.metric.integrations': 'Integrace',
+            'flow.metric.sync': 'Synchronizace',
+            'flow.metric.response': 'API odezva',
+            'flow.log.1': 'Mobilní dávka přijata',
+            'flow.log.2': 'Data propsána do firemního IS',
+            'flow.log.3': 'Etiketa odeslána do tisku',
             'hero.work': 'Moje práce',
             'hero.contact': 'Kontaktovat',
             'section.services.kicker': 'Schopnosti',
@@ -156,9 +210,19 @@ document.addEventListener('DOMContentLoaded', () => {
             'hero.proof1': 'Hardware integration',
             'hero.proof2': 'Offline-first mobile apps',
             'hero.proof3': 'Custom business systems',
-            'hero.metric1.label': 'Server',
-            'hero.metric2.label': 'Sync',
-            'hero.metric3.label': 'API',
+            'flow.eyebrow': 'Operational data flow',
+            'flow.title': 'Mobile, API, IS and hardware in one process',
+            'flow.status': 'SYNC',
+            'flow.node.mobile': 'Mobile',
+            'flow.node.system': 'Business IS',
+            'flow.node.hardware': 'Scale / print',
+            'flow.node.cloud': 'Data',
+            'flow.metric.integrations': 'Integrations',
+            'flow.metric.sync': 'Synchronization',
+            'flow.metric.response': 'API response',
+            'flow.log.1': 'Mobile batch received',
+            'flow.log.2': 'Data written into business IS',
+            'flow.log.3': 'Label sent to printer',
             'hero.work': 'My work',
             'hero.contact': 'Contact',
             'section.services.kicker': 'Capabilities',
