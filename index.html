@@ -45,8 +45,8 @@
     <title>LuRa IT Develop | Senior .NET Developer & Architect</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=20260203">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=20260606">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 
@@ -56,8 +56,7 @@
     <header class="navbar">
         <div class="container navbar-container">
             <a href="#" class="logo">
-                <img src="images/logo.png" alt="LuRa IT Logo"
-                    style="height: 40px; vertical-align: middle; margin-right: 10px;">
+                <img src="images/logo.png" alt="LuRa IT Logo" style="vertical-align: middle;">
                 LuRa IT<span class="dot">.</span>
             </a>
             <nav class="nav-links">
@@ -70,7 +69,7 @@
                 <button type="button" class="lang-btn active" data-lang="cs">CZ</button>
                 <button type="button" class="lang-btn" data-lang="en">EN</button>
             </div>
-            <button class="mobile-menu-btn" aria-label="Menu">
+            <button class="mobile-menu-btn" aria-label="Menu" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -81,8 +80,9 @@
     <main>
         <!-- Hero Section -->
         <section id="hero" class="hero-section">
-            <div class="container hero-content hero-content--single">
-                <div class="hero-text">
+            <canvas class="hero-particles" id="hero-particles" aria-hidden="true"></canvas>
+            <div class="container hero-content">
+                <div class="hero-text reveal">
                     <div class="hero-kicker" data-i18n-key="hero.kicker">Senior .NET vývoj a provozní systémy</div>
                     <h1 data-i18n-key="hero.title" data-i18n-mode="html">Software, který <span class="gradient-text">mluví s provozem</span></h1>
                     <p data-i18n-key="hero.description">Navrhuji a stavím aplikace, které propojují kancelář, sklad, hardware a cloud. Od Blazoru a .NET MAUI po váhy, tiskárny, offline režimy a firemní data.</p>
@@ -96,18 +96,19 @@
                         <a href="#contact" class="btn-secondary" data-i18n-key="hero.contact">Kontaktovat</a>
                     </div>
                 </div>
-                <div class="hero-visual"></div>
             </div>
         </section>
+
+        <div class="section-divider"></div>
 
         <!-- Services Section -->
         <section id="services" class="services-section">
             <div class="container">
-                <div class="section-heading">
+                <div class="section-heading reveal">
                     <span class="section-kicker" data-i18n-key="section.services.kicker">Schopnosti</span>
                     <h2 class="section-title" data-i18n-key="section.services.title">Co umím dodat do provozu</h2>
                 </div>
-                <div class="services-grid">
+                <div class="services-grid reveal-stagger">
                     <div class="service-card">
                         <div class="icon-box">IS</div>
                         <h3 data-i18n-key="service.app.title">Firemní systémy</h3>
@@ -133,84 +134,88 @@
             </div>
         </section>
 
+        <div class="section-divider"></div>
+
         <!-- Process Section -->
         <section id="process" class="process-section">
             <div class="container process-content">
-                <div class="section-heading align-left">
+                <div class="section-heading align-left reveal">
                     <span class="section-kicker" data-i18n-key="section.process.kicker">Postup</span>
                     <h2 class="section-title" data-i18n-key="section.process.title">Od provozního problému k fungující aplikaci</h2>
                 </div>
-                <div class="process-steps">
+                <div class="process-steps reveal-stagger">
                     <div class="process-step">
-                        <span>01</span>
-                        <h3 data-i18n-key="process.step1.title">Mapování reality</h3>
-                        <p data-i18n-key="process.step1.desc">Nejdřív pochopit skutečný proces, lidi, zařízení, data a místa, kde dnes vznikají zbytečné chyby.</p>
+                        <div class="step-number">01</div>
+                        <div>
+                            <h3 data-i18n-key="process.step1.title">Mapování reality</h3>
+                            <p data-i18n-key="process.step1.desc">Nejdřív pochopit skutečný proces, lidi, zařízení, data a místa, kde dnes vznikají zbytečné chyby.</p>
+                        </div>
                     </div>
                     <div class="process-step">
-                        <span>02</span>
-                        <h3 data-i18n-key="process.step2.title">Návrh řešení</h3>
-                        <p data-i18n-key="process.step2.desc">Rozhraní, datový model, integrace a technologie navržené tak, aby dávaly smysl v reálném provozu.</p>
+                        <div class="step-number">02</div>
+                        <div>
+                            <h3 data-i18n-key="process.step2.title">Návrh řešení</h3>
+                            <p data-i18n-key="process.step2.desc">Rozhraní, datový model, integrace a technologie navržené tak, aby dávaly smysl v reálném provozu.</p>
+                        </div>
                     </div>
                     <div class="process-step">
-                        <span>03</span>
-                        <h3 data-i18n-key="process.step3.title">Dodání a provoz</h3>
-                        <p data-i18n-key="process.step3.desc">Vývoj, testování, nasazení a další rozvoj bez zbytečné magie. Systém musí vydržet běžný pracovní den.</p>
+                        <div class="step-number">03</div>
+                        <div>
+                            <h3 data-i18n-key="process.step3.title">Dodání a provoz</h3>
+                            <p data-i18n-key="process.step3.desc">Vývoj, testování, nasazení a další rozvoj bez zbytečné magie. Systém musí vydržet běžný pracovní den.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <div class="section-divider"></div>
+
         <!-- Portfolio Section -->
         <section id="portfolio" class="portfolio-section">
             <div class="container">
-                <div class="section-heading">
+                <div class="section-heading reveal">
                     <span class="section-kicker" data-i18n-key="section.portfolio.kicker">Důkazy práce</span>
                     <h2 class="section-title" data-i18n-key="section.portfolio.title">Vybrané projekty</h2>
                 </div>
-                <div class="portfolio-filters" aria-label="Filtr projektů">
+                <div class="portfolio-filters reveal" aria-label="Filtr projektů">
                     <button type="button" class="filter-btn active" data-filter="all" data-i18n-key="filter.all">Vše</button>
                     <button type="button" class="filter-btn" data-filter="web" data-i18n-key="filter.web">Web</button>
                     <button type="button" class="filter-btn" data-filter="mobile" data-i18n-key="filter.mobile">Mobile</button>
                     <button type="button" class="filter-btn" data-filter="hardware" data-i18n-key="filter.hardware">Hardware</button>
                 </div>
-                <div class="portfolio-grid">
-                    <!-- ThreeS -->
-                    <article class="project-card featured-project" data-category="web">
+                <div class="portfolio-grid reveal-stagger">
+                    <!-- ThreeS — featured -->
+                    <article class="project-card featured-project" data-category="web" data-href="https://www.threes.cz" data-label="ThreeS">
+                        <span class="project-link-overlay" aria-hidden="true"></span>
                         <div class="project-image">
-                            <a href="https://threescz.github.io/Web/" target="_blank">
-                                <img src="images/projects/threes_screen.png" alt="ThreeS" loading="lazy">
-                            </a>
+                            <img src="images/projects/threes_screen.png" alt="ThreeS" loading="lazy">
                         </div>
                         <div class="project-content">
                             <h3>ThreeS</h3>
                             <div class="project-meta" data-i18n-key="project.meta.web">Webový firemní systém</div>
                             <p data-i18n-key="project.threes.desc">Informační systém pro firmy, kterým již Excel nestačí. Webová aplikace pro komplexní správu firemních procesů, projektů a dokumentace.</p>
                             <div class="tags">
-                                <span>Web App</span>
-                                <span>IS</span>
-                                <span>SaaS</span>
+                                <span>Web App</span><span>IS</span><span>SaaS</span>
                             </div>
                         </div>
                     </article>
                     <!-- Trello to Markdown -->
-                    <article class="project-card" data-category="web">
+                    <article class="project-card" data-category="web" data-href="https://github.com/hanyscz/TrelloToMarkdown" data-label="Trello">
+                        <span class="project-link-overlay" aria-hidden="true"></span>
                         <div class="project-image">
-                            <a href="https://github.com/hanyscz/TrelloToMarkdown" target="_blank">
-                                <img src="images/projects/trellotomd.png" alt="Trello to Markdown Exporter" loading="lazy">
-                            </a>
+                            <img src="images/projects/trellotomd.png" alt="Trello to Markdown Exporter" loading="lazy">
                         </div>
                         <div class="project-content">
                             <h3>Trello to Markdown</h3>
                             <div class="project-meta" data-i18n-key="project.meta.tool">Produktivní nástroj</div>
                             <p data-i18n-key="project.trello.desc">Rozšíření do prohlížeče Chrome pro export Trello nástěnek a karet do čistého Markdown formátu. Vše funguje lokálně, bezpečně a nepoužívá externí servery.</p>
                             <div class="tags">
-                                <span>Chrome Extension</span>
-                                <span>JavaScript</span>
-                                <span>Tool</span>
+                                <span>Extension</span><span>JavaScript</span><span>Tool</span>
                             </div>
                         </div>
                     </article>
-                    <!-- Project 1 -->
+                    <!-- Expediční Terminál -->
                     <article class="project-card" data-category="hardware">
                         <div class="project-image">
                             <img src="images/projects/expedice.jpg" alt="Expediční terminál" loading="lazy">
@@ -218,16 +223,13 @@
                         <div class="project-content">
                             <h3>Expediční Terminál</h3>
                             <div class="project-meta" data-i18n-key="project.meta.hardware">Dotykové rozhraní a hardware</div>
-                            <p data-i18n-key="project.expedit.desc">Robustní dotykové rozhraní pro skladové operátory. Napojení na váhy, tiskárny štítků a
-                                centrální databázi. Tisk etiket a plnění daty z pohodlí kanceláře.</p>
+                            <p data-i18n-key="project.expedit.desc">Robustní dotykové rozhraní pro skladové operátory. Napojení na váhy, tiskárny štítků a centrální databázi. Tisk etiket a plnění daty z pohodlí kanceláře.</p>
                             <div class="tags">
-                                <span>WPF</span>
-                                <span>SQL</span>
-                                <span>Hardware</span>
+                                <span>WPF</span><span>SQL</span><span>Hardware</span>
                             </div>
                         </div>
                     </article>
-                    <!-- Project 2 -->
+                    <!-- Mobilní Výkup -->
                     <article class="project-card" data-category="mobile hardware">
                         <div class="project-image">
                             <img src="images/projects/mvykup.jpg" alt="Mobilní výkup" loading="lazy">
@@ -235,17 +237,13 @@
                         <div class="project-content">
                             <h3>Mobilní Výkup</h3>
                             <div class="project-meta" data-i18n-key="project.meta.mobile">Mobilní aplikace v terénu</div>
-                            <p data-i18n-key="project.mvykup.desc">Mobilní aplikace pro nákupčí. Příjem zvěřiny, tvorba a tisk pokladních dokladů přes BT
-                                tiskárnu.
-                                Offline režim se synchronizací, SignalR komunikace.</p>
+                            <p data-i18n-key="project.mvykup.desc">Mobilní aplikace pro nákupčí. Příjem zvěřiny, tvorba a tisk pokladních dokladů přes BT tiskárnu. Offline režim se synchronizací, SignalR komunikace.</p>
                             <div class="tags">
-                                <span>.NET MAUI</span>
-                                <span>Android</span>
-                                <span>API</span>
+                                <span>.NET MAUI</span><span>Android</span><span>API</span>
                             </div>
                         </div>
                     </article>
-                    <!-- Project 3 -->
+                    <!-- Informační Systémy -->
                     <article class="project-card" data-category="web">
                         <div class="project-image">
                             <img src="images/projects/is1.jpg" alt="Informační systém" loading="lazy">
@@ -253,16 +251,13 @@
                         <div class="project-content">
                             <h3>Informační Systémy</h3>
                             <div class="project-meta" data-i18n-key="project.meta.system">ERP / IS na míru</div>
-                            <p data-i18n-key="project.is.desc">IS na míru pro zpracování zvěře. Statistiky, fakturace, napojení na veterinární správu,
-                                skladové hospodářství. Komplexní řešení pro firmy.</p>
+                            <p data-i18n-key="project.is.desc">IS na míru pro zpracování zvěře. Statistiky, fakturace, napojení na veterinární správu, skladové hospodářství. Komplexní řešení pro firmy.</p>
                             <div class="tags">
-                                <span>ASP.NET</span>
-                                <span>Blazor</span>
-                                <span>SignalR</span>
+                                <span>ASP.NET</span><span>Blazor</span><span>SignalR</span>
                             </div>
                         </div>
                     </article>
-                    <!-- Project 4 -->
+                    <!-- Příjmový terminál -->
                     <article class="project-card" data-category="hardware">
                         <div class="project-image">
                             <img src="images/projects/prijem.jpg" alt="Příjmový terminál" loading="lazy">
@@ -270,12 +265,9 @@
                         <div class="project-content">
                             <h3>Příjmový terminál</h3>
                             <div class="project-meta" data-i18n-key="project.meta.hardware">Dotykové rozhraní a hardware</div>
-                            <p data-i18n-key="project.prijem.desc">Obrazovka příjmového terminálu, velké prvky pro lehké dotykové ovládání. Jednoduché
-                                rozhraní, napojení na databázi a váhu.</p>
+                            <p data-i18n-key="project.prijem.desc">Obrazovka příjmového terminálu, velké prvky pro lehké dotykové ovládání. Jednoduché rozhraní, napojení na databázi a váhu.</p>
                             <div class="tags">
-                                <span>Touch UI</span>
-                                <span>Database</span>
-                                <span>Hardware</span>
+                                <span>Touch UI</span><span>Database</span><span>Hardware</span>
                             </div>
                         </div>
                     </article>
@@ -283,60 +275,60 @@
             </div>
         </section>
 
+        <div class="section-divider"></div>
+
         <!-- Contact Section -->
         <section id="contact" class="contact-section">
             <div class="container">
                 <div class="contact-wrapper">
-                    <div class="contact-info">
+                    <div class="contact-info reveal">
                         <h2 data-i18n-key="section.contact.title">Spojme se</h2>
                         <p data-i18n-key="section.contact.desc">Máte nápad na projekt? Potřebujete spolehlivého partnera pro vývoj? Napište nám.</p>
+                    </div>
 
-                        <div class="team-grid">
-                            <div class="team-member">
-                                <h3>Lukáš Hanák</h3>
-                                <p class="role">Senior .NET Developer & Architect</p>
-                                <div class="contact-item">
-                                    <span class="label" data-i18n-key="contact.phone">Telefon</span>
-                                    <a href="tel:+420777581850" class="value link">+420 777 581 850</a>
-                                </div>
-                                <div class="contact-item">
-                                    <span class="label" data-i18n-key="contact.email">Email</span>
-                                    <a href="mailto:hanak@lura-it.eu" class="value link">hanak@lura-it.eu</a>
-                                </div>
-                                <div class="social-links">
-                                    <a href="https://www.linkedin.com/in/lukashanyshanak" target="_blank">LinkedIn</a>
-                                </div>
+                    <div class="team-grid reveal-stagger">
+                        <div class="team-member">
+                            <h3>Lukáš Hanák</h3>
+                            <p class="role">Senior .NET Developer & Architect</p>
+                            <div class="contact-item">
+                                <span class="label" data-i18n-key="contact.phone">Telefon</span>
+                                <a href="tel:+420777581850" class="value link">+420 777 581 850</a>
                             </div>
-
-                            <div class="team-member">
-                                <h3>Radek Vala</h3>
-                                <p class="role">PHP Developer</p>
-                                <div class="contact-item">
-                                    <span class="label" data-i18n-key="contact.phone">Telefon</span>
-                                    <a href="tel:+420728015407" class="value link">+420 728 015 407</a>
-                                </div>
-                                <div class="contact-item">
-                                    <span class="label" data-i18n-key="contact.email">Email</span>
-                                    <a href="mailto:vala@lura-it.eu" class="value link">vala@lura-it.eu</a>
-                                </div>
-                                <div class="social-links">
-                                    <a href="https://www.linkedin.com/in/radek-vala-543393aa/"
-                                        target="_blank">LinkedIn</a>
-                                </div>
+                            <div class="contact-item">
+                                <span class="label" data-i18n-key="contact.email">Email</span>
+                                <a href="mailto:hanak@lura-it.eu" class="value link">hanak@lura-it.eu</a>
+                            </div>
+                            <div class="social-links">
+                                <a href="https://www.linkedin.com/in/lukashanyshanak" target="_blank" rel="noopener">LinkedIn →</a>
                             </div>
                         </div>
 
+                        <div class="team-member">
+                            <h3>Radek Vala</h3>
+                            <p class="role">PHP Developer</p>
+                            <div class="contact-item">
+                                <span class="label" data-i18n-key="contact.phone">Telefon</span>
+                                <a href="tel:+420728015407" class="value link">+420 728 015 407</a>
+                            </div>
+                            <div class="contact-item">
+                                <span class="label" data-i18n-key="contact.email">Email</span>
+                                <a href="mailto:vala@lura-it.eu" class="value link">vala@lura-it.eu</a>
+                            </div>
+                            <div class="social-links">
+                                <a href="https://www.linkedin.com/in/radek-vala-543393aa/" target="_blank" rel="noopener">LinkedIn →</a>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="billing-info">
+                    <div class="billing-info reveal">
                         <h3 data-i18n-key="billing.title">Fakturační údaje</h3>
                         <p>LuRa IT Develop</p>
                         <p>Načeratice 134, Znojmo</p>
                         <p>IČO: 14024900</p>
                     </div>
 
-                    <div class="contact-actions">
-                        <a href="https://wa.me/420777581850" target="_blank" class="btn-whatsapp">
+                    <div class="contact-actions reveal">
+                        <a href="https://wa.me/420777581850" target="_blank" rel="noopener" class="btn-whatsapp">
                             <span class="icon">💬</span>
                             <span class="text" data-i18n-key="whatsapp.text">Napsat na WhatsApp</span>
                         </a>
@@ -355,8 +347,7 @@
     <div id="cookie-banner" class="cookie-banner">
         <div class="cookie-content">
             <div class="cookie-text">
-                <p data-i18n-key="cookie.text">Tento web používá soubory cookies k zajištění správného fungování a analýze návštěvnosti.
-                    Používáním webu souhlasíte s jejich používáním.</p>
+                <p data-i18n-key="cookie.text">Tento web používá soubory cookies k zajištění správného fungování a analýze návštěvnosti. Používáním webu souhlasíte s jejich používáním.</p>
             </div>
             <div class="cookie-buttons">
                 <button id="cookie-accept" class="btn-cookie-accept" data-i18n-key="cookie.button">Rozumím</button>
@@ -364,7 +355,7 @@
         </div>
     </div>
 
-    <script src="script.js?v=20260203"></script>
+    <script src="script.js?v=20260606"></script>
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-7DG9JQ8FRR"></script>
@@ -372,7 +363,6 @@
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-
         gtag('config', 'G-7DG9JQ8FRR');
     </script>
 </body>
