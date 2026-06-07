@@ -1,4 +1,4 @@
-# Seznam možných vylepšení webu (LuRa Website)
+ # Seznam možných vylepšení webu (LuRa Website)
 
 Tento dokument obsahuje seznam doporučených vylepšení pro webovou prezentaci LuRa IT.
 
