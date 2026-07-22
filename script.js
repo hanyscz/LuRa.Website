@@ -1,467 +1,69 @@
-/**
- * LuRa IT Develop — Script
- * Handles: translations, nav, portfolio filters, cookie consent,
- *          particle canvas, scroll reveals, 3D tilt, mouse glow, navbar shrink
- */
-document.addEventListener('DOMContentLoaded', () => {
-
-  /* ═══════════════════════════════════════════════
-     SCROLL SPY — Active nav link
-     ═══════════════════════════════════════════════ */
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-links a');
-
-  function updateActiveNav() {
-    let current = '';
-    sections.forEach(section => {
-      const top = section.offsetTop - 120;
-      if (window.scrollY >= top) {
-        current = section.getAttribute('id');
-      }
-    });
-    navLinks.forEach(link => {
-      link.classList.toggle('active', current && link.getAttribute('href') === `#${current}`);
-    });
-  }
-
-  /* ═══════════════════════════════════════════════
-     NAVBAR SHRINK ON SCROLL
-     ═══════════════════════════════════════════════ */
-  const navbar = document.querySelector('.navbar');
-
-  function updateNavbar() {
-    navbar.classList.toggle('scrolled', window.scrollY > 50);
-    updateActiveNav();
-  }
-
-  window.addEventListener('scroll', updateNavbar, { passive: true });
-
-  /* ═══════════════════════════════════════════════
-     MOBILE MENU
-     ═══════════════════════════════════════════════ */
-  const mobileBtn = document.querySelector('.mobile-menu-btn');
-  const navLinksContainer = document.querySelector('.nav-links');
-
-  if (mobileBtn) {
-    mobileBtn.addEventListener('click', () => {
-      const isOpen = navLinksContainer.classList.toggle('open');
-      mobileBtn.classList.toggle('open');
-      mobileBtn.setAttribute('aria-expanded', isOpen);
-    });
-  }
-
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      navLinksContainer.classList.remove('open');
-      mobileBtn.classList.remove('open');
-      mobileBtn.setAttribute('aria-expanded', 'false');
-    });
-  });
-
-  /* ═══════════════════════════════════════════════
-     PORTFOLIO FILTERING
-     ═══════════════════════════════════════════════ */
-  const filterButtons = document.querySelectorAll('.filter-btn');
-  const projectCards = document.querySelectorAll('.project-card');
-
-  filterButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      const filter = button.dataset.filter;
-
-      filterButtons.forEach(btn => btn.classList.remove('active'));
-      button.classList.add('active');
-
-      projectCards.forEach(card => {
-        const categories = card.dataset.category ? card.dataset.category.split(' ') : [];
-        const shouldShow = filter === 'all' || categories.includes(filter);
-        card.classList.toggle('hidden', !shouldShow);
-      });
-    });
-  });
-
-  /* ═══════════════════════════════════════════════
-     COOKIE BANNER
-     ═══════════════════════════════════════════════ */
-  const cookieBanner = document.getElementById('cookie-banner');
-  const cookieAcceptBtn = document.getElementById('cookie-accept');
-
-  if (!localStorage.getItem('cookiesAccepted')) {
-    setTimeout(() => cookieBanner.classList.add('show'), 1000);
-  }
-
-  if (cookieAcceptBtn) {
-    cookieAcceptBtn.addEventListener('click', () => {
-      localStorage.setItem('cookiesAccepted', 'true');
-      cookieBanner.classList.remove('show');
-    });
-  }
-
-  /* ═══════════════════════════════════════════════
-     LANGUAGE SWITCHER
-     ═══════════════════════════════════════════════ */
-  const languageButtons = document.querySelectorAll('.lang-btn');
-  const i18nElements = document.querySelectorAll('[data-i18n-key]');
+(() => {
+  'use strict';
 
   const translations = {
     cs: {
-      'nav.hero': 'Úvod',
-      'nav.services': 'Služby',
-      'nav.portfolio': 'Portfolio',
-      'nav.contact': 'Kontakt',
-      'hero.kicker': 'Senior .NET vývoj a provozní systémy',
-      'hero.title': 'Software, který <span class="gradient-text">mluví s provozem</span>',
-      'hero.description': 'Navrhuji a stavím aplikace, které propojují kancelář, sklad, hardware a cloud. Od Blazoru a .NET MAUI po váhy, tiskárny, offline režimy a firemní data.',
-      'hero.proof1': 'Hardware integrace',
-      'hero.proof2': 'Offline-first mobilní aplikace',
-      'hero.proof3': 'Firemní systémy na míru',
-      'hero.work': 'Moje práce',
-      'hero.contact': 'Kontaktovat',
-      'section.services.kicker': 'Schopnosti',
-      'section.services.title': 'Co umím dodat do provozu',
-      'service.app.title': 'Firemní systémy',
-      'service.app.desc': 'Informační systémy pro procesy, evidenci, fakturaci, statistiky a provozní data. Stabilní .NET základ, který roste s firmou.',
-      'service.web.title': 'Mobilní provozní aplikace',
-      'service.web.desc': 'Aplikace pro lidi v terénu i ve skladu: offline režim, synchronizace, tisk dokladů, čtečky a rychlé dotykové ovládání.',
-      'service.web.highlight': 'Praktická řešení s .NET MAUI, API a SignalR.',
-      'service.hw.title': 'Hardware integrace',
-      'service.hw.desc': 'Napojení vah, tiskáren, čteček a terminálů na aplikace a databáze. Méně ruční práce, méně chyb, rychlejší provoz.',
-      'service.cloud.title': 'Cloud & API',
-      'service.cloud.desc': 'REST API, cloudové služby, integrace systémů a bezpečná výměna dat mezi webem, mobilem, desktopem a provozem.',
-      'section.process.kicker': 'Postup',
-      'section.process.title': 'Od provozního problému k fungující aplikaci',
-      'process.step1.title': 'Mapování reality',
-      'process.step1.desc': 'Nejdřív pochopit skutečný proces, lidi, zařízení, data a místa, kde dnes vznikají zbytečné chyby.',
-      'process.step2.title': 'Návrh řešení',
-      'process.step2.desc': 'Rozhraní, datový model, integrace a technologie navržené tak, aby dávaly smysl v reálném provozu.',
-      'process.step3.title': 'Dodání a provoz',
-      'process.step3.desc': 'Vývoj, testování, nasazení a další rozvoj bez zbytečné magie. Systém musí vydržet běžný pracovní den.',
-      'section.portfolio.kicker': 'Důkazy práce',
-      'section.portfolio.title': 'Vybrané projekty',
-      'filter.all': 'Vše',
-      'filter.web': 'Web',
-      'filter.mobile': 'Mobile',
-      'filter.hardware': 'Hardware',
-      'project.meta.web': 'Webový firemní systém',
-      'project.meta.tool': 'Produktivní nástroj',
-      'project.meta.hardware': 'Dotykové rozhraní a hardware',
-      'project.meta.mobile': 'Mobilní aplikace v terénu',
-      'project.meta.system': 'ERP / IS na míru',
-      'project.threes.desc': 'Informační systém pro firmy, kterým již Excel nestačí. Webová aplikace pro komplexní správu firemních procesů, projektů a dokumentace.',
-      'project.trello.desc': 'Rozšíření do prohlížeče Chrome pro export Trello nástěnek a karet do čistého Markdown formátu. Vše funguje lokálně, bezpečně a nepoužívá externí servery.',
-      'project.expedit.desc': 'Robustní dotykové rozhraní pro skladové operátory. Napojení na váhy, tiskárny štítků a centrální databázi. Tisk etiket a plnění daty z pohodlí kanceláře.',
-      'project.mvykup.desc': 'Mobilní aplikace pro nákupčí. Příjem zvěřiny, tvorba a tisk pokladních dokladů přes BT tiskárnu. Offline režim se synchronizací, SignalR komunikace.',
-      'project.is.desc': 'IS na míru pro zpracování zvěře. Statistiky, fakturace, napojení na veterinární správu, skladové hospodářství. Komplexní řešení pro firmy.',
-      'project.prijem.desc': 'Obrazovka příjmového terminálu, velké prvky pro lehké dotykové ovládání. Jednoduché rozhraní, napojení na databázi a váhu.',
-      'section.contact.title': 'Spojme se',
-      'section.contact.desc': 'Máte nápad na projekt? Potřebujete spolehlivého partnera pro vývoj? Napište nám.',
-      'contact.phone': 'Telefon',
-      'contact.email': 'Email',
-      'billing.title': 'Fakturační údaje',
-      'whatsapp.text': 'Napsat na WhatsApp',
-      'footer': '© 2026 LuRa IT Develop. Všechna práva vyhrazena.',
-      'cookie.text': 'Tento web používá soubory cookies k zajištění správného fungování a analýze návštěvnosti. Používáním webu souhlasíte s jejich používáním.',
-      'cookie.button': 'Rozumím'
+      'nav.services':'Služby','nav.work':'Projekty','nav.process':'Postup','nav.contact':'Kontakt','nav.cta':'Popsat projekt <span aria-hidden="true">↗</span>',
+      'hero.eyebrow':'LuRa IT Develop · od roku 2004','hero.title':'Software, který <strong>rozumí provozu.</strong>','hero.intro':'Stavíme aplikace pro firmy, které potřebují propojit lidi, procesy, hardware a data — bez zbytečné složitosti.','hero.primary':'Probrat váš projekt <span aria-hidden="true">→</span>','hero.secondary':'Prohlédnout realizace <span aria-hidden="true">↓</span>','hero.visualLabel':'Jedno řešení, celý provoz',
+      'index.approach':'Přístup','intro.title':'Nehledáme technologii pro technologii. Hledáme cestu, která zrychlí práci.','intro.text':'Ať řešíte sklad, výrobu, servis v terénu nebo firemní administrativu, cílem je vždy stejný: méně přepisování, méně chyb a lepší přehled nad tím, co se skutečně děje.',
+      'index.services':'Služby','services.eyebrow':'Co dodáváme','services.title':'Technologie, které obstojí i mimo kancelář.','service.systems.title':'Firemní systémy','service.systems.text':'Systémy pro evidenci, procesy, fakturaci, sklad i reporting. Přesně podle toho, jak vaše firma skutečně pracuje.','service.mobile.title':'Mobilní provoz','service.mobile.text':'Rychlé aplikace pro terén a sklad, které počítají s dotykem, výpadky signálu a potřebou fungovat hned.','service.hardware.title':'Hardware integrace','service.hardware.text':'Váhy, tiskárny, čtečky, terminály i průmyslová zařízení. Data putují tam, kam mají — bez ručního přepisu.','service.cloud.title':'Cloud &amp; integrace','service.cloud.text':'API, synchronizace a bezpečný pohyb dat mezi webem, mobilem, desktopem a službami třetích stran.',
+      'index.work':'Realizace','work.eyebrow':'Vybrané projekty','work.title':'Kód, který má dopad na každý pracovní den.','filter.all':'Vše','filter.system':'Systémy','filter.mobile':'Mobilní','filter.hardware':'Hardware','project.threes':'Webový informační systém pro firmy, kterým už Excel nestačí — procesy, projekty a dokumentace na jednom místě.','project.visit':'Navštívit projekt','project.mvykup.title':'Mobilní výkup','project.mvykup':'Příjem v terénu, Bluetooth tisk, offline režim a okamžitá synchronizace dat.','project.expedition.title':'Expediční terminál','project.expedition':'Robustní dotykové pracoviště propojené s váhou, tiskárnou štítků a centrální databází.','project.erp.title':'Informační systémy na míru','project.erp':'Od nákupu a skladu po fakturaci, statistiky a napojení na partnerské služby. Jeden spolehlivý základ pro růst firmy.','project.trello':'Lokální Chrome rozšíření, které exportuje nástěnky a karty do čistého Markdownu.','project.viewGithub':'Zobrazit na GitHubu','project.intake.title':'Příjmový terminál','project.intake':'Velké a přehledné ovládání pro provoz s propojením na databázi i váhu.',
+      'index.process':'Spolupráce','process.eyebrow':'Jak postupujeme','process.title':'Od reality k řešení, které vydrží.','process.intro':'Dobrá aplikace nezačíná seznamem technologií. Začíná tím, co dnes lidem brání v práci.','process.discover.title':'Poznáme provoz','process.discover':'Pojmenujeme cíle, data, zařízení a místa, kde vznikají zdržení nebo chyby.','process.design.title':'Navrhneme cestu','process.design':'Rozhraní, procesy a technický základ, který má smysl pro lidi i budoucí rozvoj.','process.deliver.title':'Dodáme a rozvíjíme','process.deliver':'Vyvíjíme po částech, ověřujeme v praxi a zůstáváme partnerem i po nasazení.',
+      'contact.eyebrow':'První krok je jednoduchý','contact.title':'Popište, co vám dnes v provozu zbytečně bere čas.','contact.intro':'Stačí pár vět. Ozveme se a společně zjistíme, zda pro váš problém dává smysl postavit řešení na míru.','form.name':'Jméno a firma','form.email':'E-mail','form.message':'S čím potřebujete pomoci?','form.placeholder':'Například: chceme zrychlit příjem zboží a propojit sklad s mobilní aplikací.','form.submit':'Otevřít e-mail <span aria-hidden="true">→</span>','form.note':'Po odeslání se otevře váš e-mailový program s připravenou zprávou.','footer.copy':'© 2026 LuRa IT Develop. Software pro skutečný provoz.','form.error':'Doplňte prosím jméno, platný e-mail a zprávu.'
     },
     en: {
-      'nav.hero': 'Home',
-      'nav.services': 'Services',
-      'nav.portfolio': 'Portfolio',
-      'nav.contact': 'Contact',
-      'hero.kicker': 'Senior .NET development and operational systems',
-      'hero.title': 'Software that <span class="gradient-text">talks to operations</span>',
-      'hero.description': 'I design and build applications that connect office work, warehouse processes, hardware and cloud services. From Blazor and .NET MAUI to scales, printers, offline modes and business data.',
-      'hero.proof1': 'Hardware integration',
-      'hero.proof2': 'Offline-first mobile apps',
-      'hero.proof3': 'Custom business systems',
-      'hero.work': 'My work',
-      'hero.contact': 'Contact',
-      'section.services.kicker': 'Capabilities',
-      'section.services.title': 'What I can deliver into real operations',
-      'service.app.title': 'Business systems',
-      'service.app.desc': 'Information systems for processes, records, invoicing, statistics and operational data. A stable .NET foundation that grows with the business.',
-      'service.web.title': 'Operational mobile apps',
-      'service.web.desc': 'Applications for people in the field and warehouse: offline mode, synchronization, receipt printing, scanners and fast touch interfaces.',
-      'service.web.highlight': 'Practical solutions with .NET MAUI, APIs and SignalR.',
-      'service.hw.title': 'Hardware integration',
-      'service.hw.desc': 'Connecting scales, printers, scanners and terminals to applications and databases. Less manual work, fewer errors, faster operations.',
-      'service.cloud.title': 'Cloud & API',
-      'service.cloud.desc': 'REST APIs, cloud services, system integrations and secure data exchange between web, mobile, desktop and operations.',
-      'section.process.kicker': 'Process',
-      'section.process.title': 'From operational problem to working application',
-      'process.step1.title': 'Map the reality',
-      'process.step1.desc': 'First understand the real process, people, devices, data and places where unnecessary errors happen today.',
-      'process.step2.title': 'Design the solution',
-      'process.step2.desc': 'Interface, data model, integrations and technology chosen to make sense in real day-to-day operations.',
-      'process.step3.title': 'Deliver and run',
-      'process.step3.desc': 'Development, testing, deployment and further improvement without unnecessary magic. The system must survive a normal working day.',
-      'section.portfolio.kicker': 'Proof of work',
-      'section.portfolio.title': 'Selected projects',
-      'filter.all': 'All',
-      'filter.web': 'Web',
-      'filter.mobile': 'Mobile',
-      'filter.hardware': 'Hardware',
-      'project.meta.web': 'Business web system',
-      'project.meta.tool': 'Productivity tool',
-      'project.meta.hardware': 'Touch UI and hardware',
-      'project.meta.mobile': 'Field mobile application',
-      'project.meta.system': 'Custom ERP / IS',
-      'project.threes.desc': 'ERP-style web system for businesses that need more than Excel. A web app for managing company processes, projects and documentation.',
-      'project.trello.desc': 'Chrome extension for exporting Trello boards and cards to clean Markdown. Works locally, safely and without external servers.',
-      'project.expedit.desc': 'Robust touchscreen interface for warehouse operators. Connected to scales, label printers and central database for easy data entry.',
-      'project.mvykup.desc': 'Mobile purchase app for buyers. Handles animal intake, issues receipts via Bluetooth printer, and syncs offline with SignalR.',
-      'project.is.desc': 'Custom ERP solution for game processing. Includes statistics, invoicing, veterinary integration and warehouse management.',
-      'project.prijem.desc': 'Receiving terminal UI with large controls for easy touch operation. Simple interface connected to database and scale.',
-      'section.contact.title': "Let's connect",
-      'section.contact.desc': 'Have a project idea? Need a reliable development partner? Write to us.',
-      'contact.phone': 'Phone',
-      'contact.email': 'Email',
-      'billing.title': 'Billing Information',
-      'whatsapp.text': 'Message on WhatsApp',
-      'footer': '© 2026 LuRa IT Develop. All rights reserved.',
-      'cookie.text': 'This website uses cookies to ensure proper functionality and traffic analysis. By using this site, you agree to their use.',
-      'cookie.button': 'Got it'
+      'nav.services':'Services','nav.work':'Projects','nav.process':'Process','nav.contact':'Contact','nav.cta':'Describe your project <span aria-hidden="true">↗</span>',
+      'hero.eyebrow':'LuRa IT Develop · since 2004','hero.title':'Software that <strong>understands operations.</strong>','hero.intro':'We build applications for companies that need to connect people, processes, hardware and data — without unnecessary complexity.','hero.primary':'Discuss your project <span aria-hidden="true">→</span>','hero.secondary':'See selected work <span aria-hidden="true">↓</span>','hero.visualLabel':'One solution, the whole operation',
+      'index.approach':'Approach','intro.title':'We do not look for technology for technology’s sake. We find the path that makes work faster.','intro.text':'Whether you are solving warehouse workflows, production, field service or business administration, the goal is the same: less retyping, fewer errors and a clearer picture of what is actually happening.',
+      'index.services':'Services','services.eyebrow':'What we deliver','services.title':'Technology that works beyond the office.','service.systems.title':'Business systems','service.systems.text':'Systems for records, workflows, invoicing, warehousing and reporting. Designed around how your company truly works.','service.mobile.title':'Mobile operations','service.mobile.text':'Fast field and warehouse apps that account for touch controls, lost signal and the need to work immediately.','service.hardware.title':'Hardware integration','service.hardware.text':'Scales, printers, scanners, terminals and industrial devices. Data goes where it belongs — without manual transcription.','service.cloud.title':'Cloud &amp; integration','service.cloud.text':'APIs, synchronization and secure data movement between web, mobile, desktop and third-party services.',
+      'index.work':'Selected work','work.eyebrow':'Selected projects','work.title':'Code that improves every working day.','filter.all':'All','filter.system':'Systems','filter.mobile':'Mobile','filter.hardware':'Hardware','project.threes':'A business web system for companies that have outgrown Excel — processes, projects and documentation in one place.','project.visit':'Visit project','project.mvykup.title':'Mobile purchasing','project.mvykup':'Field intake, Bluetooth printing, offline mode and immediate data synchronization.','project.expedition.title':'Dispatch terminal','project.expedition':'A robust touchscreen workplace connected to a scale, label printer and central database.','project.erp.title':'Custom information systems','project.erp':'From purchasing and warehousing to invoicing, statistics and partner-service integrations. A reliable foundation for growth.','project.trello':'A local Chrome extension that exports boards and cards to clean Markdown.','project.viewGithub':'View on GitHub','project.intake.title':'Receiving terminal','project.intake':'Large, clear controls for operations with a connection to the database and scale.',
+      'index.process':'Working together','process.eyebrow':'How we work','process.title':'From reality to a solution that lasts.','process.intro':'A good application does not start with a list of technologies. It starts with what is getting in people’s way today.','process.discover.title':'Understand the operation','process.discover':'We identify goals, data, devices and the places where delays or errors happen.','process.design.title':'Design the path','process.design':'An interface, workflows and a technical foundation that make sense for people and future growth.','process.deliver.title':'Deliver and evolve','process.deliver':'We develop in increments, validate in practice and remain a partner after go-live.',
+      'contact.eyebrow':'The first step is simple','contact.title':'Tell us what is taking unnecessary time in your operation today.','contact.intro':'A few sentences are enough. We will get in touch and find out whether a tailored solution makes sense for your challenge.','form.name':'Name and company','form.email':'Email','form.message':'What do you need help with?','form.placeholder':'For example: we want to speed up goods intake and connect our warehouse with a mobile app.','form.submit':'Open email <span aria-hidden="true">→</span>','form.note':'Submitting opens your email app with a prepared message.','footer.copy':'© 2026 LuRa IT Develop. Software for real operations.','form.error':'Please add your name, a valid email and a message.'
     }
   };
 
-  function applyTranslations(lang) {
-    document.documentElement.lang = lang;
-    i18nElements.forEach(el => {
-      const key = el.dataset.i18nKey;
-      const translation = translations[lang]?.[key];
-      if (!translation) return;
-      if (el.dataset.i18nMode === 'html') {
-        el.innerHTML = translation;
-      } else {
-        el.textContent = translation;
-      }
-    });
-  }
+  const header = document.querySelector('[data-header]');
+  const menuToggle = document.querySelector('[data-menu-toggle]');
+  const mobileNav = document.querySelector('[data-mobile-nav]');
+  const closeMenu = () => { menuToggle?.classList.remove('is-open'); menuToggle?.setAttribute('aria-expanded','false'); mobileNav?.classList.remove('is-open'); };
+  menuToggle?.addEventListener('click', () => { const isOpen = mobileNav.classList.toggle('is-open'); menuToggle.classList.toggle('is-open', isOpen); menuToggle.setAttribute('aria-expanded', String(isOpen)); });
+  mobileNav?.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
 
-  function setLanguage(lang) {
-    localStorage.setItem('siteLanguage', lang);
-    languageButtons.forEach(btn => btn.classList.toggle('active', btn.dataset.lang === lang));
-    applyTranslations(lang);
-  }
+  const updateHeader = () => { header.classList.toggle('is-scrolled', window.scrollY > 24); document.querySelector('[data-back-to-top]')?.classList.toggle('is-visible', window.scrollY > 620); };
+  window.addEventListener('scroll', updateHeader, { passive:true }); updateHeader();
+  document.querySelector('[data-back-to-top]')?.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
 
-  languageButtons.forEach(btn => {
-    btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
+  document.querySelectorAll('.filter-button').forEach(button => button.addEventListener('click', () => {
+    const filter = button.dataset.filter;
+    document.querySelectorAll('.filter-button').forEach(item => item.classList.toggle('is-active', item === button));
+    document.querySelectorAll('[data-category]').forEach(project => project.classList.toggle('is-hidden', filter !== 'all' && !project.dataset.category.split(' ').includes(filter)));
+  }));
+
+  function setLanguage(language) {
+    const dictionary = translations[language];
+    if (!dictionary) return;
+    document.documentElement.lang = language;
+    document.querySelectorAll('[data-i18n]').forEach(element => { const value = dictionary[element.dataset.i18n]; if (!value) return; if (element.hasAttribute('data-i18n-html')) element.innerHTML = value; else if (value.includes('&amp;') || value.includes('<span')) element.innerHTML = value; else element.textContent = value; });
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(element => { const value = dictionary[element.dataset.i18nPlaceholder]; if (value) element.placeholder = value; });
+    document.querySelectorAll('[data-language]').forEach(button => { const active = button.dataset.language === language; button.classList.toggle('is-active', active); button.setAttribute('aria-pressed', String(active)); });
+  }
+  document.querySelectorAll('[data-language]').forEach(button => button.addEventListener('click', () => setLanguage(button.dataset.language)));
+
+  const form = document.querySelector('[data-contact-form]');
+  form?.addEventListener('submit', event => {
+    event.preventDefault();
+    const status = form.querySelector('[data-form-status]');
+    const fields = [...form.querySelectorAll('[required]')];
+    const valid = fields.every(field => field.checkValidity() && field.value.trim());
+    fields.forEach(field => field.setAttribute('aria-invalid', String(!field.checkValidity() || !field.value.trim())));
+    if (!valid) { status.textContent = translations[document.documentElement.lang]?.['form.error'] || translations.cs['form.error']; fields.find(field => field.getAttribute('aria-invalid') === 'true')?.focus(); return; }
+    status.textContent = '';
+    const name = form.elements.name.value.trim(); const email = form.elements.email.value.trim(); const message = form.elements.message.value.trim();
+    const subject = encodeURIComponent(`Poptávka z webu — ${name}`);
+    const body = encodeURIComponent(`Jméno a firma: ${name}\nE-mail: ${email}\n\n${message}`);
+    window.location.href = `mailto:hanak@lura-it.eu?subject=${subject}&body=${body}`;
   });
 
-  setLanguage(localStorage.getItem('siteLanguage') || 'cs');
-
-  /* ═══════════════════════════════════════════════
-     SCROLL REVEAL ANIMATIONS (Intersection Observer)
-     ═══════════════════════════════════════════════ */
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  if (!prefersReducedMotion) {
-    const revealObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            revealObserver.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
-    );
-
-    document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => {
-      revealObserver.observe(el);
-    });
-  } else {
-    // Show all elements immediately when reduced motion is preferred
-    document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => {
-      el.classList.add('visible');
-    });
-  }
-
-  /* ═══════════════════════════════════════════════
-     HERO PARTICLE CANVAS — Network nodes
-     ═══════════════════════════════════════════════ */
-  const canvas = document.getElementById('hero-particles');
-  if (canvas && !prefersReducedMotion) {
-    const ctx = canvas.getContext('2d');
-    let particles = [];
-    let animationId;
-    let mouseX = -1000;
-    let mouseY = -1000;
-
-    const particleCount = Math.min(55, Math.floor(window.innerWidth / 20));
-
-    function resizeCanvas() {
-      const hero = canvas.parentElement;
-      canvas.width = hero.offsetWidth;
-      canvas.height = hero.offsetHeight;
-    }
-
-    function createParticles() {
-      particles = [];
-      for (let i = 0; i < particleCount; i++) {
-        particles.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          vx: (Math.random() - 0.5) * 0.4,
-          vy: (Math.random() - 0.5) * 0.4,
-          size: Math.random() * 1.8 + 0.6,
-          opacity: Math.random() * 0.5 + 0.2
-        });
-      }
-    }
-
-    function draw() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      // Update & draw particles
-      particles.forEach(p => {
-        p.x += p.vx;
-        p.y += p.vy;
-
-        // Wrap around
-        if (p.x < -20) p.x = canvas.width + 20;
-        if (p.x > canvas.width + 20) p.x = -20;
-        if (p.y < -20) p.y = canvas.height + 20;
-        if (p.y > canvas.height + 20) p.y = -20;
-
-        // Draw particle
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(94, 234, 212, ${p.opacity})`;
-        ctx.fill();
-      });
-
-      // Draw connections
-      const maxDist = 140;
-      particles.forEach((a, i) => {
-        particles.slice(i + 1).forEach(b => {
-          const dx = a.x - b.x;
-          const dy = a.y - b.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < maxDist) {
-            const alpha = (1 - dist / maxDist) * 0.12;
-            ctx.beginPath();
-            ctx.moveTo(a.x, a.y);
-            ctx.lineTo(b.x, b.y);
-            ctx.strokeStyle = `rgba(94, 234, 212, ${alpha})`;
-            ctx.lineWidth = 0.5;
-            ctx.stroke();
-          }
-        });
-
-        // Mouse interaction — particles gravitate toward cursor
-        const dmx = a.x - mouseX;
-        const dmy = a.y - mouseY;
-        const mouseDist = Math.sqrt(dmx * dmx + dmy * dmy);
-        if (mouseDist < 250) {
-          const force = (1 - mouseDist / 250) * 0.03;
-          a.vx += dmx * force * 0.01;
-          a.vy += dmy * force * 0.01;
-          // Dampen
-          a.vx *= 0.999;
-          a.vy *= 0.999;
-        }
-      });
-
-      animationId = requestAnimationFrame(draw);
-    }
-
-    resizeCanvas();
-    createParticles();
-    draw();
-
-    window.addEventListener('resize', () => {
-      resizeCanvas();
-      createParticles();
-    });
-
-    // Track mouse for particle interaction
-    const heroSection = document.getElementById('hero');
-    if (heroSection) {
-      heroSection.addEventListener('mousemove', (e) => {
-        const rect = canvas.getBoundingClientRect();
-        mouseX = e.clientX - rect.left;
-        mouseY = e.clientY - rect.top;
-      });
-      heroSection.addEventListener('mouseleave', () => {
-        mouseX = -1000;
-        mouseY = -1000;
-      });
-    }
-  }
-
-  /* ═══════════════════════════════════════════════
-     MOUSE GLOW EFFECT
-     ═══════════════════════════════════════════════ */
-  const mouseGlow = document.querySelector('.mouse-cursor-gradient-tracking');
-  if (mouseGlow && !prefersReducedMotion) {
-    let glowTimeout;
-    document.addEventListener('mousemove', (e) => {
-      mouseGlow.style.opacity = '1';
-      mouseGlow.style.background = `
-        radial-gradient(circle 400px at ${e.clientX}px ${e.clientY}px, rgba(201, 133, 62, 0.04) 0%, transparent 70%),
-        radial-gradient(circle 160px at ${e.clientX}px ${e.clientY}px, rgba(94, 234, 212, 0.03) 0%, transparent 70%)
-      `;
-      clearTimeout(glowTimeout);
-      glowTimeout = setTimeout(() => {
-        mouseGlow.style.opacity = '0';
-      }, 2000);
-    });
-  }
-
-  /* ═══════════════════════════════════════════════
-     CLICKABLE PROJECT CARDS — Whole card acts as link
-     ═══════════════════════════════════════════════ */
-  document.querySelectorAll('.project-card[data-href]').forEach(card => {
-    card.addEventListener('click', (e) => {
-      // Don't trigger if user was selecting text or clicking an inner link
-      if (window.getSelection().toString()) return;
-      if (e.target.closest('a')) return;
-      const url = card.dataset.href;
-      if (url) window.open(url, '_blank', 'noopener');
-    });
-
-    // Keyboard accessibility
-    card.setAttribute('tabindex', '0');
-    card.setAttribute('role', 'link');
-    card.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        const url = card.dataset.href;
-        if (url) window.open(url, '_blank', 'noopener');
-      }
-    });
-  });
-
-  /* ═══════════════════════════════════════════════
-     3D TILT EFFECT — Service & Portfolio cards
-     ═══════════════════════════════════════════════ */
-  const canHover = window.matchMedia('(hover: hover)').matches;
-
-  if (canHover && !prefersReducedMotion) {
-    const tiltElements = document.querySelectorAll('.service-card, .project-card');
-
-    tiltElements.forEach(el => {
-      el.addEventListener('mousemove', (e) => {
-        const rect = el.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        const rotateX = ((y - centerY) / centerY) * -4;
-        const rotateY = ((x - centerX) / centerX) * 4;
-
-        el.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
-      });
-
-      el.addEventListener('mouseleave', () => {
-        el.style.transform = '';
-      });
-    });
-  }
-
-  /* ═══════════════════════════════════════════════
-     INITIAL STATE
-     ═══════════════════════════════════════════════ */
-  updateNavbar();
-});
+  const observer = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); } }), { threshold:.12 });
+  document.querySelectorAll('.reveal').forEach(element => observer.observe(element));
+})();

@@ -1,370 +1,186 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="cs">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="LuRa IT Develop – senior .NET developer a architekt v ČR. Cloud, IoT, Blazor, .NET MAUI a webové aplikace s napojením na hardware a podnikové systémy.">
-    <meta name="keywords" content="senior .NET developer, .NET MAUI, Blazor, Azure, IoT, cloudová řešení, podnikové aplikace, Znojmo, LuRa IT">
-    <meta name="robots" content="index, follow">
-    <meta name="author" content="Lukáš Hanys Hanák">
-    <link rel="canonical" href="https://www.lura-it.eu/">
-
-    <!-- Open Graph -->
-    <meta property="og:locale" content="cs_CZ">
-    <meta property="og:site_name" content="LuRa IT Develop">
-    <meta property="og:title" content="LuRa IT Develop | Senior .NET Developer & Architect">
-    <meta property="og:description"
-        content="Senior .NET vývojář a architekt zaměřený na cloud, IoT a moderní enterprise systémy.">
-    <meta property="og:image" content="images/logo.png">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.lura-it.eu/">
-
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "ProfessionalService",
-        "name": "LuRa IT Develop",
-        "description": "Senior .NET developer a architekt se zaměřením na cloud, IoT a moderní enterprise systémy. Vývoj webových a mobilních aplikací v .NET, Blazor, MAUI a cloudových služeb.",
-        "url": "https://www.lura-it.eu/",
-        "logo": "https://www.lura-it.eu/images/logo.png",
-        "telephone": "+420777581850",
-        "email": "hanak@lura-it.eu",
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Načeratice 134",
-            "addressLocality": "Znojmo",
-            "addressCountry": "CZ"
-        },
-        "sameAs": [
-            "https://www.linkedin.com/in/lukashanyshanak"
-        ]
-    }
-    </script>
-
-    <title>LuRa IT Develop | Senior .NET Developer & Architect</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=20260606">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="LuRa IT Develop navrhuje provozní software, který propojuje lidi, data, hardware a cloud.">
+  <meta name="keywords" content=".NET developer, software na míru, Blazor, .NET MAUI, hardware integrace, cloud, Znojmo">
+  <meta name="author" content="LuRa IT Develop">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.lura-it.eu/">
+  <meta property="og:locale" content="cs_CZ">
+  <meta property="og:site_name" content="LuRa IT Develop">
+  <meta property="og:title" content="LuRa IT Develop | Software, který mluví s provozem">
+  <meta property="og:description" content="Vývoj provozních systémů, mobilních aplikací, hardwarových integrací a cloudových služeb.">
+  <meta property="og:image" content="https://www.lura-it.eu/images/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.lura-it.eu/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#090e14">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "LuRa IT Develop",
+    "url": "https://www.lura-it.eu/",
+    "logo": "https://www.lura-it.eu/images/logo.png",
+    "description": "Vývoj provozních systémů, mobilních aplikací, hardwarových integrací a cloudových služeb.",
+    "email": "hanak@lura-it.eu",
+    "telephone": "+420777581850",
+    "address": {"@type": "PostalAddress", "addressLocality": "Znojmo", "addressCountry": "CZ"},
+    "sameAs": ["https://www.linkedin.com/in/lukashanyshanak"]
+  }
+  </script>
+  <title>LuRa IT Develop | Software, který mluví s provozem</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="stylesheet" href="style.css?v=20260722">
 </head>
-
 <body>
-    <div class="mouse-cursor-gradient-tracking"></div>
-
-    <header class="navbar">
-        <div class="container navbar-container">
-            <a href="#" class="logo">
-                <img src="images/logo.png" alt="LuRa IT Logo" style="vertical-align: middle;">
-                LuRa IT<span class="dot">.</span>
-            </a>
-            <nav class="nav-links">
-                <a href="#hero" data-i18n-key="nav.hero">Úvod</a>
-                <a href="#services" data-i18n-key="nav.services">Služby</a>
-                <a href="#portfolio" data-i18n-key="nav.portfolio">Portfolio</a>
-                <a href="#contact" data-i18n-key="nav.contact">Kontakt</a>
-            </nav>
-            <div class="lang-switch">
-                <button type="button" class="lang-btn active" data-lang="cs">CZ</button>
-                <button type="button" class="lang-btn" data-lang="en">EN</button>
-            </div>
-            <button class="mobile-menu-btn" aria-label="Menu" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+  <a class="skip-link" href="#content">Přeskočit na obsah</a>
+  <div class="site-noise" aria-hidden="true"></div>
+  <header class="site-header" data-header>
+    <div class="shell nav-shell">
+      <a class="brand" href="#top" aria-label="LuRa IT Develop — domů">
+        <img src="images/logo.png" width="36" height="36" alt="">
+        <span>LuRa <em>IT</em></span>
+      </a>
+      <nav class="desktop-nav" aria-label="Hlavní navigace">
+        <a href="#sluzby" data-i18n="nav.services">Služby</a>
+        <a href="#prace" data-i18n="nav.work">Projekty</a>
+        <a href="#postup" data-i18n="nav.process">Postup</a>
+        <a href="#kontakt" data-i18n="nav.contact">Kontakt</a>
+      </nav>
+      <div class="nav-controls">
+        <div class="language-switch" aria-label="Jazyk / Language">
+          <button class="language-button is-active" type="button" data-language="cs" aria-pressed="true">CZ</button>
+          <button class="language-button" type="button" data-language="en" aria-pressed="false">EN</button>
         </div>
-    </header>
-
-    <main>
-        <!-- Hero Section -->
-        <section id="hero" class="hero-section">
-            <canvas class="hero-particles" id="hero-particles" aria-hidden="true"></canvas>
-            <div class="container hero-content">
-                <div class="hero-text reveal">
-                    <div class="hero-kicker" data-i18n-key="hero.kicker">Senior .NET vývoj a provozní systémy</div>
-                    <h1 data-i18n-key="hero.title" data-i18n-mode="html">Software, který <span class="gradient-text">mluví s provozem</span></h1>
-                    <p data-i18n-key="hero.description">Navrhuji a stavím aplikace, které propojují kancelář, sklad, hardware a cloud. Od Blazoru a .NET MAUI po váhy, tiskárny, offline režimy a firemní data.</p>
-                    <div class="hero-proof" aria-label="Klíčové schopnosti">
-                        <span data-i18n-key="hero.proof1">Hardware integrace</span>
-                        <span data-i18n-key="hero.proof2">Offline-first mobilní aplikace</span>
-                        <span data-i18n-key="hero.proof3">Firemní systémy na míru</span>
-                    </div>
-                    <div class="hero-buttons">
-                        <a href="#portfolio" class="btn-primary" data-i18n-key="hero.work">Moje práce</a>
-                        <a href="#contact" class="btn-secondary" data-i18n-key="hero.contact">Kontaktovat</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <div class="section-divider"></div>
-
-        <!-- Services Section -->
-        <section id="services" class="services-section">
-            <div class="container">
-                <div class="section-heading reveal">
-                    <span class="section-kicker" data-i18n-key="section.services.kicker">Schopnosti</span>
-                    <h2 class="section-title" data-i18n-key="section.services.title">Co umím dodat do provozu</h2>
-                </div>
-                <div class="services-grid reveal-stagger">
-                    <div class="service-card">
-                        <div class="icon-box">IS</div>
-                        <h3 data-i18n-key="service.app.title">Firemní systémy</h3>
-                        <p data-i18n-key="service.app.desc">Informační systémy pro procesy, evidenci, fakturaci, statistiky a provozní data. Stabilní .NET základ, který roste s firmou.</p>
-                    </div>
-                    <div class="service-card featured-service">
-                        <div class="icon-box">MA</div>
-                        <h3 data-i18n-key="service.web.title">Mobilní provozní aplikace</h3>
-                        <p data-i18n-key="service.web.desc">Aplikace pro lidi v terénu i ve skladu: offline režim, synchronizace, tisk dokladů, čtečky a rychlé dotykové ovládání.</p>
-                        <p class="highlight-text" data-i18n-key="service.web.highlight">Praktická řešení s .NET MAUI, API a SignalR.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="icon-box">HW</div>
-                        <h3 data-i18n-key="service.hw.title">Hardware integrace</h3>
-                        <p data-i18n-key="service.hw.desc">Napojení vah, tiskáren, čteček a terminálů na aplikace a databáze. Méně ruční práce, méně chyb, rychlejší provoz.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="icon-box">API</div>
-                        <h3 data-i18n-key="service.cloud.title">Cloud & API</h3>
-                        <p data-i18n-key="service.cloud.desc">REST API, cloudové služby, integrace systémů a bezpečná výměna dat mezi webem, mobilem, desktopem a provozem.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <div class="section-divider"></div>
-
-        <!-- Process Section -->
-        <section id="process" class="process-section">
-            <div class="container process-content">
-                <div class="section-heading align-left reveal">
-                    <span class="section-kicker" data-i18n-key="section.process.kicker">Postup</span>
-                    <h2 class="section-title" data-i18n-key="section.process.title">Od provozního problému k fungující aplikaci</h2>
-                </div>
-                <div class="process-steps reveal-stagger">
-                    <div class="process-step">
-                        <div class="step-number">01</div>
-                        <div>
-                            <h3 data-i18n-key="process.step1.title">Mapování reality</h3>
-                            <p data-i18n-key="process.step1.desc">Nejdřív pochopit skutečný proces, lidi, zařízení, data a místa, kde dnes vznikají zbytečné chyby.</p>
-                        </div>
-                    </div>
-                    <div class="process-step">
-                        <div class="step-number">02</div>
-                        <div>
-                            <h3 data-i18n-key="process.step2.title">Návrh řešení</h3>
-                            <p data-i18n-key="process.step2.desc">Rozhraní, datový model, integrace a technologie navržené tak, aby dávaly smysl v reálném provozu.</p>
-                        </div>
-                    </div>
-                    <div class="process-step">
-                        <div class="step-number">03</div>
-                        <div>
-                            <h3 data-i18n-key="process.step3.title">Dodání a provoz</h3>
-                            <p data-i18n-key="process.step3.desc">Vývoj, testování, nasazení a další rozvoj bez zbytečné magie. Systém musí vydržet běžný pracovní den.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <div class="section-divider"></div>
-
-        <!-- Portfolio Section -->
-        <section id="portfolio" class="portfolio-section">
-            <div class="container">
-                <div class="section-heading reveal">
-                    <span class="section-kicker" data-i18n-key="section.portfolio.kicker">Důkazy práce</span>
-                    <h2 class="section-title" data-i18n-key="section.portfolio.title">Vybrané projekty</h2>
-                </div>
-                <div class="portfolio-filters reveal" aria-label="Filtr projektů">
-                    <button type="button" class="filter-btn active" data-filter="all" data-i18n-key="filter.all">Vše</button>
-                    <button type="button" class="filter-btn" data-filter="web" data-i18n-key="filter.web">Web</button>
-                    <button type="button" class="filter-btn" data-filter="mobile" data-i18n-key="filter.mobile">Mobile</button>
-                    <button type="button" class="filter-btn" data-filter="hardware" data-i18n-key="filter.hardware">Hardware</button>
-                </div>
-                <div class="portfolio-grid reveal-stagger">
-                    <!-- ThreeS — featured -->
-                    <article class="project-card featured-project" data-category="web" data-href="https://www.threes.cz" data-label="ThreeS">
-                        <span class="project-link-overlay" aria-hidden="true"></span>
-                        <div class="project-image">
-                            <img src="images/projects/threes_screen.png" alt="ThreeS" loading="lazy">
-                        </div>
-                        <div class="project-content">
-                            <h3>ThreeS</h3>
-                            <div class="project-meta" data-i18n-key="project.meta.web">Webový firemní systém</div>
-                            <p data-i18n-key="project.threes.desc">Informační systém pro firmy, kterým již Excel nestačí. Webová aplikace pro komplexní správu firemních procesů, projektů a dokumentace.</p>
-                            <div class="tags">
-                                <span>Web App</span><span>IS</span><span>SaaS</span>
-                            </div>
-                        </div>
-                    </article>
-                    <!-- Trello to Markdown -->
-                    <article class="project-card" data-category="web" data-href="https://github.com/hanyscz/TrelloToMarkdown" data-label="Trello">
-                        <span class="project-link-overlay" aria-hidden="true"></span>
-                        <div class="project-image">
-                            <img src="images/projects/trellotomd.png" alt="Trello to Markdown Exporter" loading="lazy">
-                        </div>
-                        <div class="project-content">
-                            <h3>Trello to Markdown</h3>
-                            <div class="project-meta" data-i18n-key="project.meta.tool">Produktivní nástroj</div>
-                            <p data-i18n-key="project.trello.desc">Rozšíření do prohlížeče Chrome pro export Trello nástěnek a karet do čistého Markdown formátu. Vše funguje lokálně, bezpečně a nepoužívá externí servery.</p>
-                            <div class="tags">
-                                <span>Extension</span><span>JavaScript</span><span>Tool</span>
-                            </div>
-                        </div>
-                    </article>
-                    <!-- Expediční Terminál -->
-                    <article class="project-card" data-category="hardware">
-                        <div class="project-image">
-                            <img src="images/projects/expedice.jpg" alt="Expediční terminál" loading="lazy">
-                        </div>
-                        <div class="project-content">
-                            <h3>Expediční Terminál</h3>
-                            <div class="project-meta" data-i18n-key="project.meta.hardware">Dotykové rozhraní a hardware</div>
-                            <p data-i18n-key="project.expedit.desc">Robustní dotykové rozhraní pro skladové operátory. Napojení na váhy, tiskárny štítků a centrální databázi. Tisk etiket a plnění daty z pohodlí kanceláře.</p>
-                            <div class="tags">
-                                <span>WPF</span><span>SQL</span><span>Hardware</span>
-                            </div>
-                        </div>
-                    </article>
-                    <!-- Mobilní Výkup -->
-                    <article class="project-card" data-category="mobile hardware">
-                        <div class="project-image">
-                            <img src="images/projects/mvykup.jpg" alt="Mobilní výkup" loading="lazy">
-                        </div>
-                        <div class="project-content">
-                            <h3>Mobilní Výkup</h3>
-                            <div class="project-meta" data-i18n-key="project.meta.mobile">Mobilní aplikace v terénu</div>
-                            <p data-i18n-key="project.mvykup.desc">Mobilní aplikace pro nákupčí. Příjem zvěřiny, tvorba a tisk pokladních dokladů přes BT tiskárnu. Offline režim se synchronizací, SignalR komunikace.</p>
-                            <div class="tags">
-                                <span>.NET MAUI</span><span>Android</span><span>API</span>
-                            </div>
-                        </div>
-                    </article>
-                    <!-- Informační Systémy -->
-                    <article class="project-card" data-category="web">
-                        <div class="project-image">
-                            <img src="images/projects/is1.jpg" alt="Informační systém" loading="lazy">
-                        </div>
-                        <div class="project-content">
-                            <h3>Informační Systémy</h3>
-                            <div class="project-meta" data-i18n-key="project.meta.system">ERP / IS na míru</div>
-                            <p data-i18n-key="project.is.desc">IS na míru pro zpracování zvěře. Statistiky, fakturace, napojení na veterinární správu, skladové hospodářství. Komplexní řešení pro firmy.</p>
-                            <div class="tags">
-                                <span>ASP.NET</span><span>Blazor</span><span>SignalR</span>
-                            </div>
-                        </div>
-                    </article>
-                    <!-- Příjmový terminál -->
-                    <article class="project-card" data-category="hardware">
-                        <div class="project-image">
-                            <img src="images/projects/prijem.jpg" alt="Příjmový terminál" loading="lazy">
-                        </div>
-                        <div class="project-content">
-                            <h3>Příjmový terminál</h3>
-                            <div class="project-meta" data-i18n-key="project.meta.hardware">Dotykové rozhraní a hardware</div>
-                            <p data-i18n-key="project.prijem.desc">Obrazovka příjmového terminálu, velké prvky pro lehké dotykové ovládání. Jednoduché rozhraní, napojení na databázi a váhu.</p>
-                            <div class="tags">
-                                <span>Touch UI</span><span>Database</span><span>Hardware</span>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <div class="section-divider"></div>
-
-        <!-- Contact Section -->
-        <section id="contact" class="contact-section">
-            <div class="container">
-                <div class="contact-wrapper">
-                    <div class="contact-info reveal">
-                        <h2 data-i18n-key="section.contact.title">Spojme se</h2>
-                        <p data-i18n-key="section.contact.desc">Máte nápad na projekt? Potřebujete spolehlivého partnera pro vývoj? Napište nám.</p>
-                    </div>
-
-                    <div class="team-grid reveal-stagger">
-                        <div class="team-member">
-                            <h3>Lukáš Hanák</h3>
-                            <p class="role">Senior .NET Developer & Architect</p>
-                            <div class="contact-item">
-                                <span class="label" data-i18n-key="contact.phone">Telefon</span>
-                                <a href="tel:+420777581850" class="value link">+420 777 581 850</a>
-                            </div>
-                            <div class="contact-item">
-                                <span class="label" data-i18n-key="contact.email">Email</span>
-                                <a href="mailto:hanak@lura-it.eu" class="value link">hanak@lura-it.eu</a>
-                            </div>
-                            <div class="social-links">
-                                <a href="https://www.linkedin.com/in/lukashanyshanak" target="_blank" rel="noopener">LinkedIn →</a>
-                            </div>
-                        </div>
-
-                        <div class="team-member">
-                            <h3>Radek Vala</h3>
-                            <p class="role">PHP Developer</p>
-                            <div class="contact-item">
-                                <span class="label" data-i18n-key="contact.phone">Telefon</span>
-                                <a href="tel:+420728015407" class="value link">+420 728 015 407</a>
-                            </div>
-                            <div class="contact-item">
-                                <span class="label" data-i18n-key="contact.email">Email</span>
-                                <a href="mailto:vala@lura-it.eu" class="value link">vala@lura-it.eu</a>
-                            </div>
-                            <div class="social-links">
-                                <a href="https://www.linkedin.com/in/radek-vala-543393aa/" target="_blank" rel="noopener">LinkedIn →</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="billing-info reveal">
-                        <h3 data-i18n-key="billing.title">Fakturační údaje</h3>
-                        <p>LuRa IT Develop</p>
-                        <p>Načeratice 134, Znojmo</p>
-                        <p>IČO: 14024900</p>
-                    </div>
-
-                    <div class="contact-actions reveal">
-                        <a href="https://wa.me/420777581850" target="_blank" rel="noopener" class="btn-whatsapp">
-                            <span class="icon">💬</span>
-                            <span class="text" data-i18n-key="whatsapp.text">Napsat na WhatsApp</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container footer-content">
-            <p data-i18n-key="footer">&copy; 2026 LuRa IT Develop. Všechna práva vyhrazena.</p>
-        </div>
-    </footer>
-
-    <div id="cookie-banner" class="cookie-banner">
-        <div class="cookie-content">
-            <div class="cookie-text">
-                <p data-i18n-key="cookie.text">Tento web používá soubory cookies k zajištění správného fungování a analýze návštěvnosti. Používáním webu souhlasíte s jejich používáním.</p>
-            </div>
-            <div class="cookie-buttons">
-                <button id="cookie-accept" class="btn-cookie-accept" data-i18n-key="cookie.button">Rozumím</button>
-            </div>
-        </div>
+        <a class="nav-cta" href="#kontakt" data-i18n="nav.cta">Popsat projekt <span aria-hidden="true">↗</span></a>
+        <button class="menu-toggle" type="button" aria-label="Otevřít navigaci" aria-expanded="false" aria-controls="mobile-navigation" data-menu-toggle>
+          <span></span><span></span>
+        </button>
+      </div>
     </div>
+    <nav class="mobile-nav" id="mobile-navigation" aria-label="Mobilní navigace" data-mobile-nav>
+      <a href="#sluzby" data-i18n="nav.services">Služby</a>
+      <a href="#prace" data-i18n="nav.work">Projekty</a>
+      <a href="#postup" data-i18n="nav.process">Postup</a>
+      <a href="#kontakt" data-i18n="nav.contact">Kontakt</a>
+    </nav>
+  </header>
 
-    <script src="script.js?v=20260606"></script>
+  <main id="content">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="shell hero-shell">
+        <div class="hero-copy reveal">
+          <p class="eyebrow"><span></span><span data-i18n="hero.eyebrow">LuRa IT Develop · od roku 2004</span></p>
+          <h1 id="hero-title" data-i18n="hero.title" data-i18n-html="true">Software, který <strong>rozumí provozu.</strong></h1>
+          <p class="hero-intro" data-i18n="hero.intro">Stavíme aplikace pro firmy, které potřebují propojit lidi, procesy, hardware a data — bez zbytečné složitosti.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#kontakt" data-i18n="hero.primary">Probrat váš projekt <span aria-hidden="true">→</span></a>
+            <a class="text-link" href="#prace" data-i18n="hero.secondary">Prohlédnout realizace <span aria-hidden="true">↓</span></a>
+          </div>
+        </div>
+        <div class="hero-visual reveal reveal-delay" aria-label="Od zadání k fungujícímu provoznímu systému">
+          <div class="visual-topline"><span data-i18n="hero.visualLabel">Jedno řešení, celý provoz</span><span>01 / 03</span></div>
+          <div class="signal-grid" aria-hidden="true">
+            <div class="signal-line line-a"></div><div class="signal-line line-b"></div><div class="signal-line line-c"></div>
+            <div class="node node-a">DATA</div><div class="node node-b">API</div><div class="node node-c">HW</div>
+          </div>
+          <div class="visual-cards">
+            <div class="visual-card card-mobile"><span class="card-label">FIELD</span><div class="phone-screen"><i></i><i></i><i></i><b></b></div><span>Mobile</span></div>
+            <div class="visual-card card-system"><span class="card-label">CORE</span><div class="system-lines"><i></i><i></i><i></i><i></i></div><span>Operations</span></div>
+            <div class="visual-card card-cloud"><span class="card-label">SYNC</span><div class="cloud-mark">☁</div><span>Cloud</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="shell expertise-strip" aria-label="Hlavní specializace">
+        <span>.NET</span><span>Blazor</span><span>.NET MAUI</span><span>Cloud &amp; API</span><span>Hardware</span><span>SignalR</span>
+      </div>
+    </section>
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7DG9JQ8FRR"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-7DG9JQ8FRR');
-    </script>
+    <section class="intro-section section" aria-labelledby="intro-title">
+      <div class="shell intro-layout reveal">
+        <p class="section-index">01 <span data-i18n="index.approach">Přístup</span></p>
+        <div>
+          <h2 id="intro-title" data-i18n="intro.title">Nehledáme technologii pro technologii. Hledáme cestu, která zrychlí práci.</h2>
+          <p data-i18n="intro.text">Ať řešíte sklad, výrobu, servis v terénu nebo firemní administrativu, cílem je vždy stejný: méně přepisování, méně chyb a lepší přehled nad tím, co se skutečně děje.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section services-section" id="sluzby" aria-labelledby="services-title">
+      <div class="shell">
+        <div class="section-heading reveal">
+          <p class="section-index">02 <span data-i18n="index.services">Služby</span></p>
+          <div><p class="eyebrow"><span></span><span data-i18n="services.eyebrow">Co dodáváme</span></p><h2 id="services-title" data-i18n="services.title">Technologie, které obstojí i mimo kancelář.</h2></div>
+        </div>
+        <div class="services-grid">
+          <article class="service-card reveal"><p class="service-number">01</p><h3 data-i18n="service.systems.title">Firemní systémy</h3><p data-i18n="service.systems.text">Systémy pro evidenci, procesy, fakturaci, sklad i reporting. Přesně podle toho, jak vaše firma skutečně pracuje.</p><span class="service-tag">WEB · ERP · IS</span></article>
+          <article class="service-card service-card-accent reveal reveal-delay"><p class="service-number">02</p><h3 data-i18n="service.mobile.title">Mobilní provoz</h3><p data-i18n="service.mobile.text">Rychlé aplikace pro terén a sklad, které počítají s dotykem, výpadky signálu a potřebou fungovat hned.</p><span class="service-tag">MAUI · OFFLINE · ANDROID</span></article>
+          <article class="service-card reveal reveal-delay-2"><p class="service-number">03</p><h3 data-i18n="service.hardware.title">Hardware integrace</h3><p data-i18n="service.hardware.text">Váhy, tiskárny, čtečky, terminály i průmyslová zařízení. Data putují tam, kam mají — bez ručního přepisu.</p><span class="service-tag">SCALES · PRINT · SERIAL</span></article>
+          <article class="service-card reveal"><p class="service-number">04</p><h3 data-i18n="service.cloud.title">Cloud &amp; integrace</h3><p data-i18n="service.cloud.text">API, synchronizace a bezpečný pohyb dat mezi webem, mobilem, desktopem a službami třetích stran.</p><span class="service-tag">API · AZURE · SIGNALR</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section portfolio-section" id="prace" aria-labelledby="work-title">
+      <div class="shell">
+        <div class="section-heading reveal">
+          <p class="section-index">03 <span data-i18n="index.work">Realizace</span></p>
+          <div><p class="eyebrow"><span></span><span data-i18n="work.eyebrow">Vybrané projekty</span></p><h2 id="work-title" data-i18n="work.title">Kód, který má dopad na každý pracovní den.</h2></div>
+        </div>
+        <div class="portfolio-controls reveal" role="group" aria-label="Filtrovat projekty">
+          <button type="button" class="filter-button is-active" data-filter="all" data-i18n="filter.all">Vše</button>
+          <button type="button" class="filter-button" data-filter="system" data-i18n="filter.system">Systémy</button>
+          <button type="button" class="filter-button" data-filter="mobile" data-i18n="filter.mobile">Mobilní</button>
+          <button type="button" class="filter-button" data-filter="hardware" data-i18n="filter.hardware">Hardware</button>
+        </div>
+        <div class="portfolio-grid" data-portfolio>
+          <article class="project project-featured reveal" data-category="system" data-url="https://www.threes.cz">
+            <div class="project-media"><img src="images/projects/threes_screen.png" alt="Ukázka systému ThreeS" loading="lazy"></div>
+            <div class="project-content"><p class="project-kicker">01 / SYSTEM</p><h3>ThreeS</h3><p data-i18n="project.threes">Webový informační systém pro firmy, kterým už Excel nestačí — procesy, projekty a dokumentace na jednom místě.</p><div class="project-tags"><span>WEB APP</span><span>IS</span><span>SAAS</span></div><a href="https://www.threes.cz" target="_blank" rel="noopener" class="project-link"><span data-i18n="project.visit">Navštívit projekt</span> <b aria-hidden="true">↗</b></a></div>
+          </article>
+          <article class="project reveal reveal-delay" data-category="mobile hardware"><div class="project-media"><img src="images/projects/mvykup.jpg" alt="Mobilní aplikace Mobilní Výkup" loading="lazy"></div><div class="project-content"><p class="project-kicker">02 / MOBILE + HW</p><h3 data-i18n="project.mvykup.title">Mobilní výkup</h3><p data-i18n="project.mvykup">Příjem v terénu, Bluetooth tisk, offline režim a okamžitá synchronizace dat.</p><div class="project-tags"><span>.NET MAUI</span><span>ANDROID</span><span>API</span></div></div></article>
+          <article class="project reveal reveal-delay-2" data-category="hardware"><div class="project-media"><img src="images/projects/expedice.jpg" alt="Dotykové rozhraní expedičního terminálu" loading="lazy"></div><div class="project-content"><p class="project-kicker">03 / HARDWARE</p><h3 data-i18n="project.expedition.title">Expediční terminál</h3><p data-i18n="project.expedition">Robustní dotykové pracoviště propojené s váhou, tiskárnou štítků a centrální databází.</p><div class="project-tags"><span>WPF</span><span>SQL</span><span>PRINT</span></div></div></article>
+          <article class="project project-wide reveal" data-category="system hardware"><div class="project-media"><img src="images/projects/is1.jpg" alt="Informační systém LuRa IT" loading="lazy"></div><div class="project-content"><p class="project-kicker">04 / ERP</p><h3 data-i18n="project.erp.title">Informační systémy na míru</h3><p data-i18n="project.erp">Od nákupu a skladu po fakturaci, statistiky a napojení na partnerské služby. Jeden spolehlivý základ pro růst firmy.</p><div class="project-tags"><span>ASP.NET</span><span>BLAZOR</span><span>SIGNALR</span></div></div></article>
+          <article class="project reveal" data-category="system" data-url="https://github.com/hanyscz/TrelloToMarkdown"><div class="project-media"><img src="images/projects/trellotomd.png" alt="Rozšíření Trello to Markdown" loading="lazy"></div><div class="project-content"><p class="project-kicker">05 / TOOL</p><h3>Trello to Markdown</h3><p data-i18n="project.trello">Lokální Chrome rozšíření, které exportuje nástěnky a karty do čistého Markdownu.</p><div class="project-tags"><span>EXTENSION</span><span>JAVASCRIPT</span></div><a href="https://github.com/hanyscz/TrelloToMarkdown" target="_blank" rel="noopener" class="project-link"><span data-i18n="project.viewGithub">Zobrazit na GitHubu</span> <b aria-hidden="true">↗</b></a></div></article>
+          <article class="project reveal reveal-delay" data-category="hardware"><div class="project-media"><img src="images/projects/prijem.jpg" alt="Příjmový terminál s velkými ovládacími prvky" loading="lazy"></div><div class="project-content"><p class="project-kicker">06 / TOUCH</p><h3 data-i18n="project.intake.title">Příjmový terminál</h3><p data-i18n="project.intake">Velké a přehledné ovládání pro provoz s propojením na databázi i váhu.</p><div class="project-tags"><span>TOUCH</span><span>DATABASE</span><span>SCALE</span></div></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section process-section" id="postup" aria-labelledby="process-title">
+      <div class="shell process-layout">
+        <div class="process-sticky reveal"><p class="section-index">04 <span data-i18n="index.process">Spolupráce</span></p><p class="eyebrow"><span></span><span data-i18n="process.eyebrow">Jak postupujeme</span></p><h2 id="process-title" data-i18n="process.title">Od reality k řešení, které vydrží.</h2><p data-i18n="process.intro">Dobrá aplikace nezačíná seznamem technologií. Začíná tím, co dnes lidem brání v práci.</p></div>
+        <ol class="process-list">
+          <li class="reveal"><span>01</span><div><h3 data-i18n="process.discover.title">Poznáme provoz</h3><p data-i18n="process.discover">Pojmenujeme cíle, data, zařízení a místa, kde vznikají zdržení nebo chyby.</p></div></li>
+          <li class="reveal"><span>02</span><div><h3 data-i18n="process.design.title">Navrhneme cestu</h3><p data-i18n="process.design">Rozhraní, procesy a technický základ, který má smysl pro lidi i budoucí rozvoj.</p></div></li>
+          <li class="reveal"><span>03</span><div><h3 data-i18n="process.deliver.title">Dodáme a rozvíjíme</h3><p data-i18n="process.deliver">Vyvíjíme po částech, ověřujeme v praxi a zůstáváme partnerem i po nasazení.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="contact-section" id="kontakt" aria-labelledby="contact-title">
+      <div class="shell contact-shell">
+        <div class="contact-intro reveal"><p class="eyebrow"><span></span><span data-i18n="contact.eyebrow">První krok je jednoduchý</span></p><h2 id="contact-title" data-i18n="contact.title">Popište, co vám dnes v provozu zbytečně bere čas.</h2><p data-i18n="contact.intro">Stačí pár vět. Ozveme se a společně zjistíme, zda pro váš problém dává smysl postavit řešení na míru.</p><div class="contact-direct"><a href="tel:+420777581850">+420 777 581 850</a><a href="mailto:hanak@lura-it.eu">hanak@lura-it.eu</a></div></div>
+        <form class="contact-form reveal reveal-delay" data-contact-form novalidate>
+          <div class="form-row"><div class="field"><label for="name" data-i18n="form.name">Jméno a firma</label><input id="name" name="name" autocomplete="name organization" required></div><div class="field"><label for="email" data-i18n="form.email">E-mail</label><input id="email" name="email" type="email" autocomplete="email" required></div></div>
+          <div class="field"><label for="message" data-i18n="form.message">S čím potřebujete pomoci?</label><textarea id="message" name="message" rows="5" required data-i18n-placeholder="form.placeholder" placeholder="Například: chceme zrychlit příjem zboží a propojit sklad s mobilní aplikací."></textarea></div>
+          <div class="form-footer"><p class="form-status" aria-live="polite" data-form-status></p><button class="button button-primary" type="submit" data-i18n="form.submit">Otevřít e-mail <span aria-hidden="true">→</span></button></div>
+          <p class="form-note" data-i18n="form.note">Po odeslání se otevře váš e-mailový program s připravenou zprávou.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="shell footer-shell"><a class="brand" href="#top"><img src="images/logo.png" width="32" height="32" alt=""><span>LuRa <em>IT</em></span></a><p data-i18n="footer.copy">© 2026 LuRa IT Develop. Software pro skutečný provoz.</p><a href="https://www.linkedin.com/in/lukashanyshanak" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a></div></footer>
+  <button class="back-to-top" type="button" aria-label="Zpět nahoru" data-back-to-top>↑</button>
+  <script src="script.js?v=20260722"></script>
 </body>
-
 </html>
