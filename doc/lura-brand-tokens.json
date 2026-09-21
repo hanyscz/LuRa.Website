@@ -1,0 +1,34 @@
+{
+  "brand": {
+    "name": "LuRa IT Develop",
+    "direction": "Dark + Turquoise",
+    "colors": {
+      "primary": "#1B242A",
+      "secondary": "#5C7078",
+      "accent": "#2CCFC8",
+      "background": "#F3FAFA",
+      "surface": "#FFFFFF",
+      "border": "#DDE5E5",
+      "borderStrong": "#D0D8D9",
+      "accentHover": "#27B6B0",
+      "accentActive": "#219B96",
+      "accentText": "#1B7E7A",
+      "accentTextStrong": "#156360",
+      "primarySoft": "#2D363B",
+      "primaryElevated": "#3B4348"
+    },
+    "typography": {
+      "heading": "Manrope",
+      "body": "Inter",
+      "fallback": "system-ui, -apple-system, \"Segoe UI\", sans-serif"
+    },
+    "shape": {
+      "radiusSmall": "10px",
+      "radiusMedium": "16px"
+    },
+    "shadow": {
+      "default": "0 12px 32px rgba(27, 36, 42, 0.08)",
+      "hover": "0 16px 40px rgba(27, 36, 42, 0.12)"
+    }
+  }
+}

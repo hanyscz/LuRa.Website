@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.lura-it.eu/sitemap.xml
+Sitemap: https://lura-it.eu/sitemap.xml
