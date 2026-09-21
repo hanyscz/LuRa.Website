@@ -3,42 +3,49 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="LuRa IT Develop navrhuje provozní software, který propojuje lidi, data, hardware a cloud.">
-  <meta name="keywords" content=".NET developer, software na míru, Blazor, .NET MAUI, hardware integrace, cloud, Znojmo">
+  <meta name="description" content="LuRa IT Develop tvoří weby, malé aplikace a software na míru pro živnostníky, malé firmy i větší týmy. Propojíme data, služby a hardware, když je to potřeba.">
+  <meta name="keywords" content="weby na míru, malé aplikace, webové aplikace, .NET developer, Blazor, .NET MAUI, PHP, React, AI, hardware integrace, cloud, Znojmo">
   <meta name="author" content="LuRa IT Develop">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://www.lura-it.eu/">
+  <link rel="canonical" href="https://lura-it.eu/">
   <meta property="og:locale" content="cs_CZ">
   <meta property="og:site_name" content="LuRa IT Develop">
-  <meta property="og:title" content="LuRa IT Develop | Software, který mluví s provozem">
-  <meta property="og:description" content="Vývoj provozních systémů, mobilních aplikací, hardwarových integrací a cloudových služeb.">
-  <meta property="og:image" content="https://www.lura-it.eu/images/og.png">
+  <meta property="og:title" content="LuRa IT Develop | Weby a software na míru">
+  <meta property="og:description" content="Weby, malé aplikace a software na míru pro živnostníky, malé firmy i větší týmy.">
+  <meta property="og:image" content="https://lura-it.eu/images/og.png">
+  <meta property="og:image:alt" content="LuRa IT Develop — software pro skutečný provoz">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.lura-it.eu/">
+  <meta property="og:url" content="https://lura-it.eu/">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="theme-color" content="#090e14">
+  <meta name="twitter:title" content="LuRa IT Develop | Weby a software na míru">
+  <meta name="twitter:description" content="Weby, malé aplikace a software na míru pro živnostníky, malé firmy i větší týmy.">
+  <meta name="twitter:image" content="https://lura-it.eu/images/og.png">
+  <meta name="theme-color" content="#1B242A">
+  <script>
+    (() => { try { const saved = localStorage.getItem('lura-theme'); const dark = saved === 'dark' || !saved; document.documentElement.dataset.theme = dark ? 'dark' : 'light'; } catch { document.documentElement.dataset.theme = 'dark'; } })();
+  </script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "name": "LuRa IT Develop",
-    "url": "https://www.lura-it.eu/",
-    "logo": "https://www.lura-it.eu/images/logo.png",
-    "description": "Vývoj provozních systémů, mobilních aplikací, hardwarových integrací a cloudových služeb.",
+    "url": "https://lura-it.eu/",
+    "logo": "https://lura-it.eu/images/lura-it-logo.svg",
+    "description": "Weby, malé aplikace a software na míru pro živnostníky, malé firmy i větší týmy.",
     "email": "hanak@lura-it.eu",
     "telephone": "+420777581850",
     "address": {"@type": "PostalAddress", "addressLocality": "Znojmo", "addressCountry": "CZ"},
     "sameAs": ["https://www.linkedin.com/in/lukashanyshanak"]
   }
   </script>
-  <title>LuRa IT Develop | Software, který mluví s provozem</title>
+  <title>LuRa IT Develop | Weby a software na míru</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" href="favicon.ico" sizes="any">
-  <link rel="stylesheet" href="style.css?v=20260722">
+  <link rel="stylesheet" href="style.css?v=20260921">
 </head>
 <body>
   <a class="skip-link" href="#content">Přeskočit na obsah</a>
@@ -46,8 +53,8 @@
   <header class="site-header" data-header>
     <div class="shell nav-shell">
       <a class="brand" href="#top" aria-label="LuRa IT Develop — domů">
-        <img src="images/logo.png" width="36" height="36" alt="">
-        <span>LuRa <em>IT</em></span>
+        <img class="brand-logo-light" src="images/lura-it-logo.svg" width="72" height="72" alt="LuRa IT Develop">
+        <img class="brand-logo-dark" src="images/lura-it-logo-white.svg" width="72" height="72" alt="">
       </a>
       <nav class="desktop-nav" aria-label="Hlavní navigace">
         <a href="#sluzby" data-i18n="nav.services">Služby</a>
@@ -60,6 +67,7 @@
           <button class="language-button is-active" type="button" data-language="cs" aria-pressed="true">CZ</button>
           <button class="language-button" type="button" data-language="en" aria-pressed="false">EN</button>
         </div>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Zapnout tmavý režim" aria-pressed="false" title="Zapnout tmavý režim"><span data-theme-icon aria-hidden="true">☾</span></button>
         <a class="nav-cta" href="#kontakt" data-i18n="nav.cta">Popsat projekt <span aria-hidden="true">↗</span></a>
         <button class="menu-toggle" type="button" aria-label="Otevřít navigaci" aria-expanded="false" aria-controls="mobile-navigation" data-menu-toggle>
           <span></span><span></span>
@@ -76,31 +84,119 @@
 
   <main id="content">
     <section class="hero" id="top" aria-labelledby="hero-title">
+      <canvas class="hero-canvas" data-hero-canvas aria-hidden="true"></canvas>
       <div class="shell hero-shell">
         <div class="hero-copy reveal">
           <p class="eyebrow"><span></span><span data-i18n="hero.eyebrow">LuRa IT Develop · od roku 2004</span></p>
-          <h1 id="hero-title" data-i18n="hero.title" data-i18n-html="true">Software, který <strong>rozumí provozu.</strong></h1>
-          <p class="hero-intro" data-i18n="hero.intro">Od jednoduchého webu a aplikace pro živnostníka po propojený systém pro větší firmu. Řekněte, co řešíte — na všem se domluvíme.</p>
+          <h1 id="hero-title" data-i18n="hero.title" data-i18n-html="true">Weby a software, <strong>který roste s vámi.</strong></h1>
+          <p class="hero-intro" data-i18n="hero.intro">Od prvního webu pro živnostníka po aplikaci pro tým nebo větší systém. Začneme rozsahem, který dává smysl právě vám.</p>
           <div class="hero-actions">
             <a class="button button-primary" href="#kontakt" data-i18n="hero.primary">Probrat váš projekt <span aria-hidden="true">→</span></a>
             <a class="text-link" href="#prace" data-i18n="hero.secondary">Prohlédnout realizace <span aria-hidden="true">↓</span></a>
           </div>
         </div>
-        <div class="hero-visual reveal reveal-delay" aria-label="Od zadání k fungujícímu provoznímu systému">
-          <div class="visual-topline"><span data-i18n="hero.visualLabel">Jedno řešení, celý provoz</span><span>01 / 03</span></div>
-          <div class="signal-grid" aria-hidden="true">
-            <div class="signal-line line-a"></div><div class="signal-line line-b"></div><div class="signal-line line-c"></div>
-            <div class="node node-a">DATA</div><div class="node node-b">API</div><div class="node node-c">HW</div>
-          </div>
-          <div class="visual-cards">
-            <div class="visual-card card-mobile"><span class="card-label">FIELD</span><div class="phone-screen"><i></i><i></i><i></i><b></b></div><span>Mobile</span></div>
-            <div class="visual-card card-system"><span class="card-label">CORE</span><div class="system-lines"><i></i><i></i><i></i><i></i></div><span>Operations</span></div>
-            <div class="visual-card card-cloud"><span class="card-label">SYNC</span><div class="cloud-mark">☁</div><span>Cloud</span></div>
-          </div>
+        <div class="hero-visual hero-animation-visual reveal reveal-delay" role="img" aria-labelledby="hero-animation-title hero-animation-description">
+          <svg class="hero-animation" data-hero-animation viewBox="0 0 500 500" aria-labelledby="hero-animation-title hero-animation-description">
+            <title id="hero-animation-title">LuRa IT Develop – animovaná programátorská ilustrace</title>
+            <desc id="hero-animation-description">Responzivní animace s logem LuRa, datovými linkami, uzly, terminálem a programátorskými symboly.</desc>
+            <defs>
+              <pattern id="hero-dot-grid" width="24" height="24" patternUnits="userSpaceOnUse">
+                <circle cx="2" cy="2" r="1.15" fill="#5C7078" opacity=".22" />
+              </pattern>
+              <linearGradient id="hero-accent-gradient" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#2CCFC8" />
+                <stop offset="100%" stop-color="#1B9E99" />
+              </linearGradient>
+              <radialGradient id="hero-soft-glow">
+                <stop offset="0%" stop-color="#2CCFC8" stop-opacity=".13" />
+                <stop offset="62%" stop-color="#2CCFC8" stop-opacity=".04" />
+                <stop offset="100%" stop-color="#2CCFC8" stop-opacity="0" />
+              </radialGradient>
+              <clipPath id="hero-soft-clip">
+                <circle cx="250" cy="250" r="230" />
+              </clipPath>
+            </defs>
+
+            <circle cx="250" cy="250" r="225" fill="url(#hero-soft-glow)" />
+            <circle cx="250" cy="250" r="218" fill="none" stroke="#DDE5E5" stroke-width="1" />
+            <circle cx="250" cy="250" r="179" fill="none" stroke="#DDE5E5" stroke-width="1" stroke-dasharray="2 9" />
+            <circle cx="250" cy="250" r="128" fill="none" stroke="#DDE5E5" stroke-width="1" />
+
+            <g clip-path="url(#hero-soft-clip)" class="hero-animation-grid hero-parallax-far">
+              <rect x="25" y="25" width="450" height="450" fill="url(#hero-dot-grid)" />
+            </g>
+
+            <g class="hero-parallax-far">
+              <g class="hero-orbit hero-orbit-slow" fill="none" stroke-linecap="round">
+                <path d="M113 154 A174 174 0 0 1 206 82" stroke="#2CCFC8" stroke-width="2.1" />
+                <path d="M333 91 A174 174 0 0 1 405 160" stroke="#5C7078" stroke-width="1.2" opacity=".45" />
+                <path d="M410 337 A174 174 0 0 1 343 408" stroke="#2CCFC8" stroke-width="2.1" />
+                <path d="M179 415 A174 174 0 0 1 105 343" stroke="#5C7078" stroke-width="1.2" opacity=".45" />
+              </g>
+              <g class="hero-orbit hero-orbit-reverse" fill="none">
+                <circle cx="250" cy="250" r="151" stroke="#5C7078" stroke-width="1" opacity=".23" stroke-dasharray="26 22 4 18" />
+              </g>
+            </g>
+
+            <g class="hero-parallax-near">
+              <path id="hero-path-one" class="hero-data-path" d="M69 179 H128 Q147 179 147 198 V222 H178" />
+              <path id="hero-path-two" class="hero-data-path muted" d="M78 322 H133 Q151 322 151 303 V281 H178" />
+              <path id="hero-path-three" class="hero-data-path" d="M431 176 H371 Q351 176 351 197 V220 H321" />
+              <path id="hero-path-four" class="hero-data-path muted" d="M423 326 H372 Q352 326 352 306 V282 H322" />
+              <path id="hero-path-five" class="hero-data-path muted" d="M249 62 V112 Q249 129 232 129 H216 V159" />
+              <path id="hero-path-six" class="hero-data-path" d="M258 438 V390 Q258 373 276 373 H294 V343" />
+              <circle class="hero-node" cx="69" cy="179" r="4" />
+              <circle class="hero-node muted" cx="78" cy="322" r="4" />
+              <circle class="hero-node" cx="431" cy="176" r="4" />
+              <circle class="hero-node muted" cx="423" cy="326" r="4" />
+              <circle class="hero-node muted" cx="249" cy="62" r="4" />
+              <circle class="hero-node" cx="258" cy="438" r="4" />
+              <circle r="3.2" fill="#2CCFC8"><animateMotion dur="3.8s" repeatCount="indefinite" rotate="auto"><mpath href="#hero-path-one" /></animateMotion></circle>
+              <circle r="2.8" fill="#61DBD6" opacity=".85"><animateMotion dur="4.7s" repeatCount="indefinite" begin="-1.6s" rotate="auto"><mpath href="#hero-path-three" /></animateMotion></circle>
+              <circle r="3" fill="#2CCFC8" opacity=".9"><animateMotion dur="4.2s" repeatCount="indefinite" begin="-2.1s" rotate="auto"><mpath href="#hero-path-six" /></animateMotion></circle>
+            </g>
+
+            <g class="hero-parallax-near">
+              <text x="72" y="124" class="hero-code-token accent" font-size="24">&lt;/&gt;</text>
+              <text x="386" y="126" class="hero-code-token" font-size="22" style="animation-delay:-1.1s">{ }</text>
+              <text x="61" y="389" class="hero-code-token" font-size="17" style="animation-delay:-2.2s">=&gt;</text>
+              <text x="404" y="386" class="hero-code-token accent" font-size="18" style="animation-delay:-3.1s">[ ]</text>
+              <text x="91" y="260" class="hero-code-token" font-size="13" opacity=".55">01</text>
+              <text x="394" y="260" class="hero-code-token" font-size="13" opacity=".55">API</text>
+            </g>
+
+            <g class="hero-parallax-near">
+              <g class="hero-terminal" transform="translate(62 270)">
+                <rect x="0" y="0" width="102" height="62" rx="10" fill="#FFFFFF" stroke="#DDE5E5" />
+                <circle cx="13" cy="12" r="2.5" fill="#5C7078" opacity=".45" /><circle cx="22" cy="12" r="2.5" fill="#5C7078" opacity=".28" /><circle cx="31" cy="12" r="2.5" fill="#2CCFC8" opacity=".75" />
+                <g transform="translate(13 28)">
+                  <line class="hero-terminal-line" x1="0" y1="0" x2="55" y2="0" stroke="#1B242A" stroke-width="2.4" />
+                  <line class="hero-terminal-line" x1="0" y1="10" x2="72" y2="10" stroke="#5C7078" stroke-width="2.1" />
+                  <line class="hero-terminal-line" x1="0" y1="20" x2="39" y2="20" stroke="#2CCFC8" stroke-width="2.4" />
+                  <line class="hero-terminal-line" x1="45" y1="20" x2="70" y2="20" stroke="#5C7078" stroke-width="2.1" />
+                </g>
+              </g>
+            </g>
+
+            <g class="hero-parallax-near">
+              <g class="hero-deploy" transform="translate(348 287)">
+                <rect x="0" y="0" width="92" height="54" rx="10" fill="#FFFFFF" stroke="#DDE5E5" />
+                <path d="M16 28 H31 L37 21 L45 34 L53 25 H75" fill="none" stroke="url(#hero-accent-gradient)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+                <circle cx="76" cy="28" r="3.5" fill="#2CCFC8" />
+                <rect class="hero-scan" x="10" y="9" width="72" height="2" rx="1" fill="#2CCFC8" />
+              </g>
+            </g>
+
+            <circle cx="250" cy="250" r="102" fill="#FFFFFF" stroke="#DDE5E5" stroke-width="1.2" />
+            <circle cx="250" cy="250" r="111" fill="none" stroke="#2CCFC8" stroke-width="1.3" opacity=".18" />
+            <g class="hero-logo-mark">
+              <image href="images/lura-it-logo.svg" x="179" y="179" width="142" height="142" preserveAspectRatio="xMidYMid meet" aria-hidden="true" />
+            </g>
+          </svg>
         </div>
       </div>
       <div class="shell expertise-strip" aria-label="Hlavní specializace">
-        <span>.NET</span><span>Blazor</span><span>.NET MAUI</span><span>Cloud &amp; API</span><span>Hardware</span><span>SignalR</span>
+        <span>.NET</span><span>Blazor</span><span>.NET MAUI</span><span>PHP</span><span>Databáze</span><span>React</span><span>AI</span><span>Cloud &amp; API</span><span>Hardware</span><span>SignalR</span>
       </div>
     </section>
 
@@ -108,8 +204,8 @@
       <div class="shell intro-layout reveal">
         <p class="section-index">01 <span data-i18n="index.approach">Přístup</span></p>
         <div>
-          <h2 id="intro-title" data-i18n="intro.title">Od jednoduchého webu po provozní systém. Hledáme cestu, která vám usnadní práci.</h2>
-          <p data-i18n="intro.text">Pomáháme živnostníkům, malým firmám i větším provozům. Může jít o web na zakázku, jednoduchou aplikaci nebo komplexní systém — důležité je, aby řešení dávalo smysl právě vám.</p>
+          <h2 id="intro-title" data-i18n="intro.title">Od prvního webu po systém, který roste s vámi. Hledáme cestu, která vám usnadní práci.</h2>
+          <p data-i18n="intro.text">Pomáháme živnostníkům, malým firmám i týmům, které chtějí pracovat chytřeji. Může jít o web, malou aplikaci, zákaznický portál nebo větší systém — důležité je začít řešením, které odpovídá vašim potřebám.</p>
         </div>
       </div>
     </section>
@@ -122,9 +218,9 @@
         </div>
         <div class="services-grid">
           <article class="service-card reveal"><p class="service-number">01</p><h3 data-i18n="service.systems.title">Weby a aplikace na míru</h3><p data-i18n="service.systems.text">Prezentační web, jednoduchá aplikace, zákaznický portál i firemní systém. Začneme rozsahem, který vašemu podnikání opravdu sedí.</p><span class="service-tag">WEB · APP · IS</span></article>
-          <article class="service-card service-card-accent reveal reveal-delay"><p class="service-number">02</p><h3 data-i18n="service.mobile.title">Mobilní provoz</h3><p data-i18n="service.mobile.text">Rychlé aplikace pro terén a sklad, které počítají s dotykem, výpadky signálu a potřebou fungovat hned.</p><span class="service-tag">MAUI · OFFLINE · ANDROID</span></article>
-          <article class="service-card reveal reveal-delay-2"><p class="service-number">03</p><h3 data-i18n="service.hardware.title">Hardware integrace</h3><p data-i18n="service.hardware.text">Váhy, tiskárny, čtečky, terminály i průmyslová zařízení. Data putují tam, kam mají — bez ručního přepisu.</p><span class="service-tag">SCALES · PRINT · SERIAL</span></article>
-          <article class="service-card reveal"><p class="service-number">04</p><h3 data-i18n="service.cloud.title">Cloud &amp; integrace</h3><p data-i18n="service.cloud.text">API, synchronizace a bezpečný pohyb dat mezi webem, mobilem, desktopem a službami třetích stran.</p><span class="service-tag">API · AZURE · SIGNALR</span></article>
+          <article class="service-card service-card-accent reveal reveal-delay"><p class="service-number">02</p><h3 data-i18n="service.mobile.title">Mobilní aplikace</h3><p data-i18n="service.mobile.text">Aplikace pro telefon, tablet i terén — s dotykem, offline režimem a napojením na data, když je potřebujete.</p><span class="service-tag">APP · MOBILE · OFFLINE</span></article>
+          <article class="service-card reveal reveal-delay-2"><p class="service-number">03</p><h3 data-i18n="service.hardware.title">Hardware a integrace</h3><p data-i18n="service.hardware.text">Váhy, tiskárny, čtečky, terminály i průmyslová zařízení. Integraci řešíme tehdy, když vám ušetří čas nebo chyby.</p><span class="service-tag">SCALES · PRINT · SERIAL</span></article>
+          <article class="service-card reveal"><p class="service-number">04</p><h3 data-i18n="service.cloud.title">Cloud &amp; integrace</h3><p data-i18n="service.cloud.text">API, synchronizace a bezpečný pohyb dat mezi webem, mobilem, desktopem a službami třetích stran. Propojíme jen to, co má pro vás smysl.</p><span class="service-tag">API · AZURE · SIGNALR</span></article>
         </div>
       </div>
     </section>
@@ -133,14 +229,15 @@
       <div class="shell">
         <div class="section-heading reveal">
           <p class="section-index">03 <span data-i18n="index.work">Realizace</span></p>
-          <div><p class="eyebrow"><span></span><span data-i18n="work.eyebrow">Vybrané projekty</span></p><h2 id="work-title" data-i18n="work.title">Kód, který má dopad na každý pracovní den.</h2></div>
+          <div><p class="eyebrow"><span></span><span data-i18n="work.eyebrow">Vybrané projekty</span></p><h2 id="work-title" data-i18n="work.title">Projekty od webů po vlastní nástroje.</h2></div>
         </div>
         <div class="portfolio-controls reveal" role="group" aria-label="Filtrovat projekty">
-          <button type="button" class="filter-button is-active" data-filter="all" data-i18n="filter.all">Vše</button>
-          <button type="button" class="filter-button" data-filter="system" data-i18n="filter.system">Systémy</button>
-          <button type="button" class="filter-button" data-filter="mobile" data-i18n="filter.mobile">Mobilní</button>
-          <button type="button" class="filter-button" data-filter="hardware" data-i18n="filter.hardware">Hardware</button>
-          <button type="button" class="filter-button" data-filter="tool" data-i18n="filter.tool">Nástroje</button>
+          <button type="button" class="filter-button is-active" data-filter="all" aria-pressed="true" data-i18n="filter.all">Vše</button>
+          <button type="button" class="filter-button" data-filter="system" aria-pressed="false" data-i18n="filter.system">Systémy</button>
+          <button type="button" class="filter-button" data-filter="mobile" aria-pressed="false" data-i18n="filter.mobile">Mobilní</button>
+          <button type="button" class="filter-button" data-filter="hardware" aria-pressed="false" data-i18n="filter.hardware">Hardware</button>
+          <button type="button" class="filter-button" data-filter="tool" aria-pressed="false" data-i18n="filter.tool">Nástroje</button>
+          <span class="visually-hidden" data-filter-status aria-live="polite">9 projects</span>
         </div>
         <div class="portfolio-grid" data-portfolio>
           <article class="project project-featured reveal" data-category="system" data-url="https://www.threes.cz">
@@ -161,10 +258,10 @@
 
     <section class="section process-section" id="postup" aria-labelledby="process-title">
       <div class="shell process-layout">
-        <div class="process-sticky reveal"><p class="section-index">04 <span data-i18n="index.process">Spolupráce</span></p><p class="eyebrow"><span></span><span data-i18n="process.eyebrow">Jak postupujeme</span></p><h2 id="process-title" data-i18n="process.title">Od reality k řešení, které vydrží.</h2><p data-i18n="process.intro">Dobrá aplikace nezačíná seznamem technologií. Začíná tím, co dnes lidem brání v práci.</p></div>
+        <div class="process-sticky reveal"><p class="section-index">04 <span data-i18n="index.process">Spolupráce</span></p><p class="eyebrow"><span></span><span data-i18n="process.eyebrow">Jak postupujeme</span></p><h2 id="process-title" data-i18n="process.title">Od nápadu k řešení, které vydrží.</h2><p data-i18n="process.intro">Dobrý web ani aplikace nezačíná seznamem technologií. Začíná tím, co potřebujete vyřešit.</p></div>
         <ol class="process-list">
-          <li class="reveal"><span>01</span><div><h3 data-i18n="process.discover.title">Poznáme provoz</h3><p data-i18n="process.discover">Pojmenujeme cíle, data, zařízení a místa, kde vznikají zdržení nebo chyby.</p></div></li>
-          <li class="reveal"><span>02</span><div><h3 data-i18n="process.design.title">Navrhneme cestu</h3><p data-i18n="process.design">Rozhraní, procesy a technický základ, který má smysl pro lidi i budoucí rozvoj.</p></div></li>
+          <li class="reveal"><span>01</span><div><h3 data-i18n="process.discover.title">Poznáme, co potřebujete</h3><p data-i18n="process.discover">Pojmenujeme cíle, uživatele, obsah, data i místa, kde dnes vznikají zdržení nebo chyby.</p></div></li>
+          <li class="reveal"><span>02</span><div><h3 data-i18n="process.design.title">Navrhneme správný rozsah</h3><p data-i18n="process.design">Rozhraní, funkce a technický základ, který dává smysl dnes a může růst zítra.</p></div></li>
           <li class="reveal"><span>03</span><div><h3 data-i18n="process.deliver.title">Dodáme a rozvíjíme</h3><p data-i18n="process.deliver">Vyvíjíme po částech, ověřujeme v praxi a zůstáváme partnerem i po nasazení.</p></div></li>
         </ol>
       </div>
@@ -172,19 +269,19 @@
 
     <section class="contact-section" id="kontakt" aria-labelledby="contact-title">
       <div class="shell contact-shell">
-        <div class="contact-intro reveal"><p class="eyebrow"><span></span><span data-i18n="contact.eyebrow">První krok je jednoduchý</span></p><h2 id="contact-title" data-i18n="contact.title">Máte nápad, nebo konkrétní problém? Ozvěte se.</h2><p data-i18n="contact.intro">Ať potřebujete jednoduchý web, aplikaci na míru nebo větší systém, stačí pár vět. Společně najdeme rozumné řešení.</p><div class="contact-people" aria-label="Kontaktní osoby"><article class="contact-person"><p>Lukáš Hanák</p><span>Senior .NET Developer &amp; Architect</span><a href="tel:+420777581850">+420 777 581 850</a><a href="mailto:hanak@lura-it.eu">hanak@lura-it.eu</a></article><article class="contact-person"><p>Radek Vala</p><span>PHP Developer</span><a href="tel:+420728015407">+420 728 015 407</a><a href="mailto:vala@lura-it.eu">vala@lura-it.eu</a></article></div></div>
+        <div class="contact-intro reveal"><p class="eyebrow"><span></span><span data-i18n="contact.eyebrow">První krok je jednoduchý</span></p><h2 id="contact-title" data-i18n="contact.title">Máte nápad, nebo konkrétní problém? Ozvěte se.</h2><p data-i18n="contact.intro">Ať potřebujete jednoduchý web, aplikaci na míru nebo větší systém, stačí pár vět. Společně najdeme rozumné řešení.</p><div class="contact-people" aria-label="Kontaktní osoby"><article class="contact-person"><p>Lukáš Hanák</p><span>Senior .NET Developer &amp; Architect</span><a href="tel:+420777581850">+420 777 581 850</a><a href="mailto:hanak@lura-it.eu">hanak@lura-it.eu</a><a class="contact-linkedin" href="https://www.linkedin.com/in/lukashanyshanak" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a></article><article class="contact-person"><p>Radek Vala</p><span>Senior PHP Developer</span><a href="tel:+420728015407">+420 728 015 407</a><a href="mailto:vala@lura-it.eu">vala@lura-it.eu</a></article></div></div>
         <form class="contact-form reveal reveal-delay" data-contact-form novalidate>
-          <div class="form-row"><div class="field"><label for="name" data-i18n="form.name">Jméno a firma</label><input id="name" name="name" autocomplete="name organization" required></div><div class="field"><label for="email" data-i18n="form.email">E-mail</label><input id="email" name="email" type="email" autocomplete="email" required></div></div>
-          <div class="field"><label for="message" data-i18n="form.message">S čím potřebujete pomoci?</label><textarea id="message" name="message" rows="5" required data-i18n-placeholder="form.placeholder" placeholder="Například: potřebuji nový web nebo jednoduchou aplikaci pro své podnikání."></textarea></div>
-          <div class="form-footer"><p class="form-status" aria-live="polite" data-form-status></p><button class="button button-primary" type="submit" data-i18n="form.submit">Otevřít e-mail <span aria-hidden="true">→</span></button></div>
+          <div class="form-row"><div class="field"><label for="name" data-i18n="form.name">Jméno a firma</label><input id="name" name="name" autocomplete="name organization" aria-describedby="form-status" required></div><div class="field"><label for="email" data-i18n="form.email">E-mail</label><input id="email" name="email" type="email" autocomplete="email" aria-describedby="form-status" required></div></div>
+          <div class="field"><label for="message" data-i18n="form.message">S čím potřebujete pomoci?</label><textarea id="message" name="message" rows="5" aria-describedby="form-status" required data-i18n-placeholder="form.placeholder" placeholder="Například: potřebuji nový web nebo jednoduchou aplikaci pro své podnikání."></textarea></div>
+          <div class="form-footer"><p class="form-status" id="form-status" aria-live="polite" aria-atomic="true" data-form-status></p><button class="button button-primary" type="submit" data-i18n="form.submit">Otevřít e-mail <span aria-hidden="true">→</span></button></div>
           <p class="form-note" data-i18n="form.note">Po odeslání se otevře váš e-mailový program s připravenou zprávou.</p>
         </form>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer"><div class="shell footer-shell"><a class="brand" href="#top"><img src="images/logo.png" width="32" height="32" alt=""><span>LuRa <em>IT</em></span></a><p data-i18n="footer.copy">© 2026 LuRa IT Develop. Software pro skutečný provoz.</p><a href="https://www.linkedin.com/in/lukashanyshanak" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a></div></footer>
+  <footer class="site-footer"><div class="shell footer-shell"><a class="brand" href="#top" aria-label="LuRa IT Develop — domů"><img class="brand-logo-light" src="images/lura-it-logo.svg" width="72" height="72" alt="LuRa IT Develop"><img class="brand-logo-dark" src="images/lura-it-logo-white.svg" width="72" height="72" alt=""></a><p data-i18n="footer.copy">© 2026 LuRa IT Develop. Software pro skutečný provoz.</p></div></footer>
   <button class="back-to-top" type="button" aria-label="Zpět nahoru" data-back-to-top>↑</button>
-  <script src="script.js?v=20260722"></script>
+  <script src="script.js?v=20260921"></script>
 </body>
 </html>

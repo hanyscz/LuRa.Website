@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">LuRa IT Develop — software pro skutečný provoz</title>
+  <desc id="desc">LuRa IT Develop propojuje software, data, hardware a cloud.</desc>
+  <rect width="1200" height="630" fill="#1B242A"/>
+  <path d="M0 520H1200" stroke="#2D363B" stroke-width="2"/>
+  <path d="M860 0v630M980 0v630" stroke="#2D363B" stroke-width="1" opacity=".55"/>
+  <image x="82" y="74" width="310" height="310" preserveAspectRatio="xMidYMid meet" href="lura-it-logo.svg" xlink:href="lura-it-logo.svg"/>
+  <text x="470" y="235" fill="#F3FAFA" font-family="Manrope, Arial, sans-serif" font-size="66" font-weight="800" letter-spacing="-2">Software, který</text>
+  <text x="470" y="315" fill="#2CCFC8" font-family="Manrope, Arial, sans-serif" font-size="66" font-weight="800" letter-spacing="-2">rozumí provozu.</text>
+  <text x="474" y="370" fill="#B7C5C9" font-family="Inter, Arial, sans-serif" font-size="24">Weby, aplikace, hardware a cloud pro reálnou práci.</text>
+  <rect x="474" y="432" width="244" height="56" rx="10" fill="#2CCFC8"/>
+  <text x="596" y="468" fill="#1B242A" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="700">lura-it.eu</text>
+  <circle cx="1110" cy="88" r="7" fill="#2CCFC8"/>
+  <circle cx="1140" cy="88" r="7" fill="#61DBD6"/>
+</svg>

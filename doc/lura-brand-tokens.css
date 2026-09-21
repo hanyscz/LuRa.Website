@@ -1,0 +1,87 @@
+:root {
+  --lura-primary: #1B242A;
+  --lura-primary-soft: #2D363B;
+  --lura-primary-elevated: #3B4348;
+
+  --lura-secondary: #5C7078;
+
+  --lura-accent-50: #EEFBFB;
+  --lura-accent-100: #D5F5F4;
+  --lura-accent-200: #B5EEEC;
+  --lura-accent-300: #8BE5E1;
+  --lura-accent-400: #61DBD6;
+  --lura-accent: #2CCFC8;
+  --lura-accent-hover: #27B6B0;
+  --lura-accent-active: #219B96;
+  --lura-accent-text: #1B7E7A;
+  --lura-accent-text-strong: #156360;
+
+  --lura-bg: #F3FAFA;
+  --lura-surface: #FFFFFF;
+  --lura-border: #DDE5E5;
+  --lura-border-strong: #D0D8D9;
+
+  --lura-text: #1B242A;
+  --lura-text-muted: #5C7078;
+  --lura-text-on-dark: #F3FAFA;
+  --lura-text-muted-on-dark: #B7C5C9;
+
+  --lura-radius-sm: 10px;
+  --lura-radius-md: 16px;
+
+  --lura-shadow: 0 12px 32px rgba(27, 36, 42, 0.08);
+  --lura-shadow-hover: 0 16px 40px rgba(27, 36, 42, 0.12);
+
+  --lura-focus-ring: 0 0 0 3px rgba(44, 207, 200, 0.20);
+
+  --lura-font-heading: "Manrope", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --lura-font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+body {
+  color: var(--lura-text);
+  background: var(--lura-bg);
+  font-family: var(--lura-font-body);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--lura-text);
+  font-family: var(--lura-font-heading);
+}
+
+a {
+  color: var(--lura-accent-text);
+}
+a:hover {
+  color: var(--lura-accent-text-strong);
+}
+
+.btn-primary {
+  color: var(--lura-primary);
+  background: var(--lura-accent);
+  border: 0;
+  border-radius: var(--lura-radius-sm);
+}
+.btn-primary:hover {
+  background: var(--lura-accent-hover);
+}
+.btn-primary:active {
+  background: var(--lura-accent-active);
+}
+
+.card {
+  background: var(--lura-surface);
+  border: 1px solid var(--lura-border);
+  border-radius: var(--lura-radius-md);
+  box-shadow: var(--lura-shadow);
+}
+
+.section-dark {
+  color: var(--lura-text-on-dark);
+  background: var(--lura-primary);
+}
+
+:focus-visible {
+  outline: none;
+  box-shadow: var(--lura-focus-ring);
+}

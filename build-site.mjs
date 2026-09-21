@@ -4,7 +4,7 @@ import { join } from 'node:path';
 const root = process.cwd();
 const client = join(root, 'dist', 'client');
 const server = join(root, 'dist', 'server');
-const files = ['index.html', 'signature.html', 'favicon.ico', 'googlee721d62aa93c4a73.html', 'robots.txt', 'sitemap.xml', 'style.css', 'script.js'];
+const files = ['index.html', 'signature.html', 'favicon.ico', 'googlee721d62aa93c4a73.html', 'robots.txt', 'sitemap.xml', 'CNAME', 'style.css', 'script.js'];
 
 await rm(join(root, 'dist'), { recursive: true, force: true });
 await Promise.all([mkdir(client, { recursive: true }), mkdir(server, { recursive: true })]);
