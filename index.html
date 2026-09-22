@@ -282,6 +282,35 @@
     </section>
   </main>
 
+  <section class="cookie-banner" data-cookie-banner role="region" aria-label="Cookies" hidden>
+    <div class="cookie-banner-inner">
+      <div class="cookie-copy">
+        <p class="cookie-kicker" data-i18n="cookie.title">Používáme cookies</p>
+        <p data-i18n="cookie.text">Nezbytné technologie zajišťují správné fungování webu. Analytické cookies Google Analytics použijeme pouze s vaším souhlasem.</p>
+        <a href="ochrana-soukromi.html" data-privacy-link data-i18n="cookie.more">Více informací</a>
+      </div>
+      <div class="cookie-actions">
+        <button class="cookie-button cookie-button-secondary" type="button" data-cookie-reject data-i18n="cookie.reject">Odmítnout vše</button>
+        <button class="cookie-button cookie-button-secondary" type="button" data-cookie-open-settings data-i18n="cookie.settings">Nastavení</button>
+        <button class="cookie-button cookie-button-primary" type="button" data-cookie-accept data-i18n="cookie.accept">Povolit analytiku</button>
+      </div>
+    </div>
+  </section>
+  <section class="cookie-modal" data-cookie-modal role="dialog" aria-modal="true" aria-labelledby="cookie-settings-title" aria-hidden="true" hidden>
+    <div class="cookie-modal-card">
+      <p class="cookie-kicker" data-i18n="cookie.title">Používáme cookies</p>
+      <h2 id="cookie-settings-title" data-i18n="cookie.settings.title">Nastavení cookies</h2>
+      <div class="cookie-option cookie-option-locked">
+        <div><strong data-i18n="cookie.necessary">Nezbytné technologie</strong><p data-i18n="cookie.necessary.text">Potřebné pro fungování webu a zapamatování vašeho nastavení.</p></div>
+        <span aria-hidden="true">Vždy aktivní</span>
+      </div>
+      <label class="cookie-option" for="cookie-analytics">
+        <div><strong data-i18n="cookie.analytics">Analytické cookies</strong><p data-i18n="cookie.analytics.text">Pomáhají nám pochopit návštěvnost webu prostřednictvím Google Analytics.</p></div>
+        <input id="cookie-analytics" type="checkbox" data-cookie-analytics>
+      </label>
+      <div class="cookie-modal-actions"><button class="cookie-button cookie-button-secondary" type="button" data-cookie-cancel data-i18n="cookie.cancel">Zrušit</button><button class="cookie-button cookie-button-primary" type="button" data-cookie-save data-i18n="cookie.save">Uložit volbu</button></div>
+    </div>
+  </section>
   <footer class="site-footer"><div class="shell footer-shell"><a class="brand" href="#top" aria-label="LuRa IT Develop — domů"><img class="brand-logo-light" src="images/lura-it-logo.svg" width="72" height="72" alt="LuRa IT Develop"><img class="brand-logo-dark" src="images/lura-it-logo-white.svg" width="72" height="72" alt=""></a><div class="footer-info"><p data-i18n="footer.copy">© 2026 LuRa IT Develop. Software pro skutečný provoz.</p><nav class="footer-legal-links" aria-label="Právní informace"><a href="ochrana-soukromi.html" data-privacy-link data-i18n="footer.privacy">Ochrana soukromí</a><span aria-hidden="true">·</span><a href="#cookie-settings" data-cookie-settings data-i18n="footer.cookies">Nastavení cookies</a></nav></div></div></footer>
   <button class="back-to-top" type="button" aria-label="Zpět nahoru" data-back-to-top>↑</button>
   <script src="script.js?v=20260921"></script>
